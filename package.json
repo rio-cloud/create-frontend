@@ -1,8 +1,9 @@
 {
-  "name": "frontend-cli",
+  "name": "create-frontend",
   "version": "1.0.0",
   "description": "A CLI for creating new web frontend projects from scratch",
+  "type": "module",
   "bin": {
-    "frontend-cli": "./index.js"
+    "create-frontend": "./index.js"
   }
 }
