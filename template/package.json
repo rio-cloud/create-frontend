@@ -1,0 +1,99 @@
+{
+    "name": "@rio-cloud/vite-rio-template",
+    "description": "The RIO Vite Frontend template.",
+    "private": true,
+    "version": "0.2.0",
+    "scripts": {
+        "start": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "test": "vitest run",
+        "test:ci": "vitest run --reporter=junit --outputFile.junit=./results/junit.xml",
+        "test-dev": "vitest",
+        "coverage": "vitest run --coverage",
+        "lint": "eslint src",
+        "lint-fix": "npm run lint -- --fix",
+        "audit": "npm audit --production --registry https://registry.npmjs.org --parseable",
+        "format-code": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+        "format-code-on-commit": "npm run format-code && git add",
+        "pull-translations": "phrase pull --access_token $PHRASEAPP_ACCESS_TOKEN && npm run merge-translations",
+        "merge-translations": "nodenv ./mergeTranslations.js",
+        "cypress-open": "cypress open",
+        "cypress-run": "cypress run",
+        "cypress-ci": "start-server-and-test start http://localhost:3000 cypress-run"
+    },
+    "dependencies": {
+        "@redux-devtools/extension": "3.2.5",
+        "@reduxjs/toolkit": "1.9.3",
+        "@rio-cloud/rio-notifications-component": "0.2.4",
+        "@rio-cloud/rio-session-expired-info": "0.9.14",
+        "@rio-cloud/rio-uikit": "0.16.2",
+        "@rio-cloud/rio-user-menu-component": "2.0.3",
+        "@sentry/browser": "7.43.0",
+        "events": "3.3.0",
+        "iframe-resizer-react": "1.1.0",
+        "lodash": "4.17.21",
+        "oidc-client-ts": "2.2.2",
+        "qs": "6.11.1",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-hook-form": "7.43.7",
+        "react-intl": "6.3.1",
+        "react-redux": "8.0.5",
+        "react-router": "6.9.0",
+        "react-router-dom": "6.9.0"
+    },
+    "devDependencies": {
+        "@testing-library/jest-dom": "5.16.5",
+        "@testing-library/react": "14.0.0",
+        "@testing-library/user-event": "14.4.3",
+        "@types/lodash": "4.14.191",
+        "@types/node": "18.15.3",
+        "@types/qs": "6.9.7",
+        "@types/react": "18.0.28",
+        "@types/react-dom": "18.0.11",
+        "@types/react-redux": "7.1.25",
+        "@typescript-eslint/eslint-plugin": "5.55.0",
+        "@typescript-eslint/parser": "5.55.0",
+        "@vitejs/plugin-react": "3.1.0",
+        "cypress": "12.8.1",
+        "eslint": "8.36.0",
+        "eslint-config-prettier": "8.7.0",
+        "eslint-plugin-compat": "4.1.2",
+        "eslint-plugin-import": "2.27.5",
+        "eslint-plugin-jest": "27.2.1",
+        "eslint-plugin-prefer-arrow": "1.2.3",
+        "eslint-plugin-react": "7.32.2",
+        "eslint-plugin-react-hooks": "4.6.0",
+        "eslint-plugin-testing-library": "5.10.2",
+        "msw": "1.1.0",
+        "nodenv": "0.1.0",
+        "pre-commit": "1.2.2",
+        "prettier": "2.8.5",
+        "rollup-plugin-visualizer": "5.9.0",
+        "start-server-and-test": "2.0.0",
+        "typescript": "4.9.4",
+        "vite": "4.2.0",
+        "vitest": "0.29.3",
+        "vitest-fetch-mock": "0.2.2"
+    },
+    "overrides": {
+        "d3-color": "3.1.0"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": [
+        "last 2 versions",
+        "last 5 Chrome versions",
+        "Firefox >= 90",
+        "Edge >= 95",
+        "Safari >= 14"
+    ],
+    "pre-commit": [
+        "format-code-on-commit"
+    ],
+    "msw": {
+        "workerDirectory": ""
+    }
+}

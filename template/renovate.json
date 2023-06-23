@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [],
+  "commitMessagePrefix": "Renovate:",
+  "schedule": [],
+  "timezone": "Europe/Berlin",
+  "prConcurrentLimit": 1,
+  "ignorePaths": [],
+  "ignoreDeps": [],
+  "packageRules": []
+}
