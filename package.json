@@ -1,0 +1,8 @@
+{
+  "name": "frontend-cli",
+  "version": "1.0.0",
+  "description": "A CLI for creating new web frontend projects from scratch",
+  "bin": {
+    "frontend-cli": "./index.js"
+  }
+}
