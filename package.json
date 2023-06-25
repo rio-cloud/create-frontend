@@ -5,5 +5,8 @@
   "type": "module",
   "bin": {
     "create-frontend": "./index.js"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8"
   }
 }
