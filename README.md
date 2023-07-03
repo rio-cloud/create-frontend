@@ -2,25 +2,19 @@
 
 A CLI for creating new web frontend projects from scratch.
 
-**⚠️ work in progress ⚠️**
+```shell
+npm create --yes rio-cloud/frontend my-fancy-project
+```
 
-![work in progress](https://media.giphy.com/media/toXKzaJP3WIgM/giphy.gif)
-
-Before starting, you should already have some information ready:
+👉 Before starting, you should already have some information ready:
 
 - OAuth ClientID
 - OAuth redirect_uri
 - OAuth silent redirect_uri
 - Sentry DSN
 
-ℹ️ if you **just** want a small local frontend toy project that allows you to play around with UIKIT components, simply
+If you **just** want a small local frontend toy project that allows you to play around with UIKIT components, simply
 enter dummy values for the parameters.
-
-## Running the CLI
-
-```shell
-npm create --yes rio-cloud/frontend my-fancy-project
-```
 
 ## Tech Stack
 
