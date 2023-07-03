@@ -1,6 +1,8 @@
 import { mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { Listr } from 'listr2';
+import fs from 'node:fs';
+import git from 'isomorphic-git';
 import replaceInFile from 'replace-in-file';
 import chalk from 'chalk';
 import cpy from 'cpy';
@@ -16,13 +18,10 @@ export async function getTasks({
     templateDir,
 }) {
     const tasks = new Listr([
+        { title: `Create ${chalk.green.bold(outputDir)}`, task: () => mkdir(outputDir, { recursive: true }) },
+        { title: 'Copy frontend template code', task: () => cpy(`${templateDir}/**/*`, outputDir) },
         {
-            title: 'Creating ' + chalk.green.bold(outputDir),
-            task: () => mkdir(outputDir, { recursive: true }),
-        },
-        { title: 'Copying frontend template', task: () => cpy(`${templateDir}/**/*`, outputDir) },
-        {
-            title: 'Replacing frontend config values',
+            title: 'Replace config values',
             task: () =>
                 replaceInFile({
                     files: ['.env.production', 'index.html', 'package.json', 'README.md'].map((f) =>
@@ -42,11 +41,23 @@ export async function getTasks({
 
     if (initGit) {
         tasks.add({
-            title: 'Initializing a fresh Git repository (MOCK)',
-            task: () =>
-                new Promise((resolve) => {
-                    setTimeout(resolve, 750);
-                }),
+            title: 'Set up git repository',
+            task: async (ctx, task) => {
+                const dir = outputDir;
+                const defaultBranch = 'main';
+                const filepath = '.';
+                const message = 'initial commit by @rio-cloud/create-frontend';
+                const author = { name: '@rio-cloud/create-frontend', email: 'uxui@rio.cloud' };
+
+                task.output = '=> git init';
+                await git.init({ fs, dir, defaultBranch });
+
+                task.output = '=> git add --all';
+                await git.add({ fs, dir, filepath });
+
+                task.output = '=> git commit';
+                await git.commit({ fs, dir, message, author });
+            },
         });
     }
 
