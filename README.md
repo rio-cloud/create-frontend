@@ -1,4 +1,4 @@
-# rio-cloud/create-frontend
+# RIO's create-frontend CLI
 
 A CLI for creating new web frontend projects from scratch.
 
