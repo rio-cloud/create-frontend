@@ -12,7 +12,7 @@ This will generate the actual Service Worker code. Commit this file to your repo
 manually:
 
 ```shell
-npx msw init ./public --save
+npx msw init . --save
 ```
 
 ## Start using MSW
