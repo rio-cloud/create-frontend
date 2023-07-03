@@ -1,8 +1,8 @@
 {
-    "name": "@rio-cloud/vite-rio-template",
-    "description": "The RIO Vite Frontend template.",
+    "name": "CREATE_FRONTEND_APP_NAME",
+    "description": "A frontend based on @rio-cloud/create-frontend",
     "private": true,
-    "version": "0.2.0",
+    "version": "1.0.0",
     "scripts": {
         "start": "vite",
         "build": "vite build",
