@@ -12,3 +12,5 @@ Please check these files if the parameters have been interpolated correctly (the
 * [.env.production](.env.production)
 
 Once that's done, remove this section and write your own README 🦄
+
+_Event though it's technically ignored, please make sure to update the list of OAuth scopes in [src/](src/config.ts)._

@@ -37,9 +37,7 @@ export const config: ConfigState = {
     id: import.meta.env.VITE_ID,
     login: {
         authority: import.meta.env.VITE_LOGIN_AUTHORITY,
-        // TODO: Request and supply your App's `client_id` as
-        //       well as the needed OAuth scopes here
-        clientId: '<you-need-to-obtain-your-own-client-id>',
+        clientId: import.meta.env.VITE_LOGIN_CLIENT_ID,
         oauthScope: ['openid', 'profile', 'email'],
         mockAuthorization: import.meta.env.DEV,
         mockLocale: import.meta.env.VITE_LOGIN_MOCK_LOCALE,
