@@ -1,15 +1,20 @@
 {
-  "name": "create-frontend",
+  "name": "@rio-cloud/create-frontend",
   "version": "1.0.0",
   "description": "A CLI for creating new web frontend projects from scratch",
+  "author": {
+    "name": "Roland Hummel",
+    "email": "roland.hummel@rio.cloud"
+  },
   "type": "module",
+  "private": true,
   "bin": {
-    "create-frontend": "./index.js"
+    "@rio-cloud/create-frontend": "./index.js"
   },
   "dependencies": {
     "@inquirer/prompts": "^2.3.0",
     "boxen": "^7.1.0",
-    "chalk": "^5.2.0",
+    "chalk": "^5.3.0",
     "cpy": "^10.1.0",
     "gradient-string": "^2.0.2",
     "isomorphic-git": "^1.24.2",
