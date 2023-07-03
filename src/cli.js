@@ -13,18 +13,19 @@ export async function cli(appName) {
         ...requiredTrimmed,
     });
 
-    console.log();
+    const initGit = await confirm({ message: 'Do you want to initialize a Git repository?', default: true });
+
     const clientId = await input({ message: '[OAuth] >> client ID', ...requiredTrimmed });
+
     const redirectUri = await input({ message: '[OAuth] >> redirect_uri', ...requiredTrimmed });
+
     const silentRedirectUri = await input({
         message: '[OAuth] >> silent redirect_uri',
         default: redirectUri,
         ...requiredTrimmed,
     });
-    const sentryDsn = await input({ message: '[Sentry] >> DSN', ...requiredTrimmed });
 
-    console.log();
-    const initGit = await confirm({ message: 'Do you want to initialize a Git repository?', default: true });
+    const sentryDsn = await input({ message: '[Sentry] >> DSN', ...requiredTrimmed });
 
     return { appName, outputDir, clientId, redirectUri, silentRedirectUri, sentryDsn, initGit };
 }
