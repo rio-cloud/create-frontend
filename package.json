@@ -12,7 +12,8 @@
     "chalk": "^5.2.0",
     "cpy": "^10.1.0",
     "gradient-string": "^2.0.2",
-    "listr2": "^6.6.0"
+    "listr2": "^6.6.0",
+    "replace-in-file": "^7.0.1"
   },
   "devDependencies": {
     "prettier": "^2.8.8"

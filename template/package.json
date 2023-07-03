@@ -1,5 +1,5 @@
 {
-    "name": "CREATE_FRONTEND_APP_NAME",
+    "name": "CREATE_RIO_FRONTEND_appName",
     "description": "A frontend based on @rio-cloud/create-frontend",
     "private": true,
     "version": "1.0.0",

@@ -1,11 +1,11 @@
-# CREATE_FRONTEND_APP_NAME
+# CREATE_RIO_FRONTEND_appName
 
 ## Summary
 
 This project was created using the @rio-cloud/create-frontend utility and is using Vite, TypeScript and all the goodies.
 
 Please check these files if the parameters have been interpolated correctly (there should be no more occurrences of
-`CREATE_FRONTEND_*`):
+`CREATE_RIO_FRONTEND_*`):
 
 * [index.html](index.html)
 * [package.json](package.json)
