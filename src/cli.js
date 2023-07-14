@@ -8,7 +8,7 @@ export async function cli(appName) {
     rioLogo();
 
     const outputDir = await input({
-        message: 'Where do you want to create the project',
+        message: 'Where do you want to create the project?',
         default: resolve(cwd(), appName),
         ...requiredTrimmed,
     });
