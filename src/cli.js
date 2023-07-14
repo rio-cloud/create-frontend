@@ -4,14 +4,18 @@ import { confirm, input } from '@inquirer/prompts';
 import { requiredTrimmed } from './util.js';
 import { rioLogo } from './rioLogo.js';
 
-export async function cli(appName) {
-    rioLogo();
+export async function cli(appName, givenOutputDir = null, silent = false) {
+    if (!silent) {
+        rioLogo();
+    }
 
-    const outputDir = await input({
-        message: 'Where do you want to create the project?',
-        default: resolve(cwd(), appName),
-        ...requiredTrimmed,
-    });
+    const outputDir =
+        givenOutputDir ??
+        (await input({
+            message: 'Where do you want to create the project?',
+            default: resolve(cwd(), appName),
+            ...requiredTrimmed,
+        }));
 
     const initGit = await confirm({ message: 'Do you want to initialize a Git repository?', default: true });
 
