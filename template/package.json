@@ -24,7 +24,7 @@
     },
     "dependencies": {
         "@redux-devtools/extension": "3.2.5",
-        "@reduxjs/toolkit": "1.9.3",
+        "@reduxjs/toolkit": "^1.9.5",
         "@rio-cloud/rio-notifications-component": "0.2.4",
         "@rio-cloud/rio-session-expired-info": "0.9.14",
         "@rio-cloud/rio-uikit": "0.16.2",
