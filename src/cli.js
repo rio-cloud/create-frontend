@@ -15,6 +15,8 @@ export async function cli(appName) {
 
     const initGit = await confirm({ message: 'Do you want to initialize a Git repository?', default: true });
 
+    console.log();
+
     const clientId = await input({ message: '[OAuth] >> client ID', ...requiredTrimmed });
 
     const redirectUri = await input({ message: '[OAuth] >> redirect_uri', ...requiredTrimmed });
@@ -25,7 +27,11 @@ export async function cli(appName) {
         ...requiredTrimmed,
     });
 
+    console.log();
+
     const sentryDsn = await input({ message: '[Sentry] >> DSN', ...requiredTrimmed });
+
+    console.log();
 
     return { appName, outputDir, clientId, redirectUri, silentRedirectUri, sentryDsn, initGit };
 }
