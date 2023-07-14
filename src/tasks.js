@@ -6,6 +6,7 @@ import git from 'isomorphic-git';
 import replaceInFile from 'replace-in-file';
 import chalk from 'chalk';
 import cpy from 'cpy';
+import { execSync } from 'node:child_process';
 
 export async function getTasks({
     appName,
@@ -19,6 +20,12 @@ export async function getTasks({
 }) {
     const tasks = new Listr([
         { title: `Create ${chalk.green.bold(outputDir)}`, task: () => mkdir(outputDir, { recursive: true }) },
+        {
+            title: 'list template folder contents for debug reasons',
+            task: async () => {
+                execSync(`ls -al ${templateDir}`, { stdio: 'inherit' });
+            },
+        },
         {
             title: 'Copy frontend template code',
             task: () => cpy([`${templateDir}/**/*`, `!${templateDir}/node_modules`], outputDir),
