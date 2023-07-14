@@ -11,11 +11,14 @@ export async function cli(appName, givenOutputDir = null, silent = false) {
 
     const outputDir =
         givenOutputDir ??
-        (await input({
-            message: 'Where do you want to create the project?',
-            default: resolve(cwd(), appName),
-            ...requiredTrimmed,
-        }));
+        resolve(
+            cwd(),
+            await input({
+                message: 'Where do you want to create the project?',
+                default: resolve(cwd(), appName),
+                ...requiredTrimmed,
+            })
+        );
 
     const initGit = await confirm({ message: 'Do you want to initialize a Git repository?', default: true });
 
