@@ -19,13 +19,16 @@ export async function getTasks({
 }) {
     const tasks = new Listr([
         { title: `Create ${chalk.green.bold(outputDir)}`, task: () => mkdir(outputDir, { recursive: true }) },
-        { title: 'Copy frontend template code', task: () => cpy(`${templateDir}/**/*`, outputDir) },
+        {
+            title: 'Copy frontend template code',
+            task: () => cpy([`${templateDir}/**/*`, `!${templateDir}/node_modules`], outputDir),
+        },
         {
             title: 'Replace config values',
             task: () =>
                 replaceInFile({
-                    files: ['.env.production', 'index.html', 'package.json', 'README.md'].map((f) =>
-                        resolve(outputDir, f)
+                    files: ['.env.production', 'index.html', 'package.json', 'package-lock.json', 'README.md'].map(
+                        (f) => resolve(outputDir, f)
                     ),
                     from: [
                         /CREATE_RIO_FRONTEND_appName/g,
