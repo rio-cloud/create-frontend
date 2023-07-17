@@ -17,7 +17,7 @@ npx msw init . --save
 
 ## Start using MSW
 
-Create `mocks/serviceMock.ts` and appropriate handler files. See the
+Create `mocks/browser.ts` and appropriate handler files. See the
 [MSW documentation](https://mswjs.io/docs/getting-started/mocks) to learn how to migrate your existing API mocks.
 
 To prevent MSW (and mock handler) code from ending up in your production bundle, you need to enable Vite to 
