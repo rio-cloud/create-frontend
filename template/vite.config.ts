@@ -6,7 +6,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react(), visualizer()],
+    plugins: [react(), visualizer({ filename: 'results/stats.html' })],
     build: {
         outDir: 'build',
         sourcemap: true,
@@ -15,7 +15,7 @@ export default defineConfig({
                 manualChunks: {
                     'vendor.common': ['@sentry/browser', 'framer-motion', 'oidc-client-ts'],
                 },
-            }
+            },
         },
     },
     server: {

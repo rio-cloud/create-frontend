@@ -51,7 +51,6 @@ See [the Vite Documentation](https://vitejs.dev/guide/env-and-mode.html) on envi
 ```
 .local
 .env
-stats.html
 ```
 
 ## Remove your old `webpack.config.js` and all related files
