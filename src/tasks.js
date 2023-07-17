@@ -26,7 +26,13 @@ export async function getTasks({
         },
         {
             title: 'Rename .npmignore to .gitignore',
-            task: () => moveFile(`${outputDir}/.npmignore`, `${outputDir}/.gitignore`),
+            task: async (ctx, task) => {
+                try {
+                    await moveFile(`${outputDir}/.npmignore`, `${outputDir}/.gitignore`);
+                } catch (e) {
+                    task.skip('No .npmignore found; most likely running locally?');
+                }
+            },
         },
         {
             title: 'Replace config values',
