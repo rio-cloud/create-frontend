@@ -12,12 +12,12 @@ This will generate the actual Service Worker code. Commit this file to your repo
 manually:
 
 ```shell
-npx msw init . --save
+npx msw init ./public
 ```
 
 ## Start using MSW
 
-Create `mocks/browser.ts` and appropriate handler files. See the
+Create `mocks/browser-mock.ts` and appropriate handler files. See the
 [MSW documentation](https://mswjs.io/docs/getting-started/mocks) to learn how to migrate your existing API mocks.
 
 To prevent MSW (and mock handler) code from ending up in your production bundle, you need to enable Vite to 
