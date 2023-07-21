@@ -1,1 +1,7 @@
+.idea/
+.vscode/
+build/
+coverage/
+results/
+
 src/features/translations/**/*
