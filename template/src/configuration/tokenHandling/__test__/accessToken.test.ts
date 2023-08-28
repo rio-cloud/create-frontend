@@ -1,4 +1,4 @@
-import { describe, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { configureAccessToken, extractAccessTokenFromWindowLocation, StorageUtil } from '../accessToken';
 
 describe('features/tokenHandling/accessToken', () => {
@@ -7,14 +7,14 @@ describe('features/tokenHandling/accessToken', () => {
             location: {
                 href: `https://airmonads.rio.cloud/#access_token=${token}`,
             },
-        } as Window);
+        }) as Window;
 
     const queryWin = (token: string) =>
         ({
             location: {
                 href: `https://airmonads.rio.cloud/redirectlogin?access_token=${token}`,
             },
-        } as Window);
+        }) as Window;
 
     const makeWin = (token: string) =>
         ({
@@ -22,7 +22,7 @@ describe('features/tokenHandling/accessToken', () => {
                 host: 'water.rio.cloud',
                 href: `https://water.rio.cloud/#access_token=${token}`,
             },
-        } as Window);
+        }) as Window;
 
     describe('the access token extraction from the window.location', () => {
         const extract = extractAccessTokenFromWindowLocation;

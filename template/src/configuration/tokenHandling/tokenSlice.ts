@@ -1,8 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { UserProfile as Profile } from 'oidc-client-ts';
 
-import type { RootState } from '../../configuration/setup/store';
-
+import type { RootState } from '../setup/store';
 import { accessToken } from './accessToken';
 
 export const TENANT_RIO_EU_PROD = 'rio-eu.prod';

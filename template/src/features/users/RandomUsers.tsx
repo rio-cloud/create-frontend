@@ -15,9 +15,7 @@ const RandomUsers = () => {
             <div className="text-size-20 text-medium margin-bottom-15">Random Users</div>
             {isLoading && <Spinner />}
             {error && <div>{'Users could not be fetched'}</div>}
-            {data?.map((user) => (
-                <UserItem key={user.name.last} {...user} />
-            ))}
+            {data?.map((user) => <UserItem key={user.name.last} {...user} />)}
         </div>
     );
 };
