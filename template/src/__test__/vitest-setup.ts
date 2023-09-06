@@ -1,4 +1,3 @@
-import { vi } from 'vitest';
 import createFetchMock from 'vitest-fetch-mock';
 
 // Mock ResizeObserver that is used by the ApplicationHeader

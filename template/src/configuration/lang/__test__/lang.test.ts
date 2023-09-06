@@ -1,4 +1,3 @@
-import { describe, expect, it } from 'vitest';
 import { DEFAULT_LANG, DEFAULT_LOCALE, extractLanguage, supportedLocaleMap } from '../lang';
 
 describe('features/lang/lang', () => {

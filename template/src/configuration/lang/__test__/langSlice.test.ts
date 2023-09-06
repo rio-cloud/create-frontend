@@ -1,5 +1,3 @@
-import { describe, expect, it } from 'vitest';
-
 import { store } from '../../setup/store';
 import { DEFAULT_LOCALE } from '../lang';
 import { displayMessagesFetched, getDisplayMessages, getLocale, localeChanged } from '../langSlice';

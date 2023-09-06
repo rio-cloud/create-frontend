@@ -8,14 +8,10 @@ export interface StorageUtil {
 export const configureStorage = () => {
     let storedAccessToken: string | null = null;
     return {
-        discardAccessToken: () => {
-            storedAccessToken = null;
-        },
+        discardAccessToken: () => (storedAccessToken = null),
         getAccessToken: () => storedAccessToken,
         hasAccessToken: () => Boolean(storedAccessToken),
-        saveAccessToken: (token: string) => {
-            storedAccessToken = token;
-        },
+        saveAccessToken: (token: string) => (storedAccessToken = token),
     } as StorageUtil;
 };
 

@@ -1,4 +1,3 @@
-import { describe, expect, it } from 'vitest';
 import { UserProfile as Profile } from 'oidc-client-ts';
 
 import { store } from '../../setup/store';
