@@ -1,5 +1,3 @@
-import packageJson from '../package.json';
-
 const asBool = (value: string | undefined): boolean => value === 'true';
 
 export interface ConfigState {
@@ -46,7 +44,7 @@ export const config: ConfigState = {
         redirectUri: import.meta.env.VITE_LOGIN_REDIRECT_URI,
         silentRedirectUri: import.meta.env.VITE_LOGIN_SILENT_REDIRECT_URI,
     },
-    serviceVersion: packageJson.version,
+    serviceVersion: APP_VERSION,
     serviceEnvironment: import.meta.env.MODE,
     enableMockServer: import.meta.env.DEV,
     logoutUri: import.meta.env.VITE_LOGOUT_URI,

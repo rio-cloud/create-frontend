@@ -5,6 +5,11 @@ import { visualizer } from 'rollup-plugin-visualizer';
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react(), visualizer({ filename: 'results/stats.html' })],
+
+    define: {
+        APP_VERSION: JSON.stringify(process.env.npm_package_version),
+    },
+
     build: {
         outDir: 'build',
         sourcemap: true,
@@ -16,6 +21,7 @@ export default defineConfig({
             },
         },
     },
+
     server: {
         host: '127.0.0.1',
         port: 3000,
@@ -23,6 +29,7 @@ export default defineConfig({
             strict: false,
         },
     },
+
     test: {
         environment: 'jsdom',
         globals: true,
