@@ -83,13 +83,6 @@
     "eslintConfig": {
         "extends": "react-app"
     },
-    "browserslist": [
-        "last 2 versions",
-        "last 5 Chrome versions",
-        "Firefox >= 90",
-        "Edge >= 95",
-        "Safari >= 14"
-    ],
     "pre-commit": [
         "format-code-on-commit"
     ],
