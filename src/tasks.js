@@ -25,7 +25,7 @@ export async function getTasks({
             task: () => cpy([`${templateDir}/**/*`, `!${templateDir}/node_modules`], outputDir),
         },
         {
-            title: 'Rename .npmignore to .gitignore',
+            title: 'Create .gitignore',
             task: async (ctx, task) => {
                 try {
                     await moveFile(`${outputDir}/.npmignore`, `${outputDir}/.gitignore`);
