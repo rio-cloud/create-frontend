@@ -63,12 +63,12 @@ something else, feel free to remove or adapt the sample implementations.
 ## ⚠️ Note for Windows users ⚠️
 
 Some of the utility we're using in this CLI does not work 100% reliable on Windows. See
-[this issue](https://github.com/rio-cloud/create-frontend/issues/6), for example. We try to iron out these issues, but
-you _may_ run into problems, when running the CLI in a path on one drive, e.g. `C:\Users\RandomUser\code`, but then
+[this issue](https://github.com/rio-cloud/create-frontend/issues/6), for example. We try to iron out these issues. But
+you _may_ run into problems when running the CLI in a path on one drive, e.g. `C:\Users\RandomUser\code`, but then
 manually setting the output directory to a path on another drive, e.g. `D:\projects\awesome-sauce`.
 
-👉 We highly recommend `cd`ing into the parent directory of your desired new project's directory. In the example above,
-you're best off `cd`ing into `D:\projects` and then just running `npm create --yes rio-cloud/frontend awesome-sauce`.
-The CLI will automatically assume the output directory to be a child directory of your current working dir + the
-project name you're giving - and you don't have to type in the path, since the CLI will propose it automatically, and
-you just have to hit enter.
+👉 We highly recommend running the CLI from the parent directory of your desired new project's directory. In the example
+above, you're best off going into `D:\projects` and then just running
+`npm create --yes rio-cloud/frontend awesome-sauce`. The CLI will automatically assume the output directory to be a
+child directory of your current working dir + the project name you're giving - and you don't have to type in the path,
+since the CLI will propose it automatically, and you just have to hit enter.
