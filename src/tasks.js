@@ -7,6 +7,7 @@ import replaceInFile from 'replace-in-file';
 import chalk from 'chalk';
 import cpy from 'cpy';
 import { moveFile } from 'move-file';
+import { fixWindowsPaths } from './util.js';
 
 export async function getTasks({
     appName,
@@ -18,17 +19,20 @@ export async function getTasks({
     initGit,
     templateDir,
 }) {
+    const fixedTemplateDir = fixWindowsPaths(templateDir);
+    const fixedOutputDir = fixWindowsPaths(outputDir);
+
     const tasks = new Listr([
-        { title: `Create ${chalk.green.bold(outputDir)}`, task: () => mkdir(outputDir, { recursive: true }) },
+        { title: `Create ${chalk.green.bold(outputDir)}`, task: () => mkdir(fixedOutputDir, { recursive: true }) },
         {
             title: 'Copy frontend template code',
-            task: () => cpy([`${templateDir}/**/*`, `!${templateDir}/node_modules`], outputDir),
+            task: () => cpy([`${fixedTemplateDir}/**/*`, `!${fixedTemplateDir}/node_modules`], fixedOutputDir),
         },
         {
             title: 'Create .gitignore',
             task: async (ctx, task) => {
                 try {
-                    await moveFile(`${outputDir}/.npmignore`, `${outputDir}/.gitignore`);
+                    await moveFile(`${fixedOutputDir}/.npmignore`, `${fixedOutputDir}/.gitignore`);
                 } catch (e) {
                     task.skip('No .npmignore found; most likely running locally?');
                 }
@@ -39,7 +43,7 @@ export async function getTasks({
             task: () =>
                 replaceInFile({
                     files: ['.env.production', 'index.html', 'package.json', 'package-lock.json', 'README.md'].map(
-                        (f) => resolve(outputDir, f)
+                        (f) => fixWindowsPaths(resolve(outputDir, f))
                     ),
                     from: [
                         /CREATE_RIO_FRONTEND_appName/g,
