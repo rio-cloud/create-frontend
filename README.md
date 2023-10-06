@@ -18,7 +18,7 @@ enter dummy values for the parameters.
 
 ## Tech Stack
 
-The RIO template is opinionated and comes already with some pre-defined libraries to give you a head start and 
+The RIO template is opinionated and comes already with some pre-defined libraries to give you a head start and
 streamline the various projects so devs feel familiar when working with multiple projects. If you still want to use
 something else, feel free to remove or adapt the sample implementations.
 
@@ -59,3 +59,17 @@ something else, feel free to remove or adapt the sample implementations.
 
 * [Migrating to Vite](docs/migrating-to-vite.md)
 * [Migrating to Mock Service Worker](docs/migrating-to-msw.md)
+
+## ⚠️ Note for Windows users ⚠️
+
+Some of the utility we're using in this CLI does not work 100% reliably on Windows. See
+[this issue](https://github.com/rio-cloud/create-frontend/issues/6), for example. We try to iron out these issues, but
+you may run into problems when running the CLI in a path on one drive, e.g. C:\Users\RandomUser\code and then
+manually setting the output directory to a path on another drive e.g. D:\projects\awesome-sauce.
+
+👉 We highly recommend navigating into the parent folder of your desired new project directory. In the example above,
+you're best off going into D:\projects and then just running `npm create --yes rio-cloud/frontend awesome-sauce`.
+
+The CLI will automatically assume the output directory to be a child directory of your current working dir + the project
+name you're giving - and you don't have to type in the folder path, since the CLI will propose it automatically. To 
+complete the step, just hit enter.
