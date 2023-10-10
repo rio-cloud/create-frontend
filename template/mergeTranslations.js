@@ -13,7 +13,7 @@ const allTempFiles = await readdir(tempDir);
 
 // collect files for each locale
 const filesByLocales = allTempFiles.reduce((map, file) => {
-    const locale = file.split('.')[1];
+    const [, locale] = file.split('.');
     if (!map.has(locale)) {
         map.set(locale, []);
     }
