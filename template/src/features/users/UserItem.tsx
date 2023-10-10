@@ -24,7 +24,7 @@ export const UserItem = (props: UserItemProps) => {
     return (
         <div
             key={id.value}
-            className={`panel panel-default margin-bottom-10 cursor-pointer hover-bg-highlight-lightest ${
+            className={`cursor-pointer bg-lightest hover-bg-highlight-lightest ${
                 isSelected ? 'bg-highlight-lightest' : ''
             }`}
             onClick={handleClickUser}
