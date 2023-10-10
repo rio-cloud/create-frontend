@@ -27,12 +27,12 @@ const retrySigninSilent = (oauthConfig: OAuthConfig, userManager: UserManager) =
     });
 };
 
-export interface SessionRenewedResult {
+export type SessionRenewedResult = {
     accessToken: AccessToken;
     idToken: Profile;
     profile: UserProfile;
     locale: string;
-}
+};
 
 export const adaptPublishedInfo = (result: User): SessionRenewedResult => ({
     accessToken: result.access_token,

@@ -2,7 +2,7 @@ import { Log, UserManager } from 'oidc-client-ts';
 import { config } from '../../config';
 
 export const handleLoginRedirect = () => {
-    const runsInIframe = window && window.parent && window.parent !== window;
+    const runsInIframe = window?.parent && window.parent !== window;
 
     if (runsInIframe) {
         // Silent redirect within an <iframe>

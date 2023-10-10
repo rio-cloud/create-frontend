@@ -7,20 +7,18 @@ import { DEFAULT_LOCALE, getSupportedLocale } from './lang';
 
 export type DisplayMessages = Record<string, string>;
 
-interface CombinedMessages {
-    [key: string]: DisplayMessages;
-}
+type CombinedMessages = Record<string, DisplayMessages>;
 
-export interface LangState {
+export type LangState = {
     allMessages: CombinedMessages;
     displayMessages: DisplayMessages | undefined;
     displayLocale: string | undefined;
-}
+};
 
-interface MessagesPayload {
+type MessagesPayload = {
     locale: string;
     displayMessages: DisplayMessages;
-}
+};
 
 const defaultMessages = {
     [DEFAULT_LOCALE]: messagesEN,

@@ -1,27 +1,16 @@
 import { Store } from '@reduxjs/toolkit';
-import { Exception } from '@sentry/types';
 import { reportErrorToSentry } from '../setup/sentry';
 import getOr from 'lodash/fp/getOr';
 
 import { displayMessagesFetched, localeChanged } from './langSlice';
 import { DEFAULT_LOCALE, getSupportedLocale as defaultGetSupportedLocale } from './lang';
 import { trace } from '../setup/trace';
-import { config } from '../../config';
 
-const sendError = (exception: Exception) => {
-    reportErrorToSentry(exception, {
-        tags: {
-            module: config.sentryModuleName,
-        },
-    });
-};
+const normalizeDynamicImport = (imported: unknown) => getOr(imported, 'default', imported);
 
-// Webpack is weird sometimes, maybe it's Babel, who knows...
-const normalizeDynamicImport = (imported: any) => getOr(imported, 'default', imported);
-
-export const importDisplayMessages = (locale: string) =>
-    import(`../../features/translations/${locale}.json`).then(normalizeDynamicImport).catch((error) => {
-        sendError(error);
+const importDisplayMessages = (locale: string) =>
+    import(`../../features/translations/${locale}.json`).then(normalizeDynamicImport).catch((error: unknown) => {
+        reportErrorToSentry(error);
         return error;
     });
 
@@ -39,9 +28,9 @@ export const configureFetchDisplayMessages =
             const displayMessages = await fetchDisplayMessages(supportedLocale);
             trace(`Display messages fetched for "${supportedLocale}"`);
             store.dispatch(displayMessagesFetched({ locale: supportedLocale, displayMessages }));
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.error(`Display messages for "${supportedLocale}" could not be fetched.`, error);
-            sendError(error);
+            reportErrorToSentry(error);
             store.dispatch(localeChanged(DEFAULT_LOCALE));
         }
     };
