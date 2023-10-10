@@ -1,4 +1,4 @@
-import { readdir, readFile, writeFile } from 'node:fs/promises';
+import { readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -33,3 +33,6 @@ for (const [locale, files] of filesByLocales) {
 
     await writeFile(targetFile, JSON.stringify(mergedContent, null, 4), 'utf-8');
 }
+
+// delete temp folder
+await rm(tempDir, { recursive: true });
