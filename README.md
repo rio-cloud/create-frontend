@@ -19,8 +19,8 @@ enter dummy values for the parameters.
 ## Tech stack
 
 The RIO template is opinionated and comes already with some pre-defined libraries to give you a head start and
-streamline the various projects so developers feel familiar when working with multiple projects. If you still want to use
-something else, feel free to remove or adapt the sample implementations.
+streamline the various projects so developers feel familiar when working with multiple projects. If you still want to
+use something else, feel free to remove or adapt the sample implementations.
 
 - *Build tooling*:
     - [Vite](https://vitejs.dev/) - uses [esbuild](https://esbuild.github.io/) and [Rollup](https://rollupjs.org) under
@@ -38,7 +38,8 @@ something else, feel free to remove or adapt the sample implementations.
 - *Form validation*
     - [React Hook Form](https://react-hook-form.com/)
 - *Date library*
-    Even though there are some older UIKIT components that still uses moment.js, The date-fns library is set out to replace that in our services
+    Even though there are some older UIKIT components that still uses moment.js, The date-fns library is set out to
+    replace that in our services
     - [date-fns](https://date-fns.org/)
 - *Testing*
     - [Vitest](https://vitest.dev//) as test runner and testing framework for unit tests
