@@ -23,5 +23,5 @@ export const useUpdateRoute = (newSearch: string) => {
         if (search !== newSearch) {
             navigate(pathname + newSearch);
         }
-    }, newSearch);
+    }, [newSearch]);
 };
