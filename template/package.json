@@ -20,7 +20,7 @@
         "pull-translations": "phrase pull --access_token $PHRASEAPP_ACCESS_TOKEN && node mergeTranslations.js",
         "cypress-open": "cypress open",
         "cypress-run": "cypress run",
-        "cypress-ci": "start-server-and-test start http://localhost:3000 cypress-run"
+        "cypress-ci": "start-server-and-test start http://127.0.0.1:3000 cypress-run"
     },
     "dependencies": {
         "@redux-devtools/extension": "3.2.5",
