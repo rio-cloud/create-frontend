@@ -1,6 +1,6 @@
 import Spinner from '@rio-cloud/rio-uikit/Spinner';
 
-import { User, useFetchUsersQuery } from '../../services/userApi';
+import { useFetchUsersQuery } from '../../services/userApi';
 import { UserItem } from './UserItem';
 import { useUserSelectionDeepLink } from '../../hooks/useUserSelectionDeepLink';
 
@@ -15,7 +15,13 @@ const RandomUsers = () => {
             <div className="text-size-20 text-medium margin-bottom-15">Random Users</div>
             {isLoading && <Spinner />}
             {error && <div>{'Users could not be fetched'}</div>}
-            {data?.map((user) => <UserItem key={user.name.last} {...user} />)}
+            {data && (
+                <div className="display-flex flex-column gap-10">
+                    {data.map((user) => (
+                        <UserItem key={user.name.last} {...user} />
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

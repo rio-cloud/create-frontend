@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import type { RootState } from '../setup/store';
 
-export interface UserProfile {
+export type UserProfile = {
     sub?: string;
     azp?: string;
     account?: string;
@@ -11,13 +11,13 @@ export interface UserProfile {
     name?: string;
     locale?: string;
     email?: string;
-}
+};
 
-export interface LoginState {
+export type LoginState = {
     hasUserSessionEverExpired: boolean;
     userProfile: UserProfile | null;
     userSessionExpired: boolean;
-}
+};
 
 const initialState: LoginState = {
     hasUserSessionEverExpired: false,
