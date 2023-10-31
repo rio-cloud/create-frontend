@@ -24,10 +24,7 @@ const isProd = import.meta.env.PROD;
 const isProdPreview = import.meta.env.VITE_PRODUCTION_PREVIEW;
 
 if ((isDev && config.enableMockServer) || isProdPreview) {
-    import('../mocks/browser').then(({ worker }) => {
-        worker.start();
-        main(renderApplication);
-    });
+    import('../mocks/browser').then(({ startWorker }) => startWorker()).then(() => main(renderApplication));
 }
 
 if (window.location.href.startsWith(config.login.redirectUri as string)) {
