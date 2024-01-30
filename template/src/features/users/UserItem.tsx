@@ -24,12 +24,12 @@ export const UserItem = (props: UserItemProps) => {
     return (
         <div
             key={id.value}
-            className={`cursor-pointer bg-lightest hover-bg-highlight-lightest ${
+            className={`cursor-pointer bg-lightest rounded hover-bg-highlight-lightest ${
                 isSelected ? 'bg-highlight-lightest' : ''
             }`}
             onClick={handleClickUser}
         >
-            <div className="panel-body display-flex align-items-center padding-10">
+            <div className="display-flex align-items-center padding-10">
                 <div className="width-60 aspect-ratio-1">
                     <img className="img-responsive rounded-circle" src={picture.thumbnail} alt="User Avatar" />
                 </div>
