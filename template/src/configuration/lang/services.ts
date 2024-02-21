@@ -1,4 +1,4 @@
-import { Store } from '@reduxjs/toolkit';
+import type { Store } from '@reduxjs/toolkit';
 import { reportErrorToSentry } from '../setup/sentry';
 import { displayMessagesFetched, localeChanged } from './langSlice';
 import { DEFAULT_LOCALE, getSupportedLocale as defaultGetSupportedLocale } from './lang';

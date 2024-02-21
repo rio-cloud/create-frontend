@@ -1,7 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-import type { RootState } from '../../configuration/setup/store';
-
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { RootState } from '../setup/store';
 import messagesEN from '../../features/translations/en-GB.json';
 import { DEFAULT_LOCALE, getSupportedLocale } from './lang';
 

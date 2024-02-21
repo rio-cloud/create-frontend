@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { config, ConfigState } from '../../config';
-
-import type { RootState } from '../../configuration/setup/store';
+import type { RootState } from './store';
 
 const initialState: ConfigState = config;
 
