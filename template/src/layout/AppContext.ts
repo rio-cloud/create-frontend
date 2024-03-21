@@ -1,11 +1,5 @@
-import { createContext } from 'react';
+import { createContext, type RefObject } from 'react';
 
-export type AppContextType = {
-    sidebarRef: React.MutableRefObject<object> | undefined;
-};
+export type AppContextType = { sidebarRef: RefObject<HTMLDivElement> | null };
 
-const defaultAppContext = {
-    sidebarRef: undefined,
-};
-
-export const AppContext = createContext(defaultAppContext);
+export const AppContext = createContext<AppContextType>({ sidebarRef: null });

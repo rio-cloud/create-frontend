@@ -20,7 +20,7 @@ import { AppContext } from './AppContext';
 const AppLayout = () => {
     const dispatch = useAppDispatch();
 
-    const sidebarRef = useRef();
+    const sidebarRef = useRef<HTMLDivElement>(null);
 
     const userLocale = useAppSelector(getLocale);
     const displayMessages = useAppSelector(getDisplayMessages);
@@ -31,7 +31,7 @@ const AppLayout = () => {
         return null;
     }
 
-    const handleSessionExpiredDialogClose = () => dispatch(hideSessionExpiredDialog);
+    const handleSessionExpiredDialogClose = () => dispatch(hideSessionExpiredDialog());
     const showSessionExpired = isSessionExpired && !sessionExpiredAcknowledged;
 
     return (
