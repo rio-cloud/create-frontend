@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { UserProfile as Profile } from 'oidc-client-ts';
+import type { UserProfile as Profile } from 'oidc-client-ts';
 import type { RootState } from '../setup/store';
 import { accessToken } from './accessToken';
 

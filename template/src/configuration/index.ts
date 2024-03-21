@@ -10,7 +10,7 @@ import { store } from './setup/store';
 import { accessTokenStored, idTokenStored } from './tokenHandling/tokenSlice';
 import { userProfileObtained, userSessionExpired, userSessionRenewed } from './login/loginSlice';
 import { getLocale } from './lang/langSlice';
-import { UserManager } from 'oidc-client-ts';
+import type { UserManager } from 'oidc-client-ts';
 import { EVENT_USER_LANGUAGE_CHANGED, EVENT_USER_PROFILE_CHANGED } from '@rio-cloud/rio-user-menu-component';
 
 export interface OAuthConfig {

@@ -15,6 +15,7 @@ export const handleLoginRedirect = () => {
             authority: `${config.login.authority}`,
             client_id: `${config.login.clientId}`,
             redirect_uri: `${config.login.redirectUri}`,
+            filterProtocolClaims: false,
         }).signinSilentCallback();
     } else {
         window.location.replace(`${window.location.origin}#/redirected`);

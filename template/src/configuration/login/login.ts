@@ -1,9 +1,9 @@
 /* eslint-disable camelcase, no-console */
 import {
-    UserProfile as Profile,
+    type UserProfile as Profile,
     User,
     UserManager,
-    UserManagerSettings,
+    type UserManagerSettings,
     WebStorageStateStore,
     InMemoryWebStorage,
 } from 'oidc-client-ts';
@@ -58,6 +58,7 @@ export const createUserManager = () => {
         monitorSession: true,
         staleStateAgeInSeconds: 600,
         userStore: new WebStorageStateStore({ store: new InMemoryWebStorage() }),
+        filterProtocolClaims: false,
     };
 
     return new UserManager(settings);
