@@ -1,4 +1,4 @@
-import qs, { IStringifyOptions } from 'qs';
+import qs, { type IStringifyOptions } from 'qs';
 
 const QS_OPTIONS = {
     comma: true, // required to parse comma separated string into array

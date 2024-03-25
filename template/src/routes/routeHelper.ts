@@ -1,4 +1,4 @@
-import qs, { IParseOptions, IStringifyOptions } from 'qs';
+import qs, { type IParseOptions, type IStringifyOptions } from 'qs';
 
 export const STRINGIFY_OPTIONS: IStringifyOptions = {
     // required to stringify arrays into comma separated strings

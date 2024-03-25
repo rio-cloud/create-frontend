@@ -1,4 +1,4 @@
-import React, { ErrorInfo, ReactNode } from 'react';
+import React, { type ErrorInfo, type ReactNode } from 'react';
 import * as Sentry from '@sentry/browser';
 
 export class ErrorBoundary extends React.Component<{ children?: ReactNode }, {}> {

@@ -11,9 +11,9 @@ import join from 'lodash/fp/join';
 
 import { mapUserProfile } from './userProfile';
 import { config } from '../../config';
-import { OAuthConfig } from '..';
-import { AccessToken } from '../tokenHandling/tokenSlice';
-import { UserProfile } from './loginSlice';
+import type { OAuthConfig } from '..';
+import type { AccessToken } from '../tokenHandling/tokenSlice';
+import type { UserProfile } from './loginSlice';
 
 const RETRY_SIGNIN_TIMEOUT_IN_MS = 30000;
 

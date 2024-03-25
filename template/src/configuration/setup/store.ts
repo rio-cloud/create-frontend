@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
+
 import configReducer from './configSlice';
 import loginReducer from '../login/loginSlice';
 import langReducer from '../lang/langSlice';

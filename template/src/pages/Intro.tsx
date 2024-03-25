@@ -1,4 +1,5 @@
 import { FormattedMessage } from 'react-intl';
+
 import MyForm from '../features/myForm/MyForm';
 
 const Intro = () => (

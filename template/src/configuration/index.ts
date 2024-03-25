@@ -1,17 +1,23 @@
+import type { UserManager } from 'oidc-client-ts';
+import { EVENT_USER_LANGUAGE_CHANGED, EVENT_USER_PROFILE_CHANGED } from '@rio-cloud/rio-user-menu-component';
+
 import { extractLanguage } from './lang/lang';
 import { configureFetchDisplayMessages } from './lang/services';
-import { configureMockUserManager, configureUserManager, createUserManager, SessionRenewedResult } from './login/login';
+import { config } from '../config';
+import {
+    configureMockUserManager,
+    configureUserManager,
+    createUserManager,
+    type SessionRenewedResult,
+} from './login/login';
 import { accessToken } from './tokenHandling/accessToken';
 import { trace } from './setup/trace';
 import { attemptInitialSignIn } from './setup/oauth';
-import { config } from '../config';
 import { reportErrorToSentry } from './setup/sentry';
 import { store } from './setup/store';
 import { accessTokenStored, idTokenStored } from './tokenHandling/tokenSlice';
 import { userProfileObtained, userSessionExpired, userSessionRenewed } from './login/loginSlice';
 import { getLocale } from './lang/langSlice';
-import type { UserManager } from 'oidc-client-ts';
-import { EVENT_USER_LANGUAGE_CHANGED, EVENT_USER_PROFILE_CHANGED } from '@rio-cloud/rio-user-menu-component';
 
 export interface OAuthConfig {
     onSessionExpired: Function;

@@ -17,11 +17,14 @@ vi.mock('react-redux', () => ({
 const mockSelectors = (selector: any, mockStore: any = {}) => {
     if (selector === getLocale) {
         return 'de-DE';
-    } else if (selector === getDisplayMessages) {
+    }
+    if (selector === getDisplayMessages) {
         return messagesEN;
-    } else if (selector === isUserSessionExpired) {
+    }
+    if (selector === isUserSessionExpired) {
         return false;
-    } else if (selector === getSessionExpiredAcknowledged) {
+    }
+    if (selector === getSessionExpiredAcknowledged) {
         return false;
     }
     return selector(mockStore);

@@ -1,5 +1,5 @@
 import { accessToken } from './accessToken';
-import { AccessToken } from './tokenSlice';
+import type { AccessToken } from './tokenSlice';
 
 export const prepareHeaders = (headers: Headers) => {
     const token = accessToken.getAccessToken() as AccessToken;

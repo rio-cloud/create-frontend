@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import type { RootState } from '../configuration/setup/store';
 
 export interface AppState {

@@ -1,4 +1,5 @@
 import * as Sentry from '@sentry/browser';
+
 import { config } from '../../config';
 
 if (import.meta.env.PROD) {

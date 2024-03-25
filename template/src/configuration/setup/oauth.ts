@@ -1,8 +1,9 @@
+import type { UserManager } from 'oidc-client-ts';
+
 import { config } from '../../config';
 import { trace } from './trace';
 import * as storage from '../login/storage';
 import { reportErrorToSentry } from './sentry';
-import type { UserManager } from 'oidc-client-ts';
 
 const saveCurrentRoute = () => {
     const initialRoute = [window.location.hash, window.location.search].join('').replace(/^#\/?/u, '');

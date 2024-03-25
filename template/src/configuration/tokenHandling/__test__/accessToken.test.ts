@@ -1,4 +1,4 @@
-import { configureAccessToken, extractAccessTokenFromWindowLocation, StorageUtil } from '../accessToken';
+import { configureAccessToken, extractAccessTokenFromWindowLocation, type StorageUtil } from '../accessToken';
 
 describe('features/tokenHandling/accessToken', () => {
     const hashWin = (token: string) =>

@@ -1,4 +1,5 @@
 import { Log, UserManager } from 'oidc-client-ts';
+
 import { config } from '../../config';
 
 export const handleLoginRedirect = () => {
