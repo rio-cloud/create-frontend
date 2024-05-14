@@ -28,6 +28,7 @@ const MyForm = () => {
         formState: { errors, isDirty },
     } = useForm<FormData>({ mode: 'onSubmit' });
 
+    // eslint-disable-next-line no-console
     const onSubmit = (data: FormData) => console.log(data);
 
     const getFormOfAddressOptions = (selectedValue: string) =>
