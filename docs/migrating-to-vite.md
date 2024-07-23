@@ -194,3 +194,27 @@ import ApplicationLayout from '@rio-cloud/rio-uikit/ApplicationLayout';
 ```
 
 ## Remove all jest configuration from your `package.json` or dedicated config files
+
+## Integrate Vitest fake timers with React Testing Library
+
+React Testing Library has [some internal support](https://github.com/testing-library/react-testing-library/blob/main/src/pure.js#L51) 
+for Jest fake timers. Sadly, as of now there is no similar support for the
+fake timers from Vitest. Without this support React Testing Library test
+cases that use fake timers might just hang and eventually time out.
+
+Some [GitHub issues](https://github.com/testing-library/react-testing-library/issues/1197#issuecomment-1506222246)
+suggest to add a global `jest` object containing a `advanceTimersByTime` method
+as a workaround:
+
+```javascript
+declare global {
+  // eslint-disable-next-line no-var
+  var jest: {
+    advanceTimersByTime: (time: number) => void;
+  };
+}
+
+global.jest = {
+  advanceTimersByTime: (time: number) => vi.advanceTimersByTime(time),
+};
+```
