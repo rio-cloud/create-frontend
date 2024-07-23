@@ -3,19 +3,17 @@ import { Outlet } from 'react-router-dom';
 import { SessionExpiredDialog } from '@rio-cloud/rio-session-expired-info';
 import ApplicationLayout from '@rio-cloud/rio-uikit/ApplicationLayout';
 import NotificationsContainer from '@rio-cloud/rio-uikit/NotificationsContainer';
+import { useRef } from 'react';
 
 import { DEFAULT_LOCALE } from '../configuration/lang/lang';
 import { isUserSessionExpired } from '../configuration/login/loginSlice';
 import { useAppDispatch, useAppSelector } from '../configuration/setup/hooks';
 import { getDisplayMessages, getLocale } from '../configuration/lang/langSlice';
-import DefaultRedirect from '../routes/DefaultRedirect';
 import RouteUpdater from '../routes/RouteUpdater';
 import { getSessionExpiredAcknowledged, hideSessionExpiredDialog } from '../data/appSlice';
 import AppHeader from '../features/header/AppHeader';
-
-import './App.css';
-import { useRef } from 'react';
 import { AppContext } from './AppContext';
+import './App.css';
 
 const AppLayout = () => {
     const dispatch = useAppDispatch();
@@ -41,7 +39,9 @@ const AppLayout = () => {
                     <ApplicationLayout.Header>
                         <AppHeader />
                     </ApplicationLayout.Header>
+
                     <ApplicationLayout.Sidebar className="right" ref={sidebarRef} />
+
                     <ApplicationLayout.Body>
                         <NotificationsContainer />
                         <SessionExpiredDialog
@@ -51,7 +51,6 @@ const AppLayout = () => {
                         />
                         <Outlet />
                         <RouteUpdater />
-                        <DefaultRedirect />
                     </ApplicationLayout.Body>
                 </ApplicationLayout>
             </AppContext.Provider>

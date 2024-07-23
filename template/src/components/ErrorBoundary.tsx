@@ -1,15 +1,24 @@
-import React, { type ErrorInfo, type ReactNode } from 'react';
-import * as Sentry from '@sentry/browser';
+import React, { ErrorInfo, PropsWithChildren, ReactNode } from 'react';
 
-export class ErrorBoundary extends React.Component<{ children?: ReactNode }, {}> {
-    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-        Sentry.withScope((scope) => {
-            scope.setExtra('componentStack', errorInfo.componentStack);
-            Sentry.captureException(error);
-        });
+export class ErrorBoundary extends React.Component<PropsWithChildren<{ fallback: ReactNode }>, { hasError: boolean }> {
+    constructor(props: PropsWithChildren<{ fallback: ReactNode }>) {
+        super(props);
+        this.state = { hasError: false };
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    static getDerivedStateFromError(error: unknown) {
+        return { hasError: true };
+    }
+
+    componentDidCatch(error: unknown, errorInfo: ErrorInfo) {
+        console.error('Unexpected error in boundary:', error, errorInfo);
     }
 
     render() {
+        if (this.state.hasError) {
+            return this.props.fallback;
+        }
         return this.props.children;
     }
 }
