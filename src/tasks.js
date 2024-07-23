@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import { Listr } from 'listr2';
 import fs from 'node:fs';
 import git from 'isomorphic-git';
-import replaceInFile from 'replace-in-file';
+import { replaceInFile } from 'replace-in-file';
 import chalk from 'chalk';
 import cpy from 'cpy';
 import { moveFile } from 'move-file';
