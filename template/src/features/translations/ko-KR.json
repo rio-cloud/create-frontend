@@ -1,0 +1,13 @@
+{
+    "intl-msg:common-message.error.generic.headline": "오, 이런! 문제가 발생했습니다.",
+    "intl-msg:common-message.error.generic.message": "데이터를로드 할 수 없습니다. 다시 시도하십시오.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "다시 시도하십시오. 오류가 반복적으로 나타나면 RIO 고객 지원 팀에 문의하십시오.",
+    "intl-msg:common-message.rating.currentness.low": "12 시간 이상 차량 위치를받지 못했습니다.",
+    "intl-msg:common-message.rating.currentness.medium": "1 시간 이상 차량 위치를받지 못했습니다.",
+    "intl-msg:common-message.rating.movement.low": "차량은> 24 시간 동안 정지합니다.",
+    "intl-msg:common-message.rating.movement.medium": "차량은> 12 시간 동안 정지합니다.",
+    "intl-msg:glossary.activity.available": "유효한",
+    "intl-msg:glossary.activity.driving": "운전",
+    "intl-msg:glossary.activity.resting": "휴식",
+    "intl-msg:glossary.activity.working": "일"
+}

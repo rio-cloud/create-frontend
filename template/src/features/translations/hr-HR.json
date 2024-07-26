@@ -1,0 +1,13 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Oh, pucketaj! Nešto je pošlo po zlu.",
+    "intl-msg:common-message.error.generic.message": "Nismo mogli učitati vaše podatke. Molim vas pokušajte ponovo.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Molim vas pokušajte ponovo. Ako se pogreška više puta pojavi, obratite se timu za korisničku podršku u Riu.",
+    "intl-msg:common-message.rating.currentness.low": "Nema položaja vozila za 12 sati.",
+    "intl-msg:common-message.rating.currentness.medium": "Nema položaja vozila za 1 sat.",
+    "intl-msg:common-message.rating.movement.low": "Vozilo ostaje na 24 sata.",
+    "intl-msg:common-message.rating.movement.medium": "Vozilo stoji još 12 sati.",
+    "intl-msg:glossary.activity.available": "Dostupna",
+    "intl-msg:glossary.activity.driving": "Vožnje",
+    "intl-msg:glossary.activity.resting": "Odmara",
+    "intl-msg:glossary.activity.working": "Radi"
+}

@@ -1,0 +1,13 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Oh snap! Algo correu mal.",
+    "intl-msg:common-message.error.generic.message": "Não foi possível carregar seus dados. Por favor, tente novamente.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Por favor, tente novamente. Se o erro aparecer repetidamente, entre em contato com a equipe de suporte ao cliente RIO.",
+    "intl-msg:common-message.rating.currentness.low": "Nenhuma posição do veículo recebida durante > 12 horas.",
+    "intl-msg:common-message.rating.currentness.medium": "Nenhuma posição do veículo recebida durante > 1 hora.",
+    "intl-msg:common-message.rating.movement.low": "O veículo está parado há >24H.",
+    "intl-msg:common-message.rating.movement.medium": "O veículo está parado há mais de 12 horas.",
+    "intl-msg:glossary.activity.available": "Disponível",
+    "intl-msg:glossary.activity.driving": "Condução",
+    "intl-msg:glossary.activity.resting": "Repouso",
+    "intl-msg:glossary.activity.working": "Trabalhos"
+}

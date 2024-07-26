@@ -1,10 +1,11 @@
 import ErrorState from '@rio-cloud/rio-uikit/ErrorState';
+import { FormattedMessage } from 'react-intl';
 
 const AppErrorPage = () => (
     <ErrorState
         outerClassName="margin-top-20"
-        headline="Something went very wrong"
-        message="We're sorry, the application encountered an unexpected error. Please try again later."
+        headline={<FormattedMessage id="intl-msg:common-message.error.generic.headline" />}
+        message={<FormattedMessage id="intl-msg:common-message.error.generic.message" />}
     />
 );
 

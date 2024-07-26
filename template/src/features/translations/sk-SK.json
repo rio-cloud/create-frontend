@@ -1,0 +1,13 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Ach nie! Niečo sa pokazilo.",
+    "intl-msg:common-message.error.generic.message": "Nemohli sme načítať vaše dáta. Skúste to znova.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Skúste to znova. Ak sa chyba zobrazí opakovane, obráťte sa prosím na tím zákazníckej podpory RIO.",
+    "intl-msg:common-message.rating.currentness.low": "Žiadne pozície vozidiel neboli prijaté viac ako 12 hodín.",
+    "intl-msg:common-message.rating.currentness.medium": "Žiadne pozície vozidiel neboli prijaté viac ako 1 hodinu.",
+    "intl-msg:common-message.rating.movement.low": "Vozidlo stojany po dobu 24 hodín .",
+    "intl-msg:common-message.rating.movement.medium": "Vozidlo stojany po dobu 12 hodín .",
+    "intl-msg:glossary.activity.available": "K dispozícii",
+    "intl-msg:glossary.activity.driving": "Riadenie",
+    "intl-msg:glossary.activity.resting": "Odpočinok",
+    "intl-msg:glossary.activity.working": "Práce"
+}

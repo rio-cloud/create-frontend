@@ -1,0 +1,13 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Oh snap! Valami elromlott.",
+    "intl-msg:common-message.error.generic.message": "Nem tudtuk betölteni az adatokat. Próbálkozzunk újra.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Próbálkozzunk újra. Ha a hiba ismételten megjelenik, kérjük, forduljon a RIO ügyfélszolgálati csapathoz.",
+    "intl-msg:common-message.rating.currentness.low": "> 12 óráig nem érkezett jármű.",
+    "intl-msg:common-message.rating.currentness.medium": "> 1 óráig nem érkezett jármű.",
+    "intl-msg:common-message.rating.movement.low": "A jármű áll még > 24 óra.",
+    "intl-msg:common-message.rating.movement.medium": "A jármű standok is > 12 óra.",
+    "intl-msg:glossary.activity.available": "Elérhető",
+    "intl-msg:glossary.activity.driving": "Vezetés",
+    "intl-msg:glossary.activity.resting": "Pihenő",
+    "intl-msg:glossary.activity.working": "Működő"
+}
