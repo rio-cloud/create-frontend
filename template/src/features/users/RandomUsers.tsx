@@ -14,7 +14,7 @@ const RandomUsers = () => {
         <div className="RandomUser">
             <div className="text-size-20 text-medium margin-bottom-15">Random Users</div>
             {isLoading && <Spinner />}
-            {error && <div>{'Users could not be fetched'}</div>}
+            {error && <div>Users could not be fetched</div>}
             {data && (
                 <div className="display-flex flex-column gap-10">
                     {data.map((user) => (

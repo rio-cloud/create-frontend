@@ -14,7 +14,7 @@ const navItems = [
         key: 'intro',
         route: (
             <NavLink to={routes.DEFAULT}>
-                <FormattedMessage id={'intl-msg:starterTemplate.sublink.intro'} />
+                <FormattedMessage id="intl-msg:starterTemplate.sublink.intro" />
             </NavLink>
         ),
     },
@@ -22,7 +22,7 @@ const navItems = [
         key: 'more',
         route: (
             <NavLink to={routes.MORE}>
-                <FormattedMessage id={'intl-msg:starterTemplate.sublink.more'} />
+                <FormattedMessage id="intl-msg:starterTemplate.sublink.more" />
             </NavLink>
         ),
     },
