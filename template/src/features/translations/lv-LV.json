@@ -1,0 +1,13 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Oh snap! Kaut kļūme.",
+    "intl-msg:common-message.error.generic.message": "Mēs nevarējām ielādēt jūsu datus. Lūdzu, mēģiniet vēlreiz.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Lūdzu, mēģiniet vēlreiz. Ja kļūda parādās atkārtoti, lūdzu, sazinieties ar RIO klientu atbalsta komandu.",
+    "intl-msg:common-message.rating.currentness.low": "Nav saņemta neviena transportlīdzekļa pozīcija > 12 stundas.",
+    "intl-msg:common-message.rating.currentness.medium": "Nav saņemta neviena transportlīdzekļa pozīcija > 1 stunda.",
+    "intl-msg:common-message.rating.movement.low": "Transportlīdzeklis joprojām ir > 24 stundas.",
+    "intl-msg:common-message.rating.movement.medium": "Transportlīdzeklis joprojām ir > 12 stundas.",
+    "intl-msg:glossary.activity.available": "Pieejama",
+    "intl-msg:glossary.activity.driving": "Braukšanas",
+    "intl-msg:glossary.activity.resting": "Atpūtas",
+    "intl-msg:glossary.activity.working": "Darba"
+}

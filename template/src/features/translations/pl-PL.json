@@ -1,0 +1,13 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Oh przystawki! Coś poszło nie tak.",
+    "intl-msg:common-message.error.generic.message": "Nie mogliśmy załadować danych. Proszę spróbować ponownie.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Proszę spróbować ponownie. Jeśli błąd pojawia się wielokrotnie, skontaktuj się z zespołem obsługi klienta RIO.",
+    "intl-msg:common-message.rating.currentness.low": "Nie otrzymano pozycji pojazdu od > 12 godzin.",
+    "intl-msg:common-message.rating.currentness.medium": "Nie otrzymano pozycji pojazdu od > 1 godziny.",
+    "intl-msg:common-message.rating.movement.low": "Postój pojazdu od > 24 godzin.",
+    "intl-msg:common-message.rating.movement.medium": "Postój pojazdu od > 12 godzin.",
+    "intl-msg:glossary.activity.available": "Dostępne",
+    "intl-msg:glossary.activity.driving": "Kierowanie",
+    "intl-msg:glossary.activity.resting": "Odpoczynek",
+    "intl-msg:glossary.activity.working": "Praca"
+}

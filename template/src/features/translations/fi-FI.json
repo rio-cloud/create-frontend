@@ -1,0 +1,13 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Oh Snap! Jokin meni pieleen.",
+    "intl-msg:common-message.error.generic.message": "Emme voineet ladata tietojasi. Yritä uudelleen.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Yritä uudelleen. Jos virhe ilmestyy toistuvasti, ota yhteyttä Rion asiakas tukeen.",
+    "intl-msg:common-message.rating.currentness.low": "Ajoneuvo kantoja ei saatu > 12 tuntiin.",
+    "intl-msg:common-message.rating.currentness.medium": "O ajoneuvon kannat saivat > 1 tunti.",
+    "intl-msg:common-message.rating.movement.low": "Ajoneuvo seisoo vielä > 24 tuntia.",
+    "intl-msg:common-message.rating.movement.medium": "Ajoneuvo seisoo vielä > 12 tuntia.",
+    "intl-msg:glossary.activity.available": "Saatavilla",
+    "intl-msg:glossary.activity.driving": "Ajo",
+    "intl-msg:glossary.activity.resting": "Lepo",
+    "intl-msg:glossary.activity.working": "Työskentely"
+}

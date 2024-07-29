@@ -1,0 +1,13 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Oh, pagan! Midagi läks viltu.",
+    "intl-msg:common-message.error.generic.message": "Me ei saanud teie andmeid laadida. Palun proovige uuesti.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Palun proovige uuesti. Kui tõrge ilmneb korduvalt, pöörduge RIO klienditoega meeskond.",
+    "intl-msg:common-message.rating.currentness.low": "Sõiduki positsioone ei saadud > 12 tundi.",
+    "intl-msg:common-message.rating.currentness.medium": "Sõiduki positsioone ei saadud > 1 tunniks.",
+    "intl-msg:common-message.rating.movement.low": "Sõiduk seisab ikka veel > 24 tundi.",
+    "intl-msg:common-message.rating.movement.medium": "Sõiduk seisab ikka veel > 12 tundi.",
+    "intl-msg:glossary.activity.available": "Saadaval",
+    "intl-msg:glossary.activity.driving": "Sõit",
+    "intl-msg:glossary.activity.resting": "Puhkus",
+    "intl-msg:glossary.activity.working": "Töö"
+}

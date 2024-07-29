@@ -8,7 +8,7 @@ const Intro = () => (
             <FormattedMessage id="intl-msg:starterTemplate.sublink.intro" />
         </h1>
         <div className="panel panel-default shadow-default">
-            <div className="panel-body">{'Hello there!'}</div>
+            <div className="panel-body">Hello there!</div>
         </div>
         <div className="panel panel-default shadow-default">
             <div className="panel-body padding-25">

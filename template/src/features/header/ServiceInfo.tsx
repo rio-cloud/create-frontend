@@ -1,16 +1,13 @@
 import { Link } from 'react-router-dom';
 import ActionBarItem from '@rio-cloud/rio-uikit/ActionBarItem';
 
-const serviceInfoTitle = 'Service XYZ';
-const serviceInfoVersion = 'v1.1.0';
-
 const ServiceInfo = () => {
     const handleClick = () => {};
 
     const title = (
         <div>
-            <span>{serviceInfoTitle}</span>
-            <span className="text-color-gray margin-left-10">{serviceInfoVersion}</span>
+            <span>{APP_NAME}</span>
+            <span className="text-color-gray margin-left-10">{APP_VERSION}</span>
         </div>
     );
 
@@ -25,7 +22,7 @@ const ServiceInfo = () => {
                         Release notes
                     </ActionBarItem.ListItem>
                     <ActionBarItem.ListItem icon="rioglyph-exclamation-sign">
-                        <Link to="/abcd">{'Link'}</Link>
+                        <Link to="/abcd">Link</Link>
                     </ActionBarItem.ListItem>
                 </ActionBarItem.List>
             </ActionBarItem.Popover>

@@ -1,0 +1,13 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Oh, Presneto! Nekaj je šlo narobe.",
+    "intl-msg:common-message.error.generic.message": "Podatkov nismo mogli naložiti. Prosim, poskusite znova.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Prosim, poskusite znova. Če se napaka ponavlja, se obrnite na ekipo za podporo strankam RIO.",
+    "intl-msg:common-message.rating.currentness.low": "Nobenega položaja vozila ni bilo več kot 12 ur.",
+    "intl-msg:common-message.rating.currentness.medium": "Nobenega položaja vozila ni bilo več kot 1 uro.",
+    "intl-msg:common-message.rating.movement.low": "Vozilo miruje> 24 ur.",
+    "intl-msg:common-message.rating.movement.medium": "Vozilo stoji še > 12 ur.",
+    "intl-msg:glossary.activity.available": "Razpoložljivih",
+    "intl-msg:glossary.activity.driving": "Vožnja",
+    "intl-msg:glossary.activity.resting": "Počitek",
+    "intl-msg:glossary.activity.working": "Dela"
+}

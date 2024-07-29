@@ -6,7 +6,7 @@ import UserSidebar from './UserSidebar';
 import { AppContext } from '../../../layout/AppContext';
 import { useAppSelector } from '../../../configuration/setup/hooks';
 import { getSelectedUserId } from '../userSlice';
-import { ROUTE_MORE } from '../../../routes/Router';
+import { routes } from '../../../routes/routes';
 
 const UserSidebarLoader = () => {
     const { sidebarRef } = useContext(AppContext);
@@ -14,7 +14,7 @@ const UserSidebarLoader = () => {
     const navigate = useNavigate();
     const selectedUserId = useAppSelector(getSelectedUserId);
 
-    const handleCloseSidebar = () => navigate(ROUTE_MORE);
+    const handleCloseSidebar = () => navigate(routes.MORE);
 
     if (!(sidebarRef?.current && selectedUserId)) {
         return null;
