@@ -20,7 +20,7 @@ export const attemptInitialSignIn = async (userManager: UserManager) => {
 
         trace('initialRoute lookup', initialRoute);
 
-        if (initialRoute && isFreshRedirect) {
+        if (initialRoute !== null && isFreshRedirect) {
             trace(`Go to location "/${initialRoute}"`);
             window.location.replace(`#/${initialRoute}`);
         }
