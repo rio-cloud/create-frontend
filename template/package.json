@@ -16,7 +16,7 @@
         "lint-fix": "npm run lint -- --fix",
         "audit": "npm audit --registry https://registry.npmjs.org --audit-level moderate --parseable --omit=dev",
         "format-code": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-        "format-code-on-commit": "npm run format-code && git add",
+        "format-code-on-commit": "npm run format-code && git add .",
         "pull-translations": "phrase pull --access_token $PHRASEAPP_ACCESS_TOKEN && node mergeTranslations.js",
         "cypress-open": "cypress open",
         "cypress-run": "cypress run",
