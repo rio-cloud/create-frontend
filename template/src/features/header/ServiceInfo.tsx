@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
 import ActionBarItem from '@rio-cloud/rio-uikit/ActionBarItem';
+import { FormattedMessage } from 'react-intl';
 
 const ServiceInfo = () => {
     const handleClick = () => {};
 
     const title = (
         <div>
-            <span>{APP_NAME}</span>
+            <span>
+                <FormattedMessage id="intl-msg:starterTemplate.moduleName" />
+            </span>
             <span className="text-color-gray margin-left-10">{APP_VERSION}</span>
         </div>
     );

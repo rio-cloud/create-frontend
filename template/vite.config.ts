@@ -1,14 +1,13 @@
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
-import { name, version } from './package.json';
+import { version } from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react(), visualizer({ filename: 'results/stats.html' })],
 
     define: {
-        APP_NAME: JSON.stringify(name),
         APP_VERSION: JSON.stringify(version),
     },
 
