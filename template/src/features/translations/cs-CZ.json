@@ -1,13 +1,5 @@
 {
     "intl-msg:common-message.error.generic.headline": "Ale ne! Něco se pokazlo.",
     "intl-msg:common-message.error.generic.message": "Data nelze načíst. Opakujte akci.",
-    "intl-msg:common-message.error.generic.retryOrSupport": "Opakujte akci. Pokud se chyba objevuje opakovaně, obraťte se na tým podpory zákazníků RIO.",
-    "intl-msg:common-message.rating.currentness.low": "Již > 12 hodin nebyly obdrženy informace o poloze vozidla.",
-    "intl-msg:common-message.rating.currentness.medium": "Již > 1 hodinu nebyly obdrženy informace o poloze vozidla.",
-    "intl-msg:common-message.rating.movement.low": "Vozidlo stojí již > 24 hodin.",
-    "intl-msg:common-message.rating.movement.medium": "Vozidlo stojí již > 12 hodin.",
-    "intl-msg:glossary.activity.available": "K dispozici",
-    "intl-msg:glossary.activity.driving": "Řízení",
-    "intl-msg:glossary.activity.resting": "Odpočinek",
-    "intl-msg:glossary.activity.working": "Práce"
+    "intl-msg:common-message.error.generic.retryOrSupport": "Opakujte akci. Pokud se chyba objevuje opakovaně, obraťte se na tým podpory zákazníků RIO."
 }

@@ -1,13 +1,5 @@
 {
     "intl-msg:common-message.error.generic.headline": "Ω, Θεέ μου! Κάτι πήγε στραβά.",
     "intl-msg:common-message.error.generic.message": "Δεν μπορούσαμε να φορτώσουμε τα δεδομένα σας. Σε παρακαλώ, προσπάθησε ξανά.",
-    "intl-msg:common-message.error.generic.retryOrSupport": "Σε παρακαλώ, προσπάθησε ξανά. Εάν το σφάλμα εμφανίζεται επανειλημμένα, παρακαλούμε επικοινωνήστε με την ομάδα υποστήριξης πελατών του RIO.",
-    "intl-msg:common-message.rating.currentness.low": "Δεν λάβαμε θέσεις για 12 ώρες.",
-    "intl-msg:common-message.rating.currentness.medium": "Καμία θέση οχήματος δεν ελήφθη για 1 ώρα.",
-    "intl-msg:common-message.rating.movement.low": "Το όχημα παραμένει ακίνητο για 24 ώρες.",
-    "intl-msg:common-message.rating.movement.medium": "Το όχημα παραμένει ακίνητο για 12 ώρες.",
-    "intl-msg:glossary.activity.available": "Διαθέσιμα",
-    "intl-msg:glossary.activity.driving": "Οδήγηση",
-    "intl-msg:glossary.activity.resting": "Ανάπαυσης",
-    "intl-msg:glossary.activity.working": "Εργασίας"
+    "intl-msg:common-message.error.generic.retryOrSupport": "Σε παρακαλώ, προσπάθησε ξανά. Εάν το σφάλμα εμφανίζεται επανειλημμένα, παρακαλούμε επικοινωνήστε με την ομάδα υποστήριξης πελατών του RIO."
 }

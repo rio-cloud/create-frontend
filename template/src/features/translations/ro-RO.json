@@ -1,13 +1,5 @@
 {
     "intl-msg:common-message.error.generic.headline": "O clipă! Ceva a mers prost.",
     "intl-msg:common-message.error.generic.message": "Nu am putut încărca datele dumneavoastră. Vă rugăm să încercați din nou.",
-    "intl-msg:common-message.error.generic.retryOrSupport": "Vă rugăm să încercați din nou. Dacă eroarea apare în mod repetat, vă rugăm să contactați echipa de asistență pentru clienți din RIO.",
-    "intl-msg:common-message.rating.currentness.low": "Nu au fost primite poziții ale vehiculului de > 12 ore.",
-    "intl-msg:common-message.rating.currentness.medium": "Nu au fost primite poziții ale vehiculului de > 1 oră.",
-    "intl-msg:common-message.rating.movement.low": "Vehiculul staționează de > 24 ore.",
-    "intl-msg:common-message.rating.movement.medium": "Vehiculul staționează de > 12 ore.",
-    "intl-msg:glossary.activity.available": "Disponibile",
-    "intl-msg:glossary.activity.driving": "Conducere",
-    "intl-msg:glossary.activity.resting": "Odihnă",
-    "intl-msg:glossary.activity.working": "Muncă"
+    "intl-msg:common-message.error.generic.retryOrSupport": "Vă rugăm să încercați din nou. Dacă eroarea apare în mod repetat, vă rugăm să contactați echipa de asistență pentru clienți din RIO."
 }

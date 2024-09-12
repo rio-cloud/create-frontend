@@ -1,13 +1,5 @@
 {
     "intl-msg:common-message.error.generic.headline": "Oh Snap! Något gick fel.",
     "intl-msg:common-message.error.generic.message": "Vi kunde inte läsa in dina data. Vänligen försök igen.",
-    "intl-msg:common-message.error.generic.retryOrSupport": "Vänligen försök igen. Om felet återkommer upprepade gånger ber vi dig kontakta RIO Customer Support-teamet.",
-    "intl-msg:common-message.rating.currentness.low": "Inga fordons positioner mottagna för > 12 timmar.",
-    "intl-msg:common-message.rating.currentness.medium": "Inga fordons positioner mottagna för > 1 timme.",
-    "intl-msg:common-message.rating.movement.low": "Fordonet står fortfarande för > 24 timmar.",
-    "intl-msg:common-message.rating.movement.medium": "Fordonet står fortfarande för > 12 timmar.",
-    "intl-msg:glossary.activity.available": "Tillgängliga",
-    "intl-msg:glossary.activity.driving": "Körning",
-    "intl-msg:glossary.activity.resting": "Vila",
-    "intl-msg:glossary.activity.working": "Arbetar"
+    "intl-msg:common-message.error.generic.retryOrSupport": "Vänligen försök igen. Om felet återkommer upprepade gånger ber vi dig kontakta RIO Customer Support-teamet."
 }

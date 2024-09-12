@@ -1,13 +1,5 @@
 {
     "intl-msg:common-message.error.generic.headline": "Какво? Нещо се е объркало.",
     "intl-msg:common-message.error.generic.message": "Не можем да заредим данните ви. Моля, опитайте отново.",
-    "intl-msg:common-message.error.generic.retryOrSupport": "Моля, опитайте отново. Ако грешката се появява многократно, моля свържете се с екипа за поддръжка на клиенти на Рио.",
-    "intl-msg:common-message.rating.currentness.low": "Не са получени позиции на превозни средства за > 12 часа.",
-    "intl-msg:common-message.rating.currentness.medium": "Не са получени позиции на превозното средство за > 1 час.",
-    "intl-msg:common-message.rating.movement.low": "Превозното средство стои неподвижно за > 24 часа.",
-    "intl-msg:common-message.rating.movement.medium": "Превозното средство стои неподвижно за > 12 часа.",
-    "intl-msg:glossary.activity.available": "Наличен",
-    "intl-msg:glossary.activity.driving": "Шофиране",
-    "intl-msg:glossary.activity.resting": "Почивка",
-    "intl-msg:glossary.activity.working": "Работи"
+    "intl-msg:common-message.error.generic.retryOrSupport": "Моля, опитайте отново. Ако грешката се появява многократно, моля свържете се с екипа за поддръжка на клиенти на Рио."
 }

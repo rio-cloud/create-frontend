@@ -1,13 +1,5 @@
 {
     "intl-msg:common-message.error.generic.headline": "Åh snap! Noget gik galt.",
     "intl-msg:common-message.error.generic.message": "Vi kunne ikke indlæse dine data. Prøv igen.",
-    "intl-msg:common-message.error.generic.retryOrSupport": "Prøv igen. Hvis fejlen vises gentagne gange, bedes du kontakte RIO Customer Support Team.",
-    "intl-msg:common-message.rating.currentness.low": "Ingen køretøjspositioner modtaget i >12 timer.",
-    "intl-msg:common-message.rating.currentness.medium": "Ingen køretøjspositioner modtaget i >1 time.",
-    "intl-msg:common-message.rating.movement.low": "Køretøj står stille i >24 timer.",
-    "intl-msg:common-message.rating.movement.medium": "Køretøj står stille i >12 timer.",
-    "intl-msg:glossary.activity.available": "Tilgængelige",
-    "intl-msg:glossary.activity.driving": "Kørsel",
-    "intl-msg:glossary.activity.resting": "Hvile",
-    "intl-msg:glossary.activity.working": "Arbejder"
+    "intl-msg:common-message.error.generic.retryOrSupport": "Prøv igen. Hvis fejlen vises gentagne gange, bedes du kontakte RIO Customer Support Team."
 }

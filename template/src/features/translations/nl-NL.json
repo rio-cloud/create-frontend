@@ -1,13 +1,5 @@
 {
     "intl-msg:common-message.error.generic.headline": "Oh snap! Er ging iets mis.",
     "intl-msg:common-message.error.generic.message": "We konden uw gegevens niet laden. Probeer het opnieuw.",
-    "intl-msg:common-message.error.generic.retryOrSupport": "Probeer het opnieuw. Als de fout herhaaldelijk verschijnt, neem dan contact op met het RIO Customer Support team.",
-    "intl-msg:common-message.rating.currentness.low": "Geen voertuigposities sinds > 12 uur ontvangen.",
-    "intl-msg:common-message.rating.currentness.medium": "Geen voertuigposities sinds > 1 uur ontvangen.",
-    "intl-msg:common-message.rating.movement.low": "Voertuig staat stil sinds > 24 uur.",
-    "intl-msg:common-message.rating.movement.medium": "Voertuig staat stil sinds > 12 uur.",
-    "intl-msg:glossary.activity.available": "Beschikbaar",
-    "intl-msg:glossary.activity.driving": "Rijden",
-    "intl-msg:glossary.activity.resting": "Rusten",
-    "intl-msg:glossary.activity.working": "Werkzaamheden"
+    "intl-msg:common-message.error.generic.retryOrSupport": "Probeer het opnieuw. Als de fout herhaaldelijk verschijnt, neem dan contact op met het RIO Customer Support team."
 }

@@ -34,7 +34,7 @@ phrase:
       - file: ./src/features/translations/temp/common-messages.<locale_name>.json
         project_id: 8c1220d39fc588e9ff9346adedef1b43
         params:
-          tags: error,rating
+          tags: error
           include_empty_translations: true
           fallback_locale_id: 629b468384c35d3dd63d8ba915d2ca3f
 

@@ -1,13 +1,5 @@
 {
     "intl-msg:common-message.error.generic.headline": "Oh snap! Quelque chose s'est mal passé.",
     "intl-msg:common-message.error.generic.message": "Nous ne pouvions pas charger vos données. S'll vous plaît, réessayez.",
-    "intl-msg:common-message.error.generic.retryOrSupport": "S'll vous plaît, réessayez. Si l'erreur apparaît à plusieurs reprises, veuillez contacter l'équipe de support client de RIO.",
-    "intl-msg:common-message.rating.currentness.low": "Aucune position du véhicule reçue depuis > 12 heures.",
-    "intl-msg:common-message.rating.currentness.medium": "Aucune position du véhicule reçue depuis > 1 heure.",
-    "intl-msg:common-message.rating.movement.low": "Le véhicule est arrêté depuis > 24 heures.",
-    "intl-msg:common-message.rating.movement.medium": "Le véhicule est arrêté depuis > 12 heures.",
-    "intl-msg:glossary.activity.available": "Disponible",
-    "intl-msg:glossary.activity.driving": "Conduite",
-    "intl-msg:glossary.activity.resting": "Repos",
-    "intl-msg:glossary.activity.working": "Travaux"
+    "intl-msg:common-message.error.generic.retryOrSupport": "S'll vous plaît, réessayez. Si l'erreur apparaît à plusieurs reprises, veuillez contacter l'équipe de support client de RIO."
 }
