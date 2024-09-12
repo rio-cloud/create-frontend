@@ -18,7 +18,6 @@ export interface ConfigState {
         redirectUri: string | undefined;
         silentRedirectUri: string | undefined;
     };
-    serviceVersion: string;
     serviceEnvironment: string;
     enableMockServer: boolean;
     logoutUri: string | undefined;
@@ -44,7 +43,6 @@ export const config: ConfigState = {
         redirectUri: import.meta.env.VITE_LOGIN_REDIRECT_URI,
         silentRedirectUri: import.meta.env.VITE_LOGIN_SILENT_REDIRECT_URI,
     },
-    serviceVersion: APP_VERSION,
     serviceEnvironment: import.meta.env.MODE,
     enableMockServer: import.meta.env.DEV,
     logoutUri: import.meta.env.VITE_LOGOUT_URI,

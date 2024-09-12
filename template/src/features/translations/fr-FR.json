@@ -1,0 +1,5 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Oh snap! Quelque chose s'est mal passé.",
+    "intl-msg:common-message.error.generic.message": "Nous ne pouvions pas charger vos données. S'll vous plaît, réessayez.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "S'll vous plaît, réessayez. Si l'erreur apparaît à plusieurs reprises, veuillez contacter l'équipe de support client de RIO."
+}

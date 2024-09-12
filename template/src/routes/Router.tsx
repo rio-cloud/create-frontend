@@ -1,26 +1,29 @@
 import { createHashRouter, createRoutesFromElements, Route } from 'react-router-dom';
+import { Navigate } from 'react-router';
 
-import { ErrorBoundary } from '../components/ErrorBoundary';
 import AppLayout from '../layout/AppLayout';
 import { suspendPageLoad } from './suspendPageLoad';
+import { routes } from './routes';
+import { RoutingErrorElement } from './RoutingErrorElement';
+import RoutingErrorPage from '../pages/RoutingErrorPage';
 
 // Lazy load pages for better performance and automatically split the bundle accordingly
 const Intro = suspendPageLoad(() => import('../pages/Intro'));
 const More = suspendPageLoad(() => import('../pages/More'));
 const UserSidebarLoader = suspendPageLoad(() => import('../features/users/userSidebar/UserSidebarLoader'));
 
-export const DEFAULT_ROUTE = '/intro';
-export const ROUTE_MORE = '/more';
+const routesFromElements = createRoutesFromElements(
+    <Route element={<AppLayout />} errorElement={<RoutingErrorElement />}>
+        <Route path={routes.ERROR} element={<RoutingErrorPage />} />
 
-export const routes = [DEFAULT_ROUTE, ROUTE_MORE];
+        <Route path={routes.DEFAULT} element={<Intro />} />
 
-export const router = createHashRouter(
-    createRoutesFromElements(
-        <Route path="/" element={<AppLayout />}>
-            <Route path={DEFAULT_ROUTE} errorElement={<ErrorBoundary />} element={<Intro />} />
-            <Route path={ROUTE_MORE} errorElement={<ErrorBoundary />} element={<More />}>
-                <Route path=":userId" element={<UserSidebarLoader />} />
-            </Route>
+        <Route path={routes.MORE} element={<More />}>
+            <Route path=":userId" element={<UserSidebarLoader />} />
         </Route>
-    )
+
+        <Route path="*" element={<Navigate to={routes.DEFAULT} />} />
+    </Route>
 );
+
+export const router = createHashRouter(routesFromElements);

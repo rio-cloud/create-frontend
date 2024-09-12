@@ -1,0 +1,5 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Oh przystawki! Coś poszło nie tak.",
+    "intl-msg:common-message.error.generic.message": "Nie mogliśmy załadować danych. Proszę spróbować ponownie.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Proszę spróbować ponownie. Jeśli błąd pojawia się wielokrotnie, skontaktuj się z zespołem obsługi klienta RIO."
+}

@@ -1,0 +1,5 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Ω, Θεέ μου! Κάτι πήγε στραβά.",
+    "intl-msg:common-message.error.generic.message": "Δεν μπορούσαμε να φορτώσουμε τα δεδομένα σας. Σε παρακαλώ, προσπάθησε ξανά.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Σε παρακαλώ, προσπάθησε ξανά. Εάν το σφάλμα εμφανίζεται επανειλημμένα, παρακαλούμε επικοινωνήστε με την ομάδα υποστήριξης πελατών του RIO."
+}

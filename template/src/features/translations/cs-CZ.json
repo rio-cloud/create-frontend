@@ -1,0 +1,5 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Ale ne! Něco se pokazlo.",
+    "intl-msg:common-message.error.generic.message": "Data nelze načíst. Opakujte akci.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Opakujte akci. Pokud se chyba objevuje opakovaně, obraťte se na tým podpory zákazníků RIO."
+}

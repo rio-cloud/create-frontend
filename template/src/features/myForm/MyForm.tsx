@@ -53,7 +53,7 @@ const MyForm = () => {
                             <Select
                                 placeholder="Please select..."
                                 options={getFormOfAddressOptions(value)}
-                                onChange={(selectedOption: SelectOptionType) => onChange(selectedOption.id)}
+                                onChange={(selectedOption) => onChange(selectedOption?.id)}
                             />
                         )}
                     />

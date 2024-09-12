@@ -1,0 +1,5 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Oh scatto! Qualcosa è andato storto.",
+    "intl-msg:common-message.error.generic.message": "Non è stato possibile caricare i dati. Riprovare.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Riprovare. Se l'errore viene visualizzato ripetutamente, contattare il team di assistenza clienti RIO."
+}

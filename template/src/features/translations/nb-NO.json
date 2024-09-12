@@ -1,0 +1,5 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Å snap! Noe gikk galt.",
+    "intl-msg:common-message.error.generic.message": "Vi kunne ikke laste inn data. Vennligst prøv igjen.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Vennligst prøv igjen. Hvis feilen dukker opp flere ganger, vennligst kontakt RIO kundestøtteteam."
+}

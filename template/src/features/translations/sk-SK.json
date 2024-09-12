@@ -1,0 +1,5 @@
+{
+    "intl-msg:common-message.error.generic.headline": "Ach nie! Niečo sa pokazilo.",
+    "intl-msg:common-message.error.generic.message": "Nemohli sme načítať vaše dáta. Skúste to znova.",
+    "intl-msg:common-message.error.generic.retryOrSupport": "Skúste to znova. Ak sa chyba zobrazí opakovane, obráťte sa prosím na tím zákazníckej podpory RIO."
+}

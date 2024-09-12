@@ -8,10 +8,11 @@ import { store } from './configuration/setup/store';
 import { handleLoginRedirect } from './configuration/login/redirect';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { router } from './routes/Router';
+import AppErrorPage from './pages/AppErrorPage';
 
 const renderApplication = () => {
     createRoot(document.getElementById('root') as HTMLElement).render(
-        <ErrorBoundary>
+        <ErrorBoundary fallback={<AppErrorPage />}>
             <Provider store={store}>
                 <RouterProvider router={router} />
             </Provider>

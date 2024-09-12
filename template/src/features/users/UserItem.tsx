@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../configuration/setup/hooks';
-import { ROUTE_MORE } from '../../routes/Router';
 import type { User } from '../../services/userApi';
 import { getSelectedUserId, userSelected } from './userSlice';
+import { routes } from '../../routes/routes';
 
 type UserItemProps = User;
 
@@ -16,7 +16,7 @@ export const UserItem = (props: UserItemProps) => {
 
     const handleClickUser = () => {
         dispatch(userSelected(id.value));
-        navigate(`${ROUTE_MORE}/${id.value}`);
+        navigate(`${routes.MORE}/${id.value}`);
     };
 
     const isSelected = selectedUserId === id.value;
