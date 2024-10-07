@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { prepareHeaders } from '../configuration/tokenHandling/prepareHeaders';
 
-export interface User {
+export type User = {
     id: { name: string; value: string };
     name: {
         title: string;
@@ -14,13 +14,16 @@ export interface User {
         medium: string;
         thumbnail: string;
     };
-}
+};
 
 // Define a service using a base URL and expected endpoints
 export const userApi = createApi({
     reducerPath: 'userApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://randomuser.me/api/', prepareHeaders }),
-    endpoints: (builder) => ({
+    baseQuery: fetchBaseQuery({
+        baseUrl: 'https://randomuser.me/api/',
+        prepareHeaders,
+    }),
+    endpoints: builder => ({
         fetchUsers: builder.query<User[], string | undefined>({
             query: () => ({
                 url: '?results=10&inc=id,name,email,picture',

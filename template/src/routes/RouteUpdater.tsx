@@ -1,10 +1,9 @@
-import { batch } from 'react-redux';
-import type { AnyAction } from 'redux';
+import type { Action } from 'redux';
 import { useLocation } from 'react-router-dom';
 
-import { makeRoute, parseRoute } from './routeHelper';
-import { useRouteState, useUpdateRoute } from './routeHooks';
-import { useAppDispatch, useAppSelector } from '../configuration/setup/hooks';
+import { parseRoute } from './routeHelper';
+import { useRouteState } from './routeHooks';
+import { useAppDispatch } from '../configuration/setup/hooks';
 // import { getSelectedMyId, getSelectedAnotherId, mySomethingSelected, anotherThingSelected } from '../appSlice';
 
 const RouteUpdater = () => {
@@ -16,7 +15,7 @@ const RouteUpdater = () => {
 
     // Parse initial route or after it has changed by browser navigation or user input
     useRouteState(() => {
-        const dispatchQue: AnyAction[] = [];
+        const dispatchQue: Action<string>[] = [];
 
         const routeSearchParams = parseRoute(search);
         // const { myId, anotherId } = routeSearchParams;
@@ -29,9 +28,7 @@ const RouteUpdater = () => {
         //     dispatchQue.push(anotherThingSelected(anotherId));
         // }
 
-        // batch(() => {
-        //     dispatchQue.forEach((action: AnyAction) => dispatch(action));
-        // });
+        // dispatchQue.forEach((action: AnyAction) => dispatch(action));
     });
 
     // Update route whenever an observed store prop changes.

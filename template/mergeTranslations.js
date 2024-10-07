@@ -23,16 +23,13 @@ const filesByLocales = allTempFiles.reduce((map, file) => {
 
 // merge all files belonging to the same locale
 for (const [locale, files] of filesByLocales) {
-    const promises = files.map(async (file) => JSON.parse(await readFile(`${tempDir}/${file}`, 'utf-8')));
+    const promises = files.map(async file => JSON.parse(await readFile(`${tempDir}/${file}`, 'utf-8')));
     const contents = await Promise.all(promises);
 
-    const mergedContent = contents.reduce(
-        (outgoingFile, content) => ({
-            ...outgoingFile,
-            ...content,
-        }),
-        {}
-    );
+    const mergedContent = contents.reduce((outgoingFile, content) => {
+        Object.assign(outgoingFile, content);
+        return outgoingFile;
+    }, {});
 
     const targetFile = `${targetDir}/${locale}.json`;
     console.log(`Writing ${targetFile}`);

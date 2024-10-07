@@ -19,12 +19,12 @@ import { accessTokenStored, idTokenStored } from './tokenHandling/tokenSlice';
 import { userProfileObtained, userSessionExpired, userSessionRenewed } from './login/loginSlice';
 import { getLocale } from './lang/langSlice';
 
-export interface OAuthConfig {
-    onSessionExpired: Function;
-    onSessionRenewed: Function;
-}
+export type OAuthConfig = {
+    onSessionExpired: () => void;
+    onSessionRenewed: (result: SessionRenewedResult) => void;
+};
 
-export const main = async (renderApp: Function) => {
+export const main = async (renderApp: () => void) => {
     const fetchDisplayMessages = configureFetchDisplayMessages(store);
 
     // We want the `<html lang>` attribute to be synced with the

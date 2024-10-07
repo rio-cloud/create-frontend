@@ -1,4 +1,5 @@
 import { configureAccessToken, extractAccessTokenFromWindowLocation, type StorageUtil } from '../accessToken';
+import type { AccessToken } from '../tokenSlice';
 
 describe('features/tokenHandling/accessToken', () => {
     const hashWin = (token: string) =>
@@ -45,11 +46,13 @@ describe('features/tokenHandling/accessToken', () => {
     });
 
     describe('configureAccessToken', () => {
-        const fakeStorage = (initialToken?: string) => {
+        const fakeStorage = (initialToken?: AccessToken) => {
             let accessToken = initialToken;
             return {
                 getAccessToken: () => accessToken,
-                saveAccessToken: (token: string) => (accessToken = token),
+                saveAccessToken: (token: AccessToken) => {
+                    accessToken = token;
+                },
                 discardAccessToken: () => {},
                 hasAccessToken: () => {},
             } as StorageUtil;

@@ -24,7 +24,7 @@ export const store = configureStore({
 
     // Adding the api middleware enables caching, invalidation, polling,
     // and other useful features of `rtk-query`.
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userApi.middleware),
+    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(userApi.middleware),
 });
 
 // Infer the `RootState` and `RootDispatch` types from the store itself

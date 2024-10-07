@@ -16,10 +16,10 @@ export const PARSE_OPTIONS: IParseOptions = {
     comma: true,
 };
 
-export interface RouteState {
+export type RouteState = {
     myId: string | undefined;
     anotherId: string | undefined;
-}
+};
 
 export const parseRoute = (locationSearch: string): RouteState => {
     const decodedSearch = decodeURIComponent(locationSearch.replace('?', ''));

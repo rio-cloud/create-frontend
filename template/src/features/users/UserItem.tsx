@@ -29,13 +29,13 @@ export const UserItem = (props: UserItemProps) => {
             }`}
             onClick={handleClickUser}
         >
-            <div className="display-flex align-items-center padding-10">
-                <div className="width-60 aspect-ratio-1">
-                    <img className="img-responsive rounded-circle" src={picture.thumbnail} alt="User Avatar" />
+            <div className='display-flex align-items-center padding-10'>
+                <div className='width-60 aspect-ratio-1'>
+                    <img className='img-responsive rounded-circle' src={picture.thumbnail} alt='User Avatar' />
                 </div>
-                <div className="margin-left-10">
-                    <div className="text-size-18 text-medium text-color-darker">{`${name.first} ${name.last}`}</div>
-                    <div className="text-color-gray">{email}</div>
+                <div className='margin-left-10'>
+                    <div className='text-size-18 text-medium text-color-darker'>{`${name.first} ${name.last}`}</div>
+                    <div className='text-color-gray'>{email}</div>
                 </div>
             </div>
         </div>

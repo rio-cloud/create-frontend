@@ -1,14 +1,14 @@
 declare global {
     interface Window {
-        dataLayer?: any[];
+        dataLayer?: unknown[];
     }
 }
 
-export interface GAEvent {
+export type GAEvent = {
     category: string;
     action: string;
     label: string;
-}
+};
 
 export const gaPush = (gaEvent: GAEvent) => {
     if (window.dataLayer) {
@@ -25,28 +25,30 @@ export const TRACKING_ACTIONS = {};
 
 export const TRACKING_LABELS = {};
 
+type AnyFunction = (...args: unknown[]) => unknown;
+
 export const executeAndTrack =
-    (func: Function, value: GAEvent) =>
-    (...args: any) => {
+    <T extends AnyFunction>(func: T, value: GAEvent) =>
+    (...args: Parameters<T>) => {
         func.apply(null, args);
         gaPush(value);
     };
 
-export interface TrackingValues {
+export type TrackingValues = {
     trigger: 'click' | 'visibility';
     category: string;
     action: string;
     label: string;
     value: string;
-}
+};
 
-export interface TrackingAttributes {
+export type TrackingAttributes = {
     'data-track-ga-event-trigger': string;
     'data-track-ga-event-category': string;
     'data-track-ga-event-action': string;
     'data-track-ga-event-label'?: string;
     'data-track-ga-event-value'?: string;
-}
+};
 
 export const getTrackingAttributes = (param: TrackingValues) => {
     const { trigger, category, action, label, value } = param;

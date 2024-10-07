@@ -6,7 +6,6 @@ export class ErrorBoundary extends Component<PropsWithChildren<{ fallback: React
         this.state = { hasError: false };
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     static getDerivedStateFromError(error: unknown) {
         return { hasError: true };
     }

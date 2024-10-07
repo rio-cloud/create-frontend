@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import type { RootState } from '../configuration/setup/store';
 
-export interface AppState {
+export type AppState = {
     sessionExpiredAcknowledged: boolean;
-}
+};
 
 const initialState: AppState = {
     sessionExpiredAcknowledged: false,
@@ -14,7 +14,7 @@ export const appSlice = createSlice({
     name: 'app',
     initialState,
     reducers: {
-        hideSessionExpiredDialog: (state) => {
+        hideSessionExpiredDialog: state => {
             state.sessionExpiredAcknowledged = true;
         },
     },

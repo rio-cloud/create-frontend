@@ -28,7 +28,6 @@ const MyForm = () => {
         formState: { errors, isDirty },
     } = useForm<FormData>({ mode: 'onSubmit' });
 
-    // eslint-disable-next-line no-console
     const onSubmit = (data: FormData) => console.log(data);
 
     const getFormOfAddressOptions = (selectedValue: string) =>
@@ -40,20 +39,20 @@ const MyForm = () => {
         );
 
     return (
-        <div className="margin-auto max-width-400">
-            <div className="text-size-h3 margin-bottom-15">Form Example</div>
+        <div className='margin-auto max-width-400'>
+            <div className='text-size-h3 margin-bottom-15'>Form Example</div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 {/* Example for UIKIT select component */}
-                <div className="form-group">
+                <div className='form-group'>
                     <label>Form of address</label>
                     <Controller
-                        name="formOfAddressId"
+                        name='formOfAddressId'
                         control={control}
                         render={({ field: { onChange, value } }) => (
                             <Select
-                                placeholder="Please select..."
+                                placeholder='Please select...'
                                 options={getFormOfAddressOptions(value)}
-                                onChange={(selectedOption) => onChange(selectedOption?.id)}
+                                onChange={selectedOption => onChange(selectedOption?.id)}
                             />
                         )}
                     />
@@ -61,17 +60,17 @@ const MyForm = () => {
 
                 {/* Example for required UIKIT input component */}
                 <div className={`form-group ${errors.name ? 'has-feedback has-error' : ''}`}>
-                    <label className="control-label">Name*</label>
+                    <label className='control-label'>Name*</label>
                     <Controller
-                        name="name"
+                        name='name'
                         control={control}
                         rules={{ required: true }}
-                        render={({ field }) => <ClearableInput placeholder="John Doe" {...field} />}
+                        render={({ field }) => <ClearableInput placeholder='John Doe' {...field} />}
                     />
                     {errors.name && (
                         <>
-                            <span className="form-control-feedback rioglyph rioglyph-error-sign" />
-                            <span className="help-block">
+                            <span className='form-control-feedback rioglyph rioglyph-error-sign' />
+                            <span className='help-block'>
                                 <span>Name is required</span>
                             </span>
                         </>
@@ -80,11 +79,11 @@ const MyForm = () => {
 
                 {/* Example for native required input with pattern that requires another field to be set */}
                 <div className={`form-group ${errors.email ? 'has-feedback has-error' : ''}`}>
-                    <label className="control-label">E-Mail*</label>
+                    <label className='control-label'>E-Mail*</label>
                     <input
-                        type="text"
-                        className="form-control"
-                        placeholder="john.doe@rio.cloud"
+                        type='text'
+                        className='form-control'
+                        placeholder='john.doe@rio.cloud'
                         {...register('email', {
                             required: true,
                             pattern: /^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$/i,
@@ -96,16 +95,16 @@ const MyForm = () => {
                     />
                     {errors.email && (
                         <>
-                            <span className="form-control-feedback rioglyph rioglyph-error-sign" />
-                            <span className="help-block">
+                            <span className='form-control-feedback rioglyph rioglyph-error-sign' />
+                            <span className='help-block'>
                                 <span>E-Mail is not valid</span>
                             </span>
                         </>
                     )}
                 </div>
 
-                <div className="display-flex justify-content-end margin-top-25">
-                    <button type="submit" className="btn btn-primary" disabled={!isDirty}>
+                <div className='display-flex justify-content-end margin-top-25'>
+                    <button type='submit' className='btn btn-primary' disabled={!isDirty}>
                         Submit
                     </button>
                 </div>

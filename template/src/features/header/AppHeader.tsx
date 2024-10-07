@@ -14,7 +14,7 @@ const navItems = [
         key: 'intro',
         route: (
             <NavLink to={routes.DEFAULT}>
-                <FormattedMessage id="intl-msg:starterTemplate.sublink.intro" />
+                <FormattedMessage id='intl-msg:starterTemplate.sublink.intro' />
             </NavLink>
         ),
     },
@@ -22,7 +22,7 @@ const navItems = [
         key: 'more',
         route: (
             <NavLink to={routes.MORE}>
-                <FormattedMessage id="intl-msg:starterTemplate.sublink.more" />
+                <FormattedMessage id='intl-msg:starterTemplate.sublink.more' />
             </NavLink>
         ),
     },
@@ -37,8 +37,8 @@ const AppHeader = () => {
 
     return (
         <ApplicationHeader
-            label={<FormattedMessage id="intl-msg:starterTemplate.moduleName" />}
-            appNavigator={<IframeResizer className="iFrameResizer" src={config.backend.MENU_SERVICE} />}
+            label={<FormattedMessage id='intl-msg:starterTemplate.moduleName' />}
+            appNavigator={<IframeResizer className='iFrameResizer' src={config.backend.MENU_SERVICE} />}
             homeRoute={<Link to={config.homeRoute || ''} />}
             navItems={navItems}
             actionBarItems={[serviceInfoItem, notifications, userMenuItem]}

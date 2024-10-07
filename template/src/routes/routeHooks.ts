@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useAfterMount from '@rio-cloud/rio-uikit/useAfterMount';
 
-export const useRouteState = (callback: Function) => {
+export const useRouteState = (callback: () => void) => {
     const { search } = useLocation();
     const searchRef = useRef('');
 
@@ -12,7 +12,7 @@ export const useRouteState = (callback: Function) => {
         }
         callback();
         searchRef.current = search;
-    }, [search]);
+    }, [search, callback]);
 };
 
 export const useUpdateRoute = (newSearch: string) => {

@@ -11,5 +11,6 @@ if (import.meta.env.PROD) {
 }
 
 export const reportErrorToSentry = import.meta.env.PROD
-    ? (...args: [any, any?]) => Sentry.captureException(...args)
+    ? // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+      (...args: [any, any?]) => Sentry.captureException(...args)
     : () => undefined;

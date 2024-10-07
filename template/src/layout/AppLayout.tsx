@@ -35,12 +35,12 @@ const AppLayout = () => {
     return (
         <IntlProvider defaultLocale={DEFAULT_LOCALE} key={userLocale} locale={userLocale} messages={displayMessages}>
             <AppContext.Provider value={{ sidebarRef }}>
-                <ApplicationLayout data-testid="app-layout">
+                <ApplicationLayout data-testid='app-layout'>
                     <ApplicationLayout.Header>
                         <AppHeader />
                     </ApplicationLayout.Header>
 
-                    <ApplicationLayout.Sidebar className="right" ref={sidebarRef} />
+                    <ApplicationLayout.Sidebar className='right' ref={sidebarRef} />
 
                     <ApplicationLayout.Body>
                         <NotificationsContainer />

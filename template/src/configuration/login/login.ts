@@ -1,4 +1,3 @@
-/* eslint-disable camelcase, no-console */
 import {
     type UserProfile as Profile,
     User,
@@ -65,7 +64,7 @@ export const createUserManager = () => {
 };
 
 export const configureUserManager = (oauthConfig: OAuthConfig, userManager: UserManager) => {
-    userManager.events.addUserLoaded((user) => {
+    userManager.events.addUserLoaded(user => {
         oauthConfig.onSessionRenewed(adaptPublishedInfo(user));
     });
 

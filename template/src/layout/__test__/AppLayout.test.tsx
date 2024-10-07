@@ -14,6 +14,7 @@ vi.mock('react-redux', () => ({
     useDispatch: vi.fn(),
 }));
 
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 const mockSelectors = (selector: any, mockStore: any = {}) => {
     if (selector === getLocale) {
         return 'de-DE';
@@ -31,12 +32,15 @@ const mockSelectors = (selector: any, mockStore: any = {}) => {
 };
 
 describe('Test AppLayout', () => {
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     const useSelectorMock = reactRedux.useSelector as any;
+
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     const useDispatchMock = reactRedux.useDispatch as any;
 
     beforeEach(() => {
         useDispatchMock.mockImplementation(() => () => {});
-        useSelectorMock.mockImplementation((selector: any) => mockSelectors(selector));
+        useSelectorMock.mockImplementation((selector: unknown) => mockSelectors(selector));
     });
 
     afterEach(() => {

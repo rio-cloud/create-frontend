@@ -1,9 +1,9 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../configuration/setup/store';
 
-export interface UserState {
+export type UserState = {
     selectedUserId?: string;
-}
+};
 
 const initialState: UserState = {};
 

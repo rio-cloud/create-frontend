@@ -31,7 +31,6 @@ export const attemptInitialSignIn = async (userManager: UserManager) => {
         trace('oidc.signinSilent failed, trying page redirect...', error);
 
         if (config.login.preventRedirect) {
-            // eslint-disable-next-line no-console
             console.warn('[feature/login] redirect prevented due to config. Error was', error);
         } else if (isFreshRedirect) {
             trace('oidc.signinSilent.error', 'redirect prevented due to supsicious signin error', error);

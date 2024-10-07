@@ -19,10 +19,10 @@ const routesFromElements = createRoutesFromElements(
         <Route path={routes.DEFAULT} element={<Intro />} />
 
         <Route path={routes.MORE} element={<More />}>
-            <Route path=":userId" element={<UserSidebarLoader />} />
+            <Route path=':userId' element={<UserSidebarLoader />} />
         </Route>
 
-        <Route path="*" element={<Navigate to={routes.DEFAULT} />} />
+        <Route path='*' element={<Navigate to={routes.DEFAULT} />} />
     </Route>
 );
 

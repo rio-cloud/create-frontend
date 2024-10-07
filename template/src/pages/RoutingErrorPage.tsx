@@ -9,17 +9,17 @@ const RoutingErrorPage = () => {
 
     return (
         <ErrorState
-            headline={<FormattedMessage id="intl-msg:common-message.error.generic.headline" />}
-            message={<FormattedMessage id="intl-msg:common-message.error.generic.message" />}
+            headline={<FormattedMessage id='intl-msg:common-message.error.generic.headline' />}
+            message={<FormattedMessage id='intl-msg:common-message.error.generic.message' />}
             buttons={[
                 {
-                    text: <FormattedMessage id="intl-msg:starterTemplate.reloadPage" />,
+                    text: <FormattedMessage id='intl-msg:starterTemplate.reloadPage' />,
                     onClick: () => navigate(routes.DEFAULT),
                     className: 'btn-primary',
                 },
             ]}
         >
-            <FormattedMessage id="intl-msg:common-message.error.generic.retryOrSupport" />
+            <FormattedMessage id='intl-msg:common-message.error.generic.retryOrSupport' />
         </ErrorState>
     );
 };

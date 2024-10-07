@@ -17,8 +17,7 @@ export const startWorker = () =>
             // turn off MSW warnings for specific routes
             if (isDefault(url) || url.href.startsWith('https://randomuser.me/')) {
                 return;
-            } else {
-                print.warning();
             }
+            print.warning();
         },
     });

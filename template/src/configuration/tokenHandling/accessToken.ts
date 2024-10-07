@@ -1,17 +1,23 @@
-export interface StorageUtil {
-    discardAccessToken: Function;
-    getAccessToken: Function;
-    hasAccessToken: Function;
-    saveAccessToken: Function;
-}
+import type { AccessToken } from './tokenSlice';
+
+export type StorageUtil = {
+    discardAccessToken: () => void;
+    getAccessToken: () => string;
+    hasAccessToken: () => void;
+    saveAccessToken: (token: AccessToken) => void;
+};
 
 export const configureStorage = () => {
-    let storedAccessToken: string | null = null;
+    let storedAccessToken: AccessToken;
     return {
-        discardAccessToken: () => (storedAccessToken = null),
+        discardAccessToken: () => {
+            storedAccessToken = null;
+        },
         getAccessToken: () => storedAccessToken,
         hasAccessToken: () => Boolean(storedAccessToken),
-        saveAccessToken: (token: string) => (storedAccessToken = token),
+        saveAccessToken: (token: AccessToken) => {
+            storedAccessToken = token;
+        },
     } as StorageUtil;
 };
 
@@ -20,7 +26,7 @@ export const extractAccessTokenFromWindowLocation = (window?: Window) => {
         return;
     }
 
-    let token;
+    let token: string | undefined;
 
     const replacer = (substring: string, arg: string): string => {
         token = arg;

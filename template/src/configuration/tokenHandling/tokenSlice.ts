@@ -11,10 +11,10 @@ export const TENANT_RIO_SOUTHKOREA_PROD = 'rio-southkorea.prod';
 
 export type AccessToken = string | undefined | null;
 
-export interface AccessTokenState {
+export type AccessTokenState = {
     accessToken: AccessToken;
     idToken: Profile | null;
-}
+};
 
 const initialState: AccessTokenState = {
     accessToken: accessToken.getAccessToken(),

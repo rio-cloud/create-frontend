@@ -32,11 +32,11 @@ const loginSlice = createSlice({
         userProfileObtained: (state, action: PayloadAction<UserProfile>) => {
             state.userProfile = action.payload;
         },
-        userSessionExpired: (state) => {
+        userSessionExpired: state => {
             state.hasUserSessionEverExpired = true;
             state.userSessionExpired = true;
         },
-        userSessionRenewed: (state) => {
+        userSessionRenewed: state => {
             state.userSessionExpired = false;
         },
     },

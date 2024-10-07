@@ -8,7 +8,6 @@ type DynamicImportFactory<T> = () => Promise<{ default: ComponentType<T> }>;
  */
 export const suspendPageLoad = <PropsType extends {}>(factory: DynamicImportFactory<PropsType>) => {
     const LazyComponent = lazy(factory);
-    // eslint-disable-next-line react/display-name
     return (props: PropsWithoutRef<PropsType>) => (
         <SuspendedWithSpinner>
             <LazyComponent {...props} />

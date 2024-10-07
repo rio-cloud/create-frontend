@@ -1,6 +1,6 @@
 const asBool = (value: string | undefined): boolean => value === 'true';
 
-export interface ConfigState {
+export type ConfigState = {
     backend: {
         AUTHENTICATION_SERVICE: string | undefined;
         MENU_SERVICE: string | undefined;
@@ -23,7 +23,7 @@ export interface ConfigState {
     logoutUri: string | undefined;
     sentryToken: string | undefined;
     sentryModuleName: string;
-}
+};
 
 export const config: ConfigState = {
     backend: {
