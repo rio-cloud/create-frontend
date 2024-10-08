@@ -9,9 +9,9 @@ import { store } from './configuration/setup/store';
 import { handleLoginRedirect } from './configuration/login/redirect';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { router } from './routes/Router';
-import ErrorFallback from './components/ErrorFallback';
 import { useDisplayMessages, useLocale } from './configuration/lang/langSlice';
 import { DEFAULT_LOCALE } from './configuration/lang/lang';
+import ErrorFallback from './components/ErrorFallback';
 
 const App = () => {
     const userLocale = useLocale();
