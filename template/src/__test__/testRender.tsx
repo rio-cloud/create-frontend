@@ -1,4 +1,4 @@
-import { render as libRender, type RenderOptions } from '@testing-library/react';
+import { render, type RenderOptions } from '@testing-library/react';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
@@ -9,70 +9,37 @@ import userEvent from '@testing-library/user-event';
 import { store as defaultStore } from '../configuration/setup/store';
 import messages from '../features/translations/en-GB.json';
 
-export const render = (element: ReactElement, renderOptions?: RenderOptions) => {
-    const user = userEvent.setup();
+const getTestRouter = (children: ReactNode) => {
+    const routes = [{ path: '/', element: children }];
 
-    const defaultWrapper = ({ children }: { children: ReactNode }) => {
-        const routes = [
-            {
-                path: '/',
-                element: children,
-            },
-        ];
+    return createMemoryRouter(routes, {
+        initialEntries: ['/'],
+        initialIndex: 1,
+    });
+};
 
-        const router = createMemoryRouter(routes, {
-            initialEntries: ['/'],
-            initialIndex: 1,
-        });
-
-        return (
+const createWrapper = (children: ReactNode, store?: Store) => {
+    const WrapperComponent = ({ children }: { children: ReactNode }) => {
+        const content = (
             <IntlProvider locale='en-GB' messages={messages}>
-                <RouterProvider router={router} />
+                <RouterProvider router={getTestRouter(children)} />
             </IntlProvider>
         );
+        return store ? <Provider store={store}>{content}</Provider> : content;
     };
+    return WrapperComponent;
+};
 
-    const defaultOptions: RenderOptions = {
-        wrapper: defaultWrapper,
-    };
+export const renderTest = (element: ReactElement, renderOptions?: RenderOptions) => {
+    const user = userEvent.setup();
+    const defaultOptions: RenderOptions = { wrapper: createWrapper(element) };
 
-    return {
-        ...libRender(element, { ...defaultOptions, ...renderOptions }),
-        user,
-    };
+    return { ...render(element, { ...defaultOptions, ...renderOptions }), user };
 };
 
 export const renderWithStore = (element: ReactElement, store: Store = defaultStore, renderOptions?: RenderOptions) => {
     const user = userEvent.setup();
+    const defaultOptions: RenderOptions = { wrapper: createWrapper(element) };
 
-    const defaultWrapper = ({ children }: { children: ReactNode }) => {
-        const routes = [
-            {
-                path: '/',
-                element: children,
-            },
-        ];
-
-        const router = createMemoryRouter(routes, {
-            initialEntries: ['/'],
-            initialIndex: 1,
-        });
-
-        return (
-            <Provider store={store}>
-                <IntlProvider locale='en-GB' messages={messages}>
-                    <RouterProvider router={router} />
-                </IntlProvider>
-            </Provider>
-        );
-    };
-
-    const defaultOptions: RenderOptions = {
-        wrapper: defaultWrapper,
-    };
-
-    return {
-        ...libRender(element, { ...defaultOptions, ...renderOptions }),
-        user,
-    };
+    return { ...render(element, { ...defaultOptions, ...renderOptions }), user };
 };

@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import type { RootState } from '../configuration/setup/store';
+import { useAppSelector } from '../configuration/setup/hooks';
 
 export type AppState = {
     sessionExpiredAcknowledged: boolean;
@@ -23,5 +24,7 @@ export const appSlice = createSlice({
 export const { hideSessionExpiredDialog } = appSlice.actions;
 
 export const getSessionExpiredAcknowledged = (state: RootState) => state.app.sessionExpiredAcknowledged;
+
+export const useSessionExpiredAcknowledged = () => useAppSelector(getSessionExpiredAcknowledged);
 
 export default appSlice.reducer;

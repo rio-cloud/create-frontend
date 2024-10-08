@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
+import { IntlProvider } from 'react-intl';
 
 import { config } from './config';
 import { main } from './configuration';
@@ -8,15 +9,32 @@ import { store } from './configuration/setup/store';
 import { handleLoginRedirect } from './configuration/login/redirect';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { router } from './routes/Router';
-import AppErrorPage from './pages/AppErrorPage';
+import ErrorFallback from './components/ErrorFallback';
+import { useDisplayMessages, useLocale } from './configuration/lang/langSlice';
+import { DEFAULT_LOCALE } from './configuration/lang/lang';
+
+const App = () => {
+    const userLocale = useLocale();
+    const displayMessages = useDisplayMessages();
+
+    if (!(displayMessages && userLocale)) {
+        return null;
+    }
+
+    return (
+        <IntlProvider defaultLocale={DEFAULT_LOCALE} key={userLocale} locale={userLocale} messages={displayMessages}>
+            <ErrorBoundary fallback={<ErrorFallback />}>
+                <RouterProvider router={router} />
+            </ErrorBoundary>
+        </IntlProvider>
+    );
+};
 
 const renderApplication = () => {
     createRoot(document.getElementById('root') as HTMLElement).render(
-        <ErrorBoundary fallback={<AppErrorPage />}>
-            <Provider store={store}>
-                <RouterProvider router={router} />
-            </Provider>
-        </ErrorBoundary>
+        <Provider store={store}>
+            <App />
+        </Provider>
     );
 };
 

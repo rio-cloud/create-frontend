@@ -1,18 +1,16 @@
-import { useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 
 import UserSidebar from './UserSidebar';
-import { AppContext } from '../../../layout/AppContext';
-import { useAppSelector } from '../../../configuration/setup/hooks';
-import { getSelectedUserId } from '../userSlice';
+import { useAppContext } from '../../../layout/AppContext';
+import { useSelectedUserId } from '../userSlice';
 import { routes } from '../../../routes/routes';
 
 const UserSidebarLoader = () => {
-    const { sidebarRef } = useContext(AppContext);
+    const { sidebarRef } = useAppContext();
 
     const navigate = useNavigate();
-    const selectedUserId = useAppSelector(getSelectedUserId);
+    const selectedUserId = useSelectedUserId();
 
     const handleCloseSidebar = () => navigate(routes.MORE);
 
