@@ -1,6 +1,14 @@
 import { Component, type ErrorInfo, type PropsWithChildren, type ReactNode } from 'react';
 
-export class ErrorBoundary extends Component<PropsWithChildren<{ fallback: ReactNode }>, { hasError: boolean }> {
+type ErrorBoundaryProps = {
+    fallback: ReactNode;
+};
+
+type ErrorBoundaryState = {
+    hasError: boolean;
+};
+
+export class ErrorBoundary extends Component<PropsWithChildren<ErrorBoundaryProps>, ErrorBoundaryState> {
     constructor(props: PropsWithChildren<{ fallback: ReactNode }>) {
         super(props);
         this.state = { hasError: false };
@@ -11,7 +19,7 @@ export class ErrorBoundary extends Component<PropsWithChildren<{ fallback: React
     }
 
     componentDidCatch(error: unknown, errorInfo: ErrorInfo) {
-        console.error('Unexpected error in boundary:', error, errorInfo);
+        console.error('Unexpected error:', error, errorInfo);
     }
 
     render() {

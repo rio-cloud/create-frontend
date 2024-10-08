@@ -3,6 +3,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../setup/store';
 import messagesEN from '../../features/translations/en-GB.json';
 import { DEFAULT_LOCALE, getSupportedLocale } from './lang';
+import { useAppSelector } from '../setup/hooks';
 
 export type DisplayMessages = Record<string, string>;
 
@@ -57,5 +58,8 @@ export const { localeChanged, displayMessagesFetched } = langSlice.actions;
 
 export const getLocale = (state: RootState) => state.lang.displayLocale;
 export const getDisplayMessages = (state: RootState) => state.lang.displayMessages;
+
+export const useLocale = () => useAppSelector(getLocale);
+export const useDisplayMessages = () => useAppSelector(getDisplayMessages);
 
 export default langSlice.reducer;

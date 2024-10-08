@@ -1,6 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 import type { RootState } from '../setup/store';
+import { useAppSelector } from '../setup/hooks';
 
 export type UserProfile = {
     sub?: string;
@@ -50,5 +51,10 @@ export const getUserAccount = (state: RootState) => state.login.userProfile?.acc
 
 export const hasUserSessionEverExpired = (state: RootState) => state.login.hasUserSessionEverExpired;
 export const isUserSessionExpired = (state: RootState) => state.login.userSessionExpired;
+
+export const useUserProfile = () => useAppSelector(getUserProfile);
+export const useUserAccount = () => useAppSelector(getUserAccount);
+
+export const useIsUserSessionExpired = () => useAppSelector(isUserSessionExpired);
 
 export default loginSlice.reducer;

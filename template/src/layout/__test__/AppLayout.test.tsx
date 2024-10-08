@@ -1,6 +1,5 @@
-import { render, waitFor } from '@testing-library/react';
+import { waitFor } from '@testing-library/react';
 import * as reactRedux from 'react-redux';
-import { HashRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
 
 import AppLayout from '../AppLayout';
@@ -8,6 +7,7 @@ import messagesEN from '../../features/translations/en-GB.json';
 import { getDisplayMessages, getLocale } from '../../configuration/lang/langSlice';
 import { isUserSessionExpired } from '../../configuration/login/loginSlice';
 import { getSessionExpiredAcknowledged } from '../../data/appSlice';
+import { renderTest } from '../../__test__/testRender';
 
 vi.mock('react-redux', () => ({
     useSelector: vi.fn(),
@@ -49,7 +49,7 @@ describe('Test AppLayout', () => {
     });
 
     test('Application layout is rendered', async () => {
-        const { findByTestId } = renderWithRouter(<AppLayout />);
+        const { findByTestId } = renderTest(<AppLayout />);
 
         await waitFor(async () => {
             const layout = await findByTestId('app-layout');
@@ -57,7 +57,3 @@ describe('Test AppLayout', () => {
         });
     });
 });
-
-const renderWithRouter = (component: JSX.Element) => {
-    return render(<HashRouter>{component}</HashRouter>);
-};
