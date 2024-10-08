@@ -7,7 +7,7 @@ import messagesEN from '../../features/translations/en-GB.json';
 import { getDisplayMessages, getLocale } from '../../configuration/lang/langSlice';
 import { isUserSessionExpired } from '../../configuration/login/loginSlice';
 import { getSessionExpiredAcknowledged } from '../../data/appSlice';
-import { renderTest } from '../../__test__/testRender';
+import { renderWithRouter } from '../../__test__/testRender';
 
 vi.mock('react-redux', () => ({
     useSelector: vi.fn(),
@@ -49,7 +49,7 @@ describe('Test AppLayout', () => {
     });
 
     test('Application layout is rendered', async () => {
-        const { findByTestId } = renderTest(<AppLayout />);
+        const { findByTestId } = renderWithRouter(<AppLayout />);
 
         await waitFor(async () => {
             const layout = await findByTestId('app-layout');
