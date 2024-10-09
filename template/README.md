@@ -41,8 +41,8 @@ A short explanation of what each folder is meant for:
     - **services**: All service API connections, redux-toolkit-query APIs or thunks, io-ts converter, model types, etc.
     - **utils**: Common utility files and functions.
 - **test**
-    - **integration**: All cypress integration tests.
-    - **utils**: Utility functions that are used in integration tests.
+    - **integration**: All integration tests.
+    - **utils**: Utility functions that can be used in integration or unit tests tests.
 
 Note: There is no dedicated root folder for all the type files on purpose, as we believe that the typings should be
 co-located to the files where they originate from. This means, that component types belong to the respective component
