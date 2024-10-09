@@ -1,47 +1,40 @@
-// This is the default page object model to provide utilities for the page
-// See: https://playwright.dev/docs/pom
-
-import type { Locator, Page } from '@playwright/test';
-
-import { type QueryParams, toQueryString } from './utils';
+import { test as base, type Locator, type Page } from '@playwright/test';
 
 export const BASE_URL = 'http://localhost:3000/#/';
 
-type Selectors = {
-    applicationBody: string;
-    appMenu: string;
-};
+/**
+ * Defines a "page object model".
+ *
+ * @see https://playwright.dev/docs/pom
+ */
+export class AppPage {
+    public readonly body: Locator;
+    public readonly locationMenu: Locator;
+    public readonly actionBarItems: Locator;
 
-export const selectors: Selectors = {
-    applicationBody: '.ApplicationLayoutBody',
-    appMenu: '.ModuleNavigation-dropdown',
-};
+    constructor(public readonly page: Page) {
+        this.body = page.locator('.ApplicationLayoutBody');
+        this.locationMenu = page.locator('.ModuleNavigation-dropdown');
+        this.actionBarItems = page.locator('.ActionBarItemIcon');
+    }
 
-type AppPageType = {
-    open: (options?: QueryParams) => Promise<void>;
-    getApplicationBody: () => Promise<Locator>;
-    getApplicationMenu: () => Promise<Locator>;
-    openServiceInfo: () => Promise<void>;
-};
+    async open(queryParams: Record<string, string> = {}) {
+        const search = new URLSearchParams(queryParams).toString();
+        await this.page.goto(`${BASE_URL}${search ? `?${search}` : ''}`);
+    }
 
-export const AppPage = (page: Page): AppPageType => {
-    const open = async (options: QueryParams | undefined): Promise<void> => {
-        const params = options ? toQueryString(options) : '';
-        await page.goto(`${BASE_URL}${params}`);
-    };
+    async openServiceInfo() {
+        await this.actionBarItems.first().click();
+    }
+}
 
-    const getApplicationBody = async (): Promise<Locator> => page.locator(selectors.applicationBody);
-
-    const getApplicationMenu = async (): Promise<Locator> => page.locator(selectors.appMenu);
-
-    const openServiceInfo = async (): Promise<void> => {
-        await page.locator('.ActionBarItemIcon').first().click();
-    };
-
-    return {
-        open,
-        getApplicationBody,
-        getApplicationMenu,
-        openServiceInfo,
-    };
-};
+/**
+ * Extends the default Playwright `test` function with a "fixture".
+ *
+ * This allows specs to directly use the POM instead of having to create it every single time.
+ *
+ * @see https://playwright.dev/docs/test-fixtures
+ */
+export const test = base.extend<{ appPage: AppPage }>({
+    appPage: async ({ page }, use) => await use(new AppPage(page)),
+});
