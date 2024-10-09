@@ -54,8 +54,7 @@ use something else, feel free to remove or adapt the sample implementations.
 - *Service monitoring and issue tracking*:
     - [Sentry](https://sentry.io/)
 - *Static code analysis and formatting*:
-    - [ESLint](https://eslint.org/)
-    - [Prettier](https://prettier.io/) for autoformatting source code
+    - [Biome](https://biomejs.dev/)
 - *Automated dependency updates*:
     - [Renovate](https://docs.renovatebot.com/) basic configuration file only, further configurations must be customized
 
