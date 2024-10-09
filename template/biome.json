@@ -71,6 +71,15 @@
         }
     ],
     "files": {
-        "ignore": ["src/features/translations/", "public/", "build/", "coverage/", "results/", ".idea/", ".vscode/"]
+        "ignore": [
+            "src/features/translations/",
+            "public/",
+            "build/",
+            "coverage/",
+            "results/",
+            ".idea/",
+            ".vscode/",
+            "package.json"
+        ]
     }
 }
