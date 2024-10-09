@@ -71,6 +71,6 @@
         }
     ],
     "files": {
-        "ignore": ["src/features/translations/"]
+        "ignore": ["template/src/features/translations/", "template/package.json"]
     }
 }
