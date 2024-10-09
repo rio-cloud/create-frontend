@@ -9,14 +9,12 @@ const QS_OPTIONS = {
     skipNulls: true, // required to remove empty params
 } as IStringifyOptions;
 
-const BASE_URL = '#/intro';
-
-const toQueryString = (query: unknown) => {
-    const queryString = qs.stringify(query, QS_OPTIONS);
-    return queryString ? `?${queryString}` : '';
+export type QueryParams = {
+    foo?: string;
+    skipBar?: boolean;
 };
 
-export const prepareAndVisit = (url = BASE_URL, query?: unknown) => {
-    cy.wait(10);
-    cy.visit(`${url}${toQueryString(query)}`);
+export const toQueryString = (query: QueryParams) => {
+    const queryString = qs.stringify(query, QS_OPTIONS);
+    return queryString ? `?${queryString}` : '';
 };
