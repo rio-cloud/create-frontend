@@ -220,3 +220,4 @@ mocks/rio-user-menu.js
 
 # temporary i18n files that get merged
 src/features/translations/temp/**/*
+test-results
