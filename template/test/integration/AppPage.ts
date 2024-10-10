@@ -1,32 +1,33 @@
-import { test as base, type Locator, type Page } from '@playwright/test';
+import { type Page, test as base } from '@playwright/test';
 
 export const BASE_URL = 'http://localhost:3000/#/';
 
 /**
- * Defines a "page object model".
+ * Creates a "page object model" (POM).
+ *
+ * Please note that we're explicitly not using classes for our POMs, so you need to make sure to use this without the
+ * "new" keyword.
  *
  * @see https://playwright.dev/docs/pom
  */
-export class AppPage {
-    public readonly body: Locator;
-    public readonly locationMenu: Locator;
-    public readonly actionBarItems: Locator;
+export const appPage = (page: Page) => {
+    const body = page.locator('.ApplicationLayoutBody');
+    const locationMenu = page.locator('.ModuleNavigation-dropdown');
+    const actionBarItems = page.locator('.ActionBarItemIcon');
 
-    constructor(public readonly page: Page) {
-        this.body = page.locator('.ApplicationLayoutBody');
-        this.locationMenu = page.locator('.ModuleNavigation-dropdown');
-        this.actionBarItems = page.locator('.ActionBarItemIcon');
-    }
-
-    async open(queryParams: Record<string, string> = {}) {
+    const open = async (queryParams: Record<string, string> = {}) => {
         const search = new URLSearchParams(queryParams).toString();
-        await this.page.goto(`${BASE_URL}${search ? `?${search}` : ''}`);
-    }
+        await page.goto(`${BASE_URL}${search ? `?${search}` : ''}`);
+    };
 
-    async openServiceInfo() {
-        await this.actionBarItems.first().click();
-    }
-}
+    const openServiceInfo = async () => {
+        await actionBarItems.first().click();
+    };
+
+    return { page, body, locationMenu, actionBarItems, open, openServiceInfo };
+};
+
+export type AppPage = ReturnType<typeof appPage>;
 
 /**
  * Extends the default Playwright `test` function with a "fixture".
@@ -36,5 +37,5 @@ export class AppPage {
  * @see https://playwright.dev/docs/test-fixtures
  */
 export const test = base.extend<{ appPage: AppPage }>({
-    appPage: async ({ page }, use) => await use(new AppPage(page)),
+    appPage: async ({ page }, use) => await use(appPage(page)),
 });
