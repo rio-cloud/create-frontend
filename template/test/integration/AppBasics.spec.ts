@@ -3,9 +3,9 @@ import { expect } from '@playwright/test';
 import { test, BASE_URL } from './AppPage';
 
 test.describe('App basic functionality', () => {
-    test('base url', async ({ appPage }) => {
+    test('base url', async ({ appPage, page }) => {
         await appPage.open();
-        expect(appPage.page.url()).toBe(BASE_URL);
+        expect(page.url()).toBe(BASE_URL);
     });
 
     test('deep-linking', async ({ appPage, page }) => {
