@@ -44,7 +44,7 @@ use something else, feel free to remove or adapt the sample implementations.
 - *Testing*
     - [Vitest](https://vitest.dev//) as test runner and testing framework for unit tests
     - [Testing Library](https://testing-library.com/) as the testing utility
-    - [Cypress](https://www.cypress.io/) as integration, end-to-end, monitoring test suite
+    - [Playwright](https://playwright.dev/) as integration, end-to-end, monitoring test suite
 - *API mocking*:
     - [MSW](https://mswjs.io/) to mock API calls by intercepting requests on the network level. This can be used for
       development and testing alike
