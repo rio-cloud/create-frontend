@@ -217,6 +217,7 @@ mocks/core-js.js
 mocks/oidc-client.js
 mocks/rio-user-menu.js
 .env
+public/mockServiceWorker.js
 
 # temporary i18n files that get merged
 src/features/translations/temp/**/*
