@@ -6,7 +6,7 @@
     "type": "module",
     "scripts": {
         "start": "vite",
-        "build": "vite build",
+        "build": "tsc && vite build",
         "postbuild": "rimraf ./build/mockServiceWorker.js",
         "preview": "vite preview",
         "test": "vitest run",
