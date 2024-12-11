@@ -1,4 +1,7 @@
+import * as matchers from '@testing-library/jest-dom/matchers';
 import createFetchMock from 'vitest-fetch-mock';
+
+expect.extend(matchers);
 
 // Mock ResizeObserver that is used by the ApplicationHeader
 const ResizeObserverMock = vi.fn(() => ({

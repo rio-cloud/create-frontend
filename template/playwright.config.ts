@@ -34,13 +34,12 @@ export default defineConfig({
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
         /* Base URL to use in actions like `await page.goto('/')`. */
-        baseURL: 'http://127.0.0.1:3000',
+        baseURL: 'http://localhost:3000',
+        locale: 'en-GB',
+        timezoneId: 'Europe/Berlin',
 
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
         trace: 'on-first-retry',
-
-        // Set the browser to Chromium (or another supported browser)
-        //browserName: 'chromium',
 
         // Allow running in headless mode
         headless: true,
@@ -51,19 +50,13 @@ export default defineConfig({
         ignoreHTTPSErrors: true,
     },
 
-    /* Configure projects for major browsers */
-    projects: [
-        {
-            name: 'chromium',
-            use: { ...devices['Desktop Chrome'] },
-        },
-    ],
+    /* Only run tests in Chromium */
+    projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
 
     /* Run your local dev server before starting the tests */
     webServer: {
         command: 'npm run start',
-        env: {},
-        url: 'http://127.0.0.1:3000',
+        url: 'http://localhost:3000',
         reuseExistingServer: !process.env.CI,
     },
 });

@@ -24,11 +24,7 @@ export default defineConfig({
     },
 
     server: {
-        host: '127.0.0.1',
         port: 3000,
-        fs: {
-            strict: false,
-        },
     },
 
     test: {
@@ -36,6 +32,7 @@ export default defineConfig({
         globals: true,
         globalSetup: 'src/__test__/globalSetup.ts',
         setupFiles: 'src/__test__/setupTests.ts',
+        restoreMocks: true,
         include: ['**/__test__/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     },
 });

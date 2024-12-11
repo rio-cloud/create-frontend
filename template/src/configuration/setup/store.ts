@@ -9,25 +9,29 @@ import appReducer from '../../data/appSlice';
 import userReducer from '../../features/users/userSlice';
 import { userApi } from '../../services/userApi';
 
-export const store = configureStore({
-    reducer: {
-        config: configReducer,
-        lang: langReducer,
-        app: appReducer,
-        user: userReducer,
-        login: loginReducer,
-        tokenHandling: tokenReducer,
+export const getStore = () =>
+    configureStore({
+        reducer: {
+            config: configReducer,
+            lang: langReducer,
+            app: appReducer,
+            user: userReducer,
+            login: loginReducer,
+            tokenHandling: tokenReducer,
 
-        // Add the generated reducer as a specific top-level slice
-        [userApi.reducerPath]: userApi.reducer,
-    },
+            // Add the generated reducer as a specific top-level slice
+            [userApi.reducerPath]: userApi.reducer,
+        },
 
-    // Adding the api middleware enables caching, invalidation, polling,
-    // and other useful features of `rtk-query`.
-    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(userApi.middleware),
-});
+        // Adding the api middleware enables caching, invalidation, polling,
+        // and other useful features of `rtk-query`.
+        middleware: getDefaultMiddleware => getDefaultMiddleware().concat(userApi.middleware),
+    });
 
-// Infer the `RootState` and `RootDispatch` types from the store itself
+export const store = getStore();
+
+// Infer the store, state and dispatch types from the store instance
+export type RootStore = typeof store;
 export type RootState = ReturnType<typeof store.getState>;
 export type RootDispatch = typeof store.dispatch;
 

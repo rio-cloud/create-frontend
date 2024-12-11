@@ -79,7 +79,8 @@
             "results/",
             ".idea/",
             ".vscode/",
-            "package.json"
+            "package.json",
+            "test-results/"
         ]
     }
 }
