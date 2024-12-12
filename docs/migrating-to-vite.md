@@ -167,7 +167,7 @@ npm uninstall @types/jest jest-changed-files jest-environment-jsdom jest-junit
 
 ```
 "test": "vitest run",
-"test:ci": "vitest run --reporter=junit --outputFile.junit=./results/junit.xml",
+"test-ci": "vitest run --reporter=junit --outputFile.junit=./results/junit.xml",
 "test-dev": "vitest",
 "coverage": "vitest run --coverage",
 ```

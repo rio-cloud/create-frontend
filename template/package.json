@@ -11,7 +11,7 @@
         "test": "vitest run",
         "test-dev": "vitest",
         "test-all": "tsc && npm run lint && npm run test && npm run test-integration",
-        "test:ci": "vitest run --reporter=junit --outputFile.junit=./results/junit.xml",
+        "test-ci": "vitest run --reporter=junit --outputFile.junit=./results/junit.xml",
         "coverage": "vitest run --coverage",
         "lint": "biome check .",
         "lint-fix": "biome check --write .",
