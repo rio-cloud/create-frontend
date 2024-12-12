@@ -24,8 +24,8 @@ test.describe('App basic functionality', () => {
 
     test('rendering the service info', async ({ appPage, page }) => {
         await appPage.open();
-        await expect(appPage.releaseNotes).not.toBeVisible();
+        await expect(appPage.serviceInfoReleaseNotesLink).not.toBeVisible();
         await appPage.openServiceInfo();
-        await expect(appPage.releaseNotes).toBeVisible();
+        await expect(appPage.serviceInfoReleaseNotesLink).toBeVisible();
     });
 });

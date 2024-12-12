@@ -12,7 +12,7 @@ export const appPage = (page: Page) => {
     const body = page.locator('.ApplicationLayoutBody');
     const locationMenu = page.locator('.ModuleNavigation-dropdown');
     const actionBarItems = page.locator('.ActionBarItemIcon');
-    const releaseNotes = page.getByText('Release notes');
+    const serviceInfoReleaseNotesLink = page.getByText('Release Notes');
 
     const open = async (queryParams: Record<string, string> = {}) => {
         const search = new URLSearchParams(queryParams).toString();
@@ -27,5 +27,5 @@ export const appPage = (page: Page) => {
         await actionBarItems.first().click();
     };
 
-    return { page, body, locationMenu, actionBarItems, releaseNotes, open, openServiceInfo };
+    return { page, body, locationMenu, actionBarItems, serviceInfoReleaseNotesLink, open, openServiceInfo };
 };
