@@ -3,7 +3,7 @@ import type { UserProfile as Profile } from 'oidc-client-ts';
 
 import type { UserProfile } from './loginSlice';
 
-const stripSnakeProps = omit(['family_name', 'given_name']);
+const stripSnakeProps = omit(['family_name', 'given_name', 'client_id']);
 
 // TODO: Depending on your client subscriptions you may want to map
 //       additional properties from the OAuth profile
