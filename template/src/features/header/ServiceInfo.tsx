@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import ActionBarItem from '@rio-cloud/rio-uikit/ActionBarItem';
 import { FormattedMessage } from 'react-intl';
 

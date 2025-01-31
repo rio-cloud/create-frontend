@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 import UserSidebar from './UserSidebar';
 import { useAppContext } from '../../../layout/AppContext';

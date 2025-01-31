@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router';
 import ApplicationLayout from '@rio-cloud/rio-uikit/ApplicationLayout';
 import NotificationsContainer from '@rio-cloud/rio-uikit/NotificationsContainer';
 

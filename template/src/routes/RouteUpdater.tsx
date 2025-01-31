@@ -1,5 +1,5 @@
 import type { Action } from 'redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
 import { parseRoute } from './routeHelper';
 import { useRouteState } from './routeHooks';
