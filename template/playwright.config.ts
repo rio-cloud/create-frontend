@@ -48,6 +48,11 @@ export default defineConfig({
         viewport: { width: 1280, height: 720 },
 
         ignoreHTTPSErrors: true,
+
+        bypassCSP: true, // add this to disable cors to load the UIKIT styling properly
+        launchOptions: {
+            args: ['--disable-web-security'], // add this to disable cors
+        },
     },
 
     /* Only run tests in Chromium */
