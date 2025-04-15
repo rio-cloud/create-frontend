@@ -19,7 +19,8 @@ describe('Test AppLayout', () => {
         // Define the preloaded state for the test
         const preloadedState: Partial<RootState> = {
             lang: {
-                // gets changed when loading the app due to local lang settings VITE_LOGIN_MOCK_LOCALE in the .env file
+                // This initial state gets changed when loading the app due to local
+                // lang settings VITE_LOGIN_MOCK_LOCALE in the .env file
                 displayLocale: 'de-DE',
                 allMessages: { 'de-DE': messagesDE },
                 displayMessages: messagesDE,
