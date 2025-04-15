@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import MyForm from '../features/myForm/MyForm';
 
 const Intro = () => (
-    <div className='intro'>
+    <div className='container fluid-default'>
         <h1>
             <FormattedMessage id='intl-msg:starterTemplate.sublink.intro' />
         </h1>
