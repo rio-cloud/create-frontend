@@ -1,10 +1,11 @@
 import {
-    type UserProfile as Profile,
+    ErrorResponse,
+    InMemoryWebStorage,
     User,
     UserManager,
-    type UserManagerSettings,
     WebStorageStateStore,
-    InMemoryWebStorage,
+    type UserProfile as Profile,
+    type UserManagerSettings,
 } from 'oidc-client-ts';
 import join from 'lodash/fp/join';
 
@@ -16,9 +17,11 @@ import type { UserProfile } from './loginSlice';
 
 const RETRY_SIGNIN_TIMEOUT_IN_MS = 30000;
 
+const isErrorResponse = (error: unknown): error is ErrorResponse => error instanceof ErrorResponse;
+
 const retrySigninSilent = (oauthConfig: OAuthConfig, userManager: UserManager) => {
     userManager.signinSilent().catch((error: Error) => {
-        if (error.message === 'login_required') {
+        if (isErrorResponse(error) && error.error === 'login_required') {
             oauthConfig.onSessionExpired();
         } else {
             setTimeout(() => retrySigninSilent(oauthConfig, userManager), RETRY_SIGNIN_TIMEOUT_IN_MS);
