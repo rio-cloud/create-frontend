@@ -6,12 +6,12 @@ import { IntlProvider } from 'react-intl';
 import { config } from './config';
 import { main } from './configuration';
 import { store } from './configuration/setup/store';
-import { handleLoginRedirect } from './configuration/login/redirect';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { router } from './routes/Router';
 import { useDisplayMessages, useLocale } from './configuration/lang/langSlice';
 import { DEFAULT_LOCALE } from './configuration/lang/lang';
 import ErrorFallback from './components/ErrorFallback';
+import { ensureLogin } from './configuration/setup/oauth';
 
 const App = () => {
     const userLocale = useLocale();
@@ -39,15 +39,9 @@ const renderApplication = () => {
 };
 
 const isDev = import.meta.env.DEV;
-const isProd = import.meta.env.PROD;
 const isProdPreview = import.meta.env.VITE_PRODUCTION_PREVIEW;
-
 if ((isDev && config.enableMockServer) || isProdPreview) {
-    import('../mocks/browser').then(({ startWorker }) => startWorker()).then(() => main(renderApplication));
+    await import('../mocks/browser').then(({ startWorker }) => startWorker());
 }
 
-if (window.location.href.startsWith(config.login.redirectUri as string)) {
-    handleLoginRedirect();
-} else if (isProd && !isProdPreview) {
-    main(renderApplication);
-}
+await ensureLogin(() => main(renderApplication));
