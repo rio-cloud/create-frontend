@@ -31,14 +31,14 @@ const retrySigninSilent = (oauthConfig: OAuthConfig, userManager: UserManager) =
 
 export type SessionRenewedResult = {
     accessToken: AccessToken;
-    idToken: Profile;
+    idToken: string | null;
     profile: UserProfile;
     locale: string;
 };
 
 export const adaptPublishedInfo = (result: User): SessionRenewedResult => ({
     accessToken: result.access_token,
-    idToken: result.profile,
+    idToken: result.id_token ?? null,
     locale: result.profile?.locale ?? 'en-GB',
     profile: mapUserProfile(result.profile),
 });

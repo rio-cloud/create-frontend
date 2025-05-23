@@ -7,6 +7,7 @@ export type UserProfile = {
     sub?: string;
     azp?: string;
     account?: string;
+    tenant?: string;
     givenName?: string;
     familyName?: string;
     name?: string;
@@ -48,6 +49,7 @@ export const { userProfileObtained, userSessionExpired, userSessionRenewed } = l
 // Other code such as selectors can use the imported `RootState` type
 export const getUserProfile = (state: RootState) => state.login.userProfile;
 export const getUserAccount = (state: RootState) => state.login.userProfile?.account;
+export const getUserTenant = (state: RootState) => state.login.userProfile?.tenant;
 
 export const hasUserSessionEverExpired = (state: RootState) => state.login.hasUserSessionEverExpired;
 export const isUserSessionExpired = (state: RootState) => state.login.userSessionExpired;
