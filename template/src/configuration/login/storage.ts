@@ -13,13 +13,19 @@ const supportsLocalStorage = (window: Window) => {
 };
 
 export const configureStorage = (window: Window) => {
-    if (supportsLocalStorage(window)) {
+    if (supportsLocalStorage(window) !== false) {
         const { localStorage } = window;
         const routeKey = 'oauth_initial_route';
+        const timestampKey = 'oauth_login_redirect_timestamp';
         return {
-            discardRoute: () => localStorage.removeItem(routeKey),
+            clear: () => {
+                localStorage.removeItem(routeKey);
+                localStorage.removeItem(timestampKey);
+            },
             getRoute: () => localStorage.getItem(routeKey),
             saveRoute: (route: string) => localStorage.setItem(routeKey, route),
+            getLoginRedirectTimestamp: () => localStorage.getItem(timestampKey),
+            saveLoginRedirectTimestamp: (timestamp: string) => localStorage.setItem(timestampKey, timestamp),
         };
     }
 
@@ -27,10 +33,12 @@ export const configureStorage = (window: Window) => {
 
     // This is bad, should we proceed and how?
     return {
-        discardRoute: () => {},
+        clear: () => {},
         getRoute: () => '/',
         saveRoute: () => {},
+        getLoginRedirectTimestamp: () => null,
+        saveLoginRedirectTimestamp: () => {},
     };
 };
 
-export const routeStorage = configureStorage(window ?? {});
+export const loginStorage = configureStorage(window ?? {});

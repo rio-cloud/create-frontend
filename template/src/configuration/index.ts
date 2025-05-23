@@ -1,9 +1,5 @@
-import type { UserManager } from 'oidc-client-ts';
-import { EVENT_USER_LANGUAGE_CHANGED, EVENT_USER_PROFILE_CHANGED } from '@rio-cloud/rio-user-menu-component';
-
 import { extractLanguage } from './lang/lang';
 import { configureFetchDisplayMessages } from './lang/services';
-import { config } from '../config';
 import {
     configureMockUserManager,
     configureUserManager,
@@ -12,17 +8,21 @@ import {
 } from './login/login';
 import { accessToken } from './tokenHandling/accessToken';
 import { trace } from './setup/trace';
-import { attemptInitialSignIn } from './setup/oauth';
+import { performLoginFlow } from './setup/oauth';
+import { config } from '../config';
 import { reportErrorToSentry } from './setup/sentry';
-import { store } from './setup/store';
 import { accessTokenStored, idTokenStored } from './tokenHandling/tokenSlice';
 import { userProfileObtained, userSessionExpired, userSessionRenewed } from './login/loginSlice';
 import { getLocale } from './lang/langSlice';
+import type { UserManager } from 'oidc-client-ts';
+import { EVENT_USER_LANGUAGE_CHANGED, EVENT_USER_PROFILE_CHANGED } from '@rio-cloud/rio-user-menu-component';
+import { runInBackground } from './setup/backgroundActions';
+import { store } from './setup/store';
 
-export type OAuthConfig = {
+export interface OAuthConfig {
     onSessionExpired: () => void;
     onSessionRenewed: (result: SessionRenewedResult) => void;
-};
+}
 
 export const main = async (renderApp: () => void) => {
     const fetchDisplayMessages = configureFetchDisplayMessages(store);
@@ -40,11 +40,13 @@ export const main = async (renderApp: () => void) => {
 
     const oauthConfig = {
         onSessionExpired: () => {
+            trace('oauthConfig: User session expired');
             accessToken.discardAccessToken();
+            store.dispatch(accessTokenStored(null));
             store.dispatch(userSessionExpired());
         },
         onSessionRenewed: (result: SessionRenewedResult) => {
-            trace('index.onTokenRenewed', result);
+            trace('oauthConfig.onSessionRenewed', result);
 
             accessToken.saveAccessToken(result.accessToken);
             store.dispatch(accessTokenStored(result.accessToken));
@@ -57,22 +59,26 @@ export const main = async (renderApp: () => void) => {
             // you may fetch the suitable messages. Depending
             // on when and from where you fetch the user settings you might
             // want to employ a loading spinner while the request is ongoing.
-            fetchDisplayMessages(result.locale);
+            runInBackground(fetchDisplayMessages(result.locale));
         },
     } as OAuthConfig;
 
-    const userManager: UserManager = config.login.mockAuthorization
-        ? configureMockUserManager(oauthConfig)
-        : configureUserManager(oauthConfig, createUserManager());
+    // enables mocking of authentication in non-production
+    const isAllowedToMockAuth = import.meta.env.MODE !== 'production';
+    const userManager: UserManager =
+        isAllowedToMockAuth && config.login.mockAuthorization
+            ? configureMockUserManager(oauthConfig)
+            : configureUserManager(oauthConfig, createUserManager());
 
-    const signinSilent = userManager.signinSilent.bind(userManager);
-    document.addEventListener(EVENT_USER_LANGUAGE_CHANGED, () => signinSilent());
-    document.addEventListener(EVENT_USER_PROFILE_CHANGED, () => signinSilent());
+    const signInSilent = () => runInBackground(userManager.signinSilent());
+    document.addEventListener(EVENT_USER_LANGUAGE_CHANGED, signInSilent);
+    document.addEventListener(EVENT_USER_PROFILE_CHANGED, signInSilent);
 
     try {
-        await userManager.clearStaleState();
-        await attemptInitialSignIn(userManager);
-        renderApp();
+        const signedInUser = await performLoginFlow(userManager);
+        if (signedInUser) {
+            renderApp();
+        }
     } catch (error) {
         trace('could not start application', error);
         reportErrorToSentry(error);
