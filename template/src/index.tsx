@@ -9,13 +9,23 @@ import { store } from './configuration/setup/store';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { router } from './routes/Router';
 import { useDisplayMessages, useLocale } from './configuration/lang/langSlice';
-import { DEFAULT_LOCALE } from './configuration/lang/lang';
+import { DEFAULT_LOCALE, extractLanguage } from './configuration/lang/lang';
 import ErrorFallback from './components/ErrorFallback';
 import { ensureLogin } from './configuration/setup/oauth';
+import { useEffect } from 'react';
 
 const App = () => {
     const userLocale = useLocale();
     const displayMessages = useDisplayMessages();
+
+    // We want the `<html lang>` attribute to be in sync with the language currently displayed
+    useEffect(() => {
+        const language = extractLanguage(userLocale);
+        const htmlElement = document.documentElement;
+        if (!!language && htmlElement.getAttribute('lang') !== language) {
+            htmlElement.setAttribute('lang', language);
+        }
+    }, [userLocale]);
 
     if (!(displayMessages && userLocale)) {
         return null;

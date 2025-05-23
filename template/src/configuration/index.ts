@@ -1,4 +1,3 @@
-import { extractLanguage } from './lang/lang';
 import { configureFetchDisplayMessages } from './lang/services';
 import {
     configureMockUserManager,
@@ -13,7 +12,6 @@ import { config } from '../config';
 import { reportErrorToSentry } from './setup/sentry';
 import { accessTokenStored, idTokenStored } from './tokenHandling/tokenSlice';
 import { userProfileObtained, userSessionExpired, userSessionRenewed } from './login/loginSlice';
-import { getLocale } from './lang/langSlice';
 import type { UserManager } from 'oidc-client-ts';
 import { EVENT_USER_LANGUAGE_CHANGED, EVENT_USER_PROFILE_CHANGED } from '@rio-cloud/rio-user-menu-component';
 import { runInBackground } from './setup/backgroundActions';
@@ -26,17 +24,6 @@ export interface OAuthConfig {
 
 export const main = async (renderApp: () => void) => {
     const fetchDisplayMessages = configureFetchDisplayMessages(store);
-
-    // We want the `<html lang>` attribute to be synced with the
-    // language currently displayed
-    store.subscribe(() => {
-        const lang = extractLanguage(getLocale(store.getState()));
-        const html = document.querySelector('html');
-
-        if (html && lang && html.getAttribute('lang') !== lang) {
-            html.setAttribute('lang', lang);
-        }
-    });
 
     const oauthConfig = {
         onSessionExpired: () => {
