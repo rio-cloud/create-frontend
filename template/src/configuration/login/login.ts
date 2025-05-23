@@ -4,7 +4,6 @@ import {
     User,
     UserManager,
     WebStorageStateStore,
-    type UserProfile as Profile,
     type UserManagerSettings,
 } from 'oidc-client-ts';
 import join from 'lodash/fp/join';

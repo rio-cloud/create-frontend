@@ -1,5 +1,3 @@
-import type { UserProfile as Profile } from 'oidc-client-ts';
-
 import { store } from '../../setup/store';
 import { accessTokenStored, getAccessToken, getIdToken, idTokenStored } from '../tokenSlice';
 
