@@ -27,6 +27,12 @@ for (const [locale, files] of filesByLocales) {
     const contents = await Promise.all(promises);
 
     const mergedContent = contents.reduce((outgoingFile, content) => {
+        // find duplicates
+        for (const key of Object.keys(content)) {
+            if (outgoingFile[key]) {
+                console.warn(`Duplicate key '${key}' found in locale ${locale}`);
+            }
+        }
         Object.assign(outgoingFile, content);
         return outgoingFile;
     }, {});

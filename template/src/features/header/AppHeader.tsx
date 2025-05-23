@@ -1,5 +1,5 @@
 import { FormattedMessage } from 'react-intl';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router';
 import { DefaultUserMenu } from '@rio-cloud/rio-user-menu-component';
 import { RioNotifications } from '@rio-cloud/rio-notifications-component';
 import ApplicationHeader from '@rio-cloud/rio-uikit/ApplicationHeader';
@@ -13,7 +13,7 @@ const navItems = [
     {
         key: 'intro',
         route: (
-            <NavLink to={routes.DEFAULT}>
+            <NavLink to={routes.DEFAULT} viewTransition>
                 <FormattedMessage id='intl-msg:starterTemplate.sublink.intro' />
             </NavLink>
         ),
@@ -21,7 +21,7 @@ const navItems = [
     {
         key: 'more',
         route: (
-            <NavLink to={routes.MORE}>
+            <NavLink to={routes.MORE} viewTransition>
                 <FormattedMessage id='intl-msg:starterTemplate.sublink.more' />
             </NavLink>
         ),

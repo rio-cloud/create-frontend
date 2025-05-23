@@ -1,12 +1,12 @@
 import { render as baseRender } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router';
 import type { PropsWithChildren, ReactElement } from 'react';
 
-import { getStore, type RootStore } from '../configuration/setup/store';
-import messagesEnGb from '../features/translations/en-GB.json';
 import { DEFAULT_LOCALE } from '../configuration/lang/lang';
-import { MemoryRouter } from 'react-router';
+import { getStore, type RootState, type RootStore } from '../configuration/setup/store';
+import messagesEnGb from '../features/translations/en-GB.json';
 
 // first: re-export everything
 export * from '@testing-library/react';
@@ -30,7 +30,8 @@ export const withRouterIntlAndStore =
         </Provider>
     );
 
-export const testRender = (element: ReactElement, store: RootStore = getStore(), initialUrl = '/some/path') => {
+export const testRender = (element: ReactElement, preloadedState?: Partial<RootState>, initialUrl = '/some/path') => {
+    const store = getStore(preloadedState);
     return baseRender(element, { wrapper: withRouterIntlAndStore(store, initialUrl) });
 };
 

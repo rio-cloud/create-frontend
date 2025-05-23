@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 import { useAppDispatch, useAppSelector } from '../../configuration/setup/hooks';
 import type { User } from '../../services/userApi';

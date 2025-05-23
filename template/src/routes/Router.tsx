@@ -1,4 +1,4 @@
-import { createHashRouter, createRoutesFromElements, Route } from 'react-router-dom';
+import { createHashRouter, createRoutesFromElements, Route } from 'react-router';
 import { Navigate } from 'react-router';
 
 import AppLayout from '../layout/AppLayout';
