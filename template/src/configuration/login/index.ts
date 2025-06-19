@@ -1,14 +1,55 @@
-import { Log, UserManager } from 'oidc-client-ts';
+import { Log, UserManager, UserProfile } from 'oidc-client-ts';
 import { config } from '../../config';
-import { loginStorage } from '../login/storage';
-import { addBreadcrumbToSentry } from './sentry';
-import { trace } from './trace';
+import { loginStorage } from './storage';
+import { addBreadcrumbToSentry, reportErrorToSentry } from '../setup/sentry';
+import { trace } from '../setup/trace';
+import { configureUserManager } from './userManagerConfiguration';
+import { runInBackground } from '../setup/backgroundActions';
+import { EVENT_USER_LANGUAGE_CHANGED, EVENT_USER_PROFILE_CHANGED } from '@rio-cloud/rio-user-menu-component';
+import { mockSession, shouldMockAuthentication } from './mockAuthentication';
 
-export const ensureLogin = async (startApp: () => Promise<void>) => {
+export type UserSessionHooks = {
+    onSessionExpired: () => void;
+    onSessionRenewed: (result: SessionRenewedResult) => void;
+};
+
+export type SessionRenewedResult = {
+    accessToken: string;
+    idToken: string | null;
+    profile: UserProfile;
+    locale: string;
+};
+
+export const ensureUserIsLoggedIn = async (renderApp: () => void, userSessionHooks: UserSessionHooks) => {
+    // A silent signin within an iframe will eventually lead to a redirect from
+    // the auth-server back to our application. In this case we should only
+    // notify the parent frame about the result of the silent signin and
+    // not render anything.
     if (isSilentSigninRedirect()) {
         await notifyParentFrameAboutSilentSigninResult();
-    } else {
-        await startApp();
+        return;
+    }
+
+    if (shouldMockAuthentication()) {
+        userSessionHooks.onSessionRenewed(mockSession);
+        renderApp();
+        return;
+    }
+
+    try {
+        const userManager = configureUserManager(userSessionHooks);
+        const signedInUser = await performLoginFlow(userManager);
+
+        if (signedInUser) {
+            const signInSilent = () => runInBackground(userManager.signinSilent());
+            document.addEventListener(EVENT_USER_LANGUAGE_CHANGED, signInSilent);
+            document.addEventListener(EVENT_USER_PROFILE_CHANGED, signInSilent);
+
+            renderApp();
+        }
+    } catch (error) {
+        trace('could not start application', error);
+        reportErrorToSentry(error);
     }
 };
 
@@ -32,7 +73,7 @@ const notifyParentFrameAboutSilentSigninResult = async () => {
     await userManager.signinSilentCallback();
 };
 
-export const performLoginFlow = async (userManager: UserManager) => {
+const performLoginFlow = async (userManager: UserManager) => {
     const isNormalRedirectFromAuthServer = window.location.href.startsWith(config.login.redirectUri as string);
 
     if (isNormalRedirectFromAuthServer) {
