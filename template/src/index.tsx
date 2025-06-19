@@ -4,15 +4,15 @@ import { RouterProvider } from 'react-router';
 import { IntlProvider } from 'react-intl';
 
 import { config } from './config';
-import { main } from './configuration';
 import { store } from './configuration/setup/store';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { router } from './routes/Router';
 import { useDisplayMessages, useLocale } from './configuration/lang/langSlice';
 import { DEFAULT_LOCALE, extractLanguage } from './configuration/lang/lang';
 import ErrorFallback from './components/ErrorFallback';
-import { ensureLogin } from './configuration/setup/oauth';
 import { useEffect } from 'react';
+import { ensureUserIsLoggedIn } from './configuration/login';
+import { getUserSessionHooks } from './configuration';
 
 const App = () => {
     const userLocale = useLocale();
@@ -54,4 +54,4 @@ if ((isDev && config.enableMockServer) || isProdPreview) {
     await import('../mocks/browser').then(({ startWorker }) => startWorker());
 }
 
-await ensureLogin(() => main(renderApplication));
+await ensureUserIsLoggedIn(renderApplication, getUserSessionHooks());
