@@ -59,7 +59,7 @@
         "@vitejs/plugin-react": "4.5.0",
         "jsdom": "26.1.0",
         "license-checker": "25.0.1",
-        "msw": "2.8.4",
+        "msw": "2.10.2",
         "playwright": "1.52.0",
         "pre-commit": "1.2.2",
         "rimraf": "6.0.1",
