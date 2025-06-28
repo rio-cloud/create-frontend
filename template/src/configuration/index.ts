@@ -1,31 +1,17 @@
 import { configureFetchDisplayMessages } from './lang/services';
-import {
-    configureMockUserManager,
-    configureUserManager,
-    createUserManager,
-    type SessionRenewedResult,
-} from './login/login';
-import { accessToken } from './tokenHandling/accessToken';
-import { trace } from './setup/trace';
-import { performLoginFlow } from './setup/oauth';
-import { config } from '../config';
-import { reportErrorToSentry } from './setup/sentry';
-import { accessTokenStored, idTokenStored } from './tokenHandling/tokenSlice';
+import { UserSessionHooks, SessionRenewedResult } from './login';
 import { userProfileObtained, userSessionExpired, userSessionRenewed } from './login/loginSlice';
-import type { UserManager } from 'oidc-client-ts';
-import { EVENT_USER_LANGUAGE_CHANGED, EVENT_USER_PROFILE_CHANGED } from '@rio-cloud/rio-user-menu-component';
+import { mapUserProfile } from './login/userProfile';
 import { runInBackground } from './setup/backgroundActions';
 import { store } from './setup/store';
+import { trace } from './setup/trace';
+import { accessToken } from './tokenHandling/accessToken';
+import { accessTokenStored, idTokenStored } from './tokenHandling/tokenSlice';
 
-export interface OAuthConfig {
-    onSessionExpired: () => void;
-    onSessionRenewed: (result: SessionRenewedResult) => void;
-}
-
-export const main = async (renderApp: () => void) => {
+export const getUserSessionHooks = (): UserSessionHooks => {
     const fetchDisplayMessages = configureFetchDisplayMessages(store);
 
-    const oauthConfig = {
+    return {
         onSessionExpired: () => {
             trace('oauthConfig: User session expired');
             accessToken.discardAccessToken();
@@ -38,7 +24,7 @@ export const main = async (renderApp: () => void) => {
             accessToken.saveAccessToken(result.accessToken);
             store.dispatch(accessTokenStored(result.accessToken));
             store.dispatch(idTokenStored(result.idToken));
-            store.dispatch(userProfileObtained(result.profile));
+            store.dispatch(userProfileObtained(mapUserProfile(result.profile)));
 
             store.dispatch(userSessionRenewed());
 
@@ -48,26 +34,5 @@ export const main = async (renderApp: () => void) => {
             // want to employ a loading spinner while the request is ongoing.
             runInBackground(fetchDisplayMessages(result.locale));
         },
-    } as OAuthConfig;
-
-    // enables mocking of authentication in non-production
-    const isAllowedToMockAuth = import.meta.env.MODE !== 'production';
-    const userManager: UserManager =
-        isAllowedToMockAuth && config.login.mockAuthorization
-            ? configureMockUserManager(oauthConfig)
-            : configureUserManager(oauthConfig, createUserManager());
-
-    const signInSilent = () => runInBackground(userManager.signinSilent());
-    document.addEventListener(EVENT_USER_LANGUAGE_CHANGED, signInSilent);
-    document.addEventListener(EVENT_USER_PROFILE_CHANGED, signInSilent);
-
-    try {
-        const signedInUser = await performLoginFlow(userManager);
-        if (signedInUser) {
-            renderApp();
-        }
-    } catch (error) {
-        trace('could not start application', error);
-        reportErrorToSentry(error);
-    }
+    };
 };
