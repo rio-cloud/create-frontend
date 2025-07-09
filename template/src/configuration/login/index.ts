@@ -1,4 +1,4 @@
-import { Log, UserManager, UserProfile } from 'oidc-client-ts';
+import { Log, UserManager, type UserProfile } from 'oidc-client-ts';
 import { config } from '../../config';
 import { loginStorage } from './storage';
 import { addBreadcrumbToSentry, reportErrorToSentry } from '../setup/sentry';

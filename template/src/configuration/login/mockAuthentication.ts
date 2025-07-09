@@ -1,4 +1,4 @@
-import { SessionRenewedResult } from '.';
+import type { SessionRenewedResult } from '.';
 import { config } from '../../config';
 
 // enables mocking of authentication in non-production

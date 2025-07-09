@@ -1,12 +1,12 @@
 import {
     ErrorResponse,
     InMemoryWebStorage,
-    User,
+    type User,
     UserManager,
-    UserManagerSettings,
+    type UserManagerSettings,
     WebStorageStateStore,
 } from 'oidc-client-ts';
-import { UserSessionHooks, SessionRenewedResult } from '.';
+import type { UserSessionHooks, SessionRenewedResult } from '.';
 import { config } from '../../config';
 import join from 'lodash/fp/join';
 

@@ -1,5 +1,5 @@
 import { configureFetchDisplayMessages } from './lang/services';
-import { UserSessionHooks, SessionRenewedResult } from './login';
+import type { UserSessionHooks, SessionRenewedResult } from './login';
 import { userProfileObtained, userSessionExpired, userSessionRenewed } from './login/loginSlice';
 import { mapUserProfile } from './login/userProfile';
 import { runInBackground } from './setup/backgroundActions';
