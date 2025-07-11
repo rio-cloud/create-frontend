@@ -80,6 +80,8 @@
             ".idea/",
             ".vscode/",
             "package.json",
+            "package-lock.json",
+            "node_modules",
             "test-results/"
         ]
     }

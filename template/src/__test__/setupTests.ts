@@ -3,6 +3,10 @@ import createFetchMock from 'vitest-fetch-mock';
 
 expect.extend(matchers);
 
+// Let the UIKIT components (like the tooltip) recognize the test as being from desktop since
+// tooltips are not displayed on mobile.
+document.documentElement.classList.add('ua-desktop');
+
 // Mock ResizeObserver that is used by the ApplicationHeader
 const ResizeObserverMock = vi.fn(() => ({
     disconnect: vi.fn(),
