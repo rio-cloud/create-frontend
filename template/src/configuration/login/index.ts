@@ -1,11 +1,12 @@
 import { Log, UserManager, type UserProfile } from 'oidc-client-ts';
+import { EVENT_USER_LANGUAGE_CHANGED, EVENT_USER_PROFILE_CHANGED } from '@rio-cloud/rio-user-menu-component';
+
 import { config } from '../../config';
 import { loginStorage } from './storage';
 import { addBreadcrumbToSentry, reportErrorToSentry } from '../setup/sentry';
 import { trace } from '../setup/trace';
 import { configureUserManager } from './userManagerConfiguration';
 import { runInBackground } from '../setup/backgroundActions';
-import { EVENT_USER_LANGUAGE_CHANGED, EVENT_USER_PROFILE_CHANGED } from '@rio-cloud/rio-user-menu-component';
 import { mockSession, shouldMockAuthentication } from './mockAuthentication';
 
 export type UserSessionHooks = {

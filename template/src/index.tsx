@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router';
@@ -10,7 +11,6 @@ import { router } from './routes/Router';
 import { useDisplayMessages, useLocale } from './configuration/lang/langSlice';
 import { DEFAULT_LOCALE, extractLanguage } from './configuration/lang/lang';
 import ErrorFallback from './components/ErrorFallback';
-import { useEffect } from 'react';
 import { ensureUserIsLoggedIn } from './configuration/login';
 import { getUserSessionHooks } from './configuration';
 
