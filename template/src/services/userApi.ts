@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
 import { prepareHeaders } from '../configuration/tokenHandling/prepareHeaders';
 
 export type User = {

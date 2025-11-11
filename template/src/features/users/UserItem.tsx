@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router';
 
 import { useAppDispatch, useAppSelector } from '../../configuration/setup/hooks';
+import { routes } from '../../routes/routes';
 import type { User } from '../../services/userApi';
 import { getSelectedUserId, userSelected } from './userSlice';
-import { routes } from '../../routes/routes';
 
 type UserItemProps = User;
 

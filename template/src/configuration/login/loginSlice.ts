@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import type { RootState } from '../setup/store';
 import { useAppSelector } from '../setup/hooks';
+import type { RootState } from '../setup/store';
 
 export type UserProfile = {
     sub?: string;

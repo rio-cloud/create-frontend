@@ -1,10 +1,9 @@
 import { screen } from '@testing-library/react';
 
 import { silenceConsole, testRender } from '../../__test__/testUtils';
-import AppLayout from '../AppLayout';
 import type { RootState } from '../../configuration/setup/store';
-
 import messagesDE from '../../features/translations/de-DE.json';
+import AppLayout from '../AppLayout';
 
 describe('Test AppLayout', () => {
     test('Application layout is rendered', async () => {

@@ -1,6 +1,6 @@
-import { Link } from 'react-router';
 import ActionBarItem from '@rio-cloud/rio-uikit/ActionBarItem';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router';
 
 const ServiceInfo = () => {
     const handleClick = () => {};

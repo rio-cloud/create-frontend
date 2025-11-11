@@ -1,13 +1,13 @@
-import { FormattedMessage } from 'react-intl';
-import { Link, NavLink } from 'react-router';
-import { DefaultUserMenu } from '@rio-cloud/rio-user-menu-component';
 import { RioNotifications } from '@rio-cloud/rio-notifications-component';
 import ApplicationHeader from '@rio-cloud/rio-uikit/ApplicationHeader';
+import { DefaultUserMenu } from '@rio-cloud/rio-user-menu-component';
 import IframeResizer from 'iframe-resizer-react';
+import { FormattedMessage } from 'react-intl';
+import { Link, NavLink } from 'react-router';
 
 import { config } from '../../config';
-import ServiceInfo from './ServiceInfo';
 import { routes } from '../../routes/routes';
+import ServiceInfo from './ServiceInfo';
 
 const navItems = [
     {

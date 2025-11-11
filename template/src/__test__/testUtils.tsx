@@ -1,8 +1,8 @@
 import { render as baseRender } from '@testing-library/react';
+import type { PropsWithChildren, ReactElement } from 'react';
 import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router';
-import type { PropsWithChildren, ReactElement } from 'react';
 
 import { DEFAULT_LOCALE } from '../configuration/lang/lang';
 import { getStore, type RootState, type RootStore } from '../configuration/setup/store';

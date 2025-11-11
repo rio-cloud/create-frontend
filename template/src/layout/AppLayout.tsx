@@ -1,11 +1,11 @@
-import { useRef } from 'react';
-import { Outlet } from 'react-router';
 import ApplicationLayout from '@rio-cloud/rio-uikit/ApplicationLayout';
 import NotificationsContainer from '@rio-cloud/rio-uikit/NotificationsContainer';
+import { useRef } from 'react';
+import { Outlet } from 'react-router';
 
-import RouteUpdater from '../routes/RouteUpdater';
 import SessionExpiredInfo from '../components/SessionExpiredInfo';
 import AppHeader from '../features/header/AppHeader';
+import RouteUpdater from '../routes/RouteUpdater';
 import { AppContext } from './AppContext';
 
 import './App.css';

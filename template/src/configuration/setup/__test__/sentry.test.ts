@@ -1,7 +1,8 @@
-import { filterSentryEvent } from '../sentry';
 import type { ErrorEvent, EventHint } from '@sentry/core';
 import { cloneDeep } from 'lodash';
+
 import { config } from '../../../config';
+import { filterSentryEvent } from '../sentry';
 
 describe('filterSentryEvent', () => {
     const errorEventTemplate: ErrorEvent = {

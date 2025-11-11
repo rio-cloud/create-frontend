@@ -1,8 +1,8 @@
 import { createRoot } from 'react-dom/client';
 import { IntlProvider } from 'react-intl';
 
-import Intro from '../Intro';
 import messagesEN from '../../features/translations/en-GB.json';
+import Intro from '../Intro';
 
 it('renders without crashing', () => {
     const container = document.createElement('div');

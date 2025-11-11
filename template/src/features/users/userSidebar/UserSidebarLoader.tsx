@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom';
 import { useNavigate } from 'react-router';
 
-import UserSidebar from './UserSidebar';
 import { useAppContext } from '../../../layout/AppContext';
-import { useSelectedUserId } from '../userSlice';
 import { routes } from '../../../routes/routes';
+import { useSelectedUserId } from '../userSlice';
+import UserSidebar from './UserSidebar';
 
 const UserSidebarLoader = () => {
     const { sidebarRef } = useAppContext();

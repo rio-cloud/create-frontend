@@ -1,9 +1,10 @@
-import type { Action } from 'redux';
 import { useLocation } from 'react-router';
+import type { Action } from 'redux';
 
+import { useAppDispatch } from '../configuration/setup/hooks';
 import { parseRoute } from './routeHelper';
 import { useRouteState } from './routeHooks';
-import { useAppDispatch } from '../configuration/setup/hooks';
+
 // import { getSelectedMyId, getSelectedAnotherId, mySomethingSelected, anotherThingSelected } from '../appSlice';
 
 const RouteUpdater = () => {

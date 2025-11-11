@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router';
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router';
 
 import { userSelected } from '../features/users/userSlice';
 

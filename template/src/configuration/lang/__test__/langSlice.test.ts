@@ -1,8 +1,8 @@
+import messagesDE from '../../../features/translations/de-DE.json';
+import messagesEN from '../../../features/translations/en-GB.json';
 import { store } from '../../setup/store';
 import { DEFAULT_LOCALE } from '../lang';
 import { displayMessagesFetched, getDisplayMessages, getLocale, localeChanged } from '../langSlice';
-import messagesDE from '../../../features/translations/de-DE.json';
-import messagesEN from '../../../features/translations/en-GB.json';
 
 describe('configuration/lang/langSlice', () => {
     const LOCALE_DE = 'de-DE';

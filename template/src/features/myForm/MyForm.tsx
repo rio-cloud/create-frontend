@@ -1,6 +1,6 @@
-import { useForm, Controller } from 'react-hook-form';
-import Select from '@rio-cloud/rio-uikit/Select';
 import ClearableInput from '@rio-cloud/rio-uikit/ClearableInput';
+import Select from '@rio-cloud/rio-uikit/Select';
+import { Controller, useForm } from 'react-hook-form';
 
 type SelectOptionType = {
     label: string;

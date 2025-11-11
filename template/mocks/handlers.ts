@@ -1,4 +1,4 @@
-import { http, HttpResponse } from 'msw';
+import { HttpResponse, http } from 'msw';
 
 // See https://mswjs.io/docs/basics/request-matching
 // for details on how to define the matching URL

@@ -1,3 +1,4 @@
+import join from 'lodash/fp/join';
 import {
     ErrorResponse,
     InMemoryWebStorage,
@@ -6,10 +7,9 @@ import {
     type UserManagerSettings,
     WebStorageStateStore,
 } from 'oidc-client-ts';
-import join from 'lodash/fp/join';
 
-import type { UserSessionHooks, SessionRenewedResult } from '.';
 import { config } from '../../config';
+import type { SessionRenewedResult, UserSessionHooks } from '.';
 
 const RETRY_SIGNIN_TIMEOUT_IN_MS = 30000;
 

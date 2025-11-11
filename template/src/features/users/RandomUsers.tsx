@@ -1,8 +1,8 @@
 import Spinner from '@rio-cloud/rio-uikit/Spinner';
 
+import { useUserSelectionDeepLink } from '../../hooks/useUserSelectionDeepLink';
 import { useFetchUsersQuery } from '../../services/userApi';
 import { UserItem } from './UserItem';
-import { useUserSelectionDeepLink } from '../../hooks/useUserSelectionDeepLink';
 
 const RandomUsers = () => {
     useUserSelectionDeepLink();

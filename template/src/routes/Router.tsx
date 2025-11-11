@@ -1,10 +1,9 @@
-import { createHashRouter, createRoutesFromElements, Route } from 'react-router';
-import { Navigate } from 'react-router';
+import { createHashRouter, createRoutesFromElements, Navigate, Route } from 'react-router';
 
-import AppLayout from '../layout/AppLayout';
 import RouteErrorFallback from '../components/RouteErrorFallback';
-import { suspendPageLoad } from './suspendPageLoad';
+import AppLayout from '../layout/AppLayout';
 import { routes } from './routes';
+import { suspendPageLoad } from './suspendPageLoad';
 
 // Lazy load pages for better performance and automatically split the bundle accordingly
 const Intro = suspendPageLoad(() => import('../pages/Intro'));

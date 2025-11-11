@@ -1,9 +1,9 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import type { RootState } from '../setup/store';
 import messagesEN from '../../features/translations/en-GB.json';
-import { DEFAULT_LOCALE, getSupportedLocale } from './lang';
 import { useAppSelector } from '../setup/hooks';
+import type { RootState } from '../setup/store';
+import { DEFAULT_LOCALE, getSupportedLocale } from './lang';
 
 export type DisplayMessages = Record<string, string>;
 

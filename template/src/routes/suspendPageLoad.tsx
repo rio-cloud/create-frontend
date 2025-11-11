@@ -1,5 +1,6 @@
-import SuspendedWithSpinner from '../components/SuspendedWithSpinner';
 import { type ComponentType, lazy, type PropsWithoutRef } from 'react';
+
+import SuspendedWithSpinner from '../components/SuspendedWithSpinner';
 
 type DynamicImportFactory<T> = () => Promise<{ default: ComponentType<T> }>;
 

@@ -1,5 +1,5 @@
-import type { SessionRenewedResult } from '.';
 import { config } from '../../config';
+import type { SessionRenewedResult } from '.';
 
 // enables mocking of authentication in non-production
 export const shouldMockAuthentication = () => import.meta.env.MODE !== 'production' && config.login.mockAuthorization;

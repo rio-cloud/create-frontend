@@ -1,18 +1,18 @@
 import { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
+import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router';
-import { IntlProvider } from 'react-intl';
 
-import { config } from './config';
-import { store } from './configuration/setup/store';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { router } from './routes/Router';
-import { useDisplayMessages, useLocale } from './configuration/lang/langSlice';
-import { DEFAULT_LOCALE, extractLanguage } from './configuration/lang/lang';
 import ErrorFallback from './components/ErrorFallback';
-import { ensureUserIsLoggedIn } from './configuration/login';
+import { config } from './config';
 import { getUserSessionHooks } from './configuration';
+import { DEFAULT_LOCALE, extractLanguage } from './configuration/lang/lang';
+import { useDisplayMessages, useLocale } from './configuration/lang/langSlice';
+import { ensureUserIsLoggedIn } from './configuration/login';
+import { store } from './configuration/setup/store';
+import { router } from './routes/Router';
 
 const App = () => {
     const userLocale = useLocale();

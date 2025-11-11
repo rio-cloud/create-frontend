@@ -1,9 +1,9 @@
 import type { Store } from '@reduxjs/toolkit';
 
 import { reportErrorToSentry } from '../setup/sentry';
-import { displayMessagesFetched, localeChanged } from './langSlice';
-import { DEFAULT_LOCALE, getSupportedLocale as defaultGetSupportedLocale } from './lang';
 import { trace } from '../setup/trace';
+import { DEFAULT_LOCALE, getSupportedLocale as defaultGetSupportedLocale } from './lang';
+import { displayMessagesFetched, localeChanged } from './langSlice';
 
 const importDisplayMessages = async (locale: string) =>
     (await import(`../../features/translations/${locale}.json`)).default;

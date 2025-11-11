@@ -1,4 +1,5 @@
 import { expect } from '@playwright/test';
+
 import { test } from '../testSetup';
 
 test.describe('App basic functionality', () => {

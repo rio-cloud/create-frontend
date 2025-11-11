@@ -1,6 +1,7 @@
 import * as Sentry from '@sentry/browser';
-import { config } from '../../config';
 import type { Breadcrumb, ErrorEvent, EventHint } from '@sentry/core';
+
+import { config } from '../../config';
 
 export const reportErrorToSentry = (exception: unknown, hint?: Parameters<typeof Sentry.captureException>[1]) => {
     if (exception === undefined) {

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import type { RootState } from '../configuration/setup/store';
 import { useAppSelector } from '../configuration/setup/hooks';
+import type { RootState } from '../configuration/setup/store';
 
 export type AppState = {
     sessionExpiredAcknowledged: boolean;

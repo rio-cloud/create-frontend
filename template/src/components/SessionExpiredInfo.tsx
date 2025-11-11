@@ -4,7 +4,7 @@ import { DEFAULT_LOCALE } from '../configuration/lang/lang';
 import { useLocale } from '../configuration/lang/langSlice';
 import { useIsUserSessionExpired } from '../configuration/login/loginSlice';
 import { useAppDispatch } from '../configuration/setup/hooks';
-import { useSessionExpiredAcknowledged, hideSessionExpiredDialog } from '../data/appSlice';
+import { hideSessionExpiredDialog, useSessionExpiredAcknowledged } from '../data/appSlice';
 
 const SessionExpiredInfo = () => {
     const dispatch = useAppDispatch();

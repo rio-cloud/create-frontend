@@ -1,8 +1,8 @@
 import defaultTo from 'lodash/fp/defaultTo';
 import flow from 'lodash/fp/flow';
+import has from 'lodash/fp/has';
 import head from 'lodash/fp/head';
 import split from 'lodash/fp/split';
-import has from 'lodash/fp/has';
 
 export const DEFAULT_LOCALE = 'en-GB';
 

@@ -1,13 +1,13 @@
-import { Log, UserManager, type UserProfile } from 'oidc-client-ts';
 import { EVENT_USER_LANGUAGE_CHANGED, EVENT_USER_PROFILE_CHANGED } from '@rio-cloud/rio-user-menu-component';
+import { Log, UserManager, type UserProfile } from 'oidc-client-ts';
 
 import { config } from '../../config';
-import { loginStorage } from './storage';
+import { runInBackground } from '../setup/backgroundActions';
 import { addBreadcrumbToSentry, reportErrorToSentry } from '../setup/sentry';
 import { trace } from '../setup/trace';
-import { configureUserManager } from './userManagerConfiguration';
-import { runInBackground } from '../setup/backgroundActions';
 import { mockSession, shouldMockAuthentication } from './mockAuthentication';
+import { loginStorage } from './storage';
+import { configureUserManager } from './userManagerConfiguration';
 
 export type UserSessionHooks = {
     onSessionExpired: () => void;
