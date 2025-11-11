@@ -118,7 +118,8 @@
             "!coverage",
             "!results",
             "!test-results",
-            "!src/features/translations"
+            "!src/features/translations",
+            "!index.html"
         ]
     }
 }
