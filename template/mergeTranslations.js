@@ -28,12 +28,12 @@ for (const [locale, files] of filesByLocales) {
 
     const mergedContent = contents.reduce((outgoingFile, content) => {
         // find duplicates
-        for (const key of Object.keys(content)) {
+        for (const [key, value] of Object.entries(content)) {
             if (outgoingFile[key]) {
                 console.warn(`Duplicate key '${key}' found in locale ${locale}`);
             }
+            outgoingFile[key] = value;
         }
-        Object.assign(outgoingFile, content);
         return outgoingFile;
     }, {});
 

@@ -22,7 +22,7 @@ test.describe('App basic functionality', () => {
         await expect(appPage.locationMenu).toBeVisible();
     });
 
-    test('rendering the service info', async ({ appPage, page }) => {
+    test('rendering the service info', async ({ appPage }) => {
         await appPage.open();
         await expect(appPage.serviceInfoReleaseNotesLink).not.toBeVisible();
         await appPage.openServiceInfo();

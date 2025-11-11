@@ -1,11 +1,13 @@
 {
     "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+
     "formatter": {
         "enabled": true,
         "indentStyle": "space",
         "indentWidth": 4,
         "lineWidth": 120
     },
+
     "javascript": {
         "formatter": {
             "arrowParentheses": "asNeeded",
@@ -19,6 +21,9 @@
             "attributePosition": "auto"
         }
     },
+
+    "assist": { "actions": { "source": { "organizeImports": "off" } } },
+
     "linter": {
         "enabled": true,
         "rules": {
@@ -26,28 +31,59 @@
             "a11y": {
                 "useKeyWithClickEvents": "off",
                 "noLabelWithoutControl": "off",
-                "noSvgWithoutTitle": "off"
+                "noSvgWithoutTitle": "off",
+                "noStaticElementInteractions": "off"
+            },
+            "complexity": {
+                "noForEach": "off",
+                "noUselessFragments": "warn"
             },
             "style": {
                 "noImplicitBoolean": "off",
                 "useBlockStatements": "error",
-                "useForOf": "error",
                 "useConsistentArrayType": {
                     "level": "error",
                     "options": { "syntax": "shorthand" }
+                },
+                "useConst": {
+                    "level": "warn",
+                    "fix": "unsafe"
+                },
+                "useForOf": "error",
+                "useNamingConvention": {
+                    "level": "off",
+                    "options": { "strictCase": false }
                 },
                 "useSelfClosingElements": {
                     "level": "warn",
                     "fix": "safe"
                 },
-                "useConst": {
-                    "level": "warn",
-                    "fix": "unsafe"
-                }
+                "useShorthandFunctionType": "warn",
+                "useSingleVarDeclarator": "error",
+                "noParameterAssign": "error",
+                "useAsConstAssertion": "error",
+                "useDefaultParameterLast": "error",
+                "useEnumInitializers": "error",
+                "noUnusedTemplateLiteral": "error",
+                "useNumberNamespace": "error",
+                "noInferrableTypes": "error",
+                "noUselessElse": "error"
             },
-            "complexity": {
-                "noForEach": "off",
-                "noUselessFragments": "warn"
+            "suspicious": {
+                "noAssignInExpressions": "warn",
+                "noCommentText": "error",
+                "noDebugger": "warn",
+                "noDoubleEquals": "error",
+                "noDuplicateCase": "warn",
+                "noDuplicateJsxProps": "error",
+                "noEmptyBlockStatements": "off",
+                "noEmptyInterface": "off",
+                "noExplicitAny": "on",
+                "noFallthroughSwitchClause": "off",
+                "noMisleadingInstantiator": "error",
+                "noRedeclare": "error",
+                "noSparseArray": "error",
+                "useNamespaceKeyword": "warn"
             },
             "correctness": {
                 "noUnusedImports": {
@@ -55,34 +91,34 @@
                     "fix": "safe"
                 },
                 "noUnusedVariables": "off",
-                "useExhaustiveDependencies": "off"
+                "useExhaustiveDependencies": "off",
+                "useValidTypeof": "off",
+                "useUniqueElementIds": "off"
             }
         }
     },
-    "organizeImports": {
-        "enabled": false
-    },
+
     "overrides": [
         {
-            "include": ["*.less", "*.css", "*.yaml", "*.yml"],
-            "formatter": {
-                "indentWidth": 2
-            }
+            "includes": ["**/*.scss", "**/*.css", "**/*.yaml", "**/*.yml"],
+            "formatter": { "indentWidth": 2 }
         }
     ],
+
     "files": {
-        "ignore": [
-            "src/features/translations/",
-            "public/",
-            "build/",
-            "coverage/",
-            "results/",
-            ".idea/",
-            ".vscode/",
-            "package.json",
-            "package-lock.json",
-            "node_modules",
-            "test-results/"
+        "includes": [
+            "**",
+            "!.*",
+            "!dist",
+            "!infrastructure",
+            "!node_modules",
+            "!package",
+            "!public",
+            "!build",
+            "!coverage",
+            "!results",
+            "!test-results",
+            "!src/features/translations"
         ]
     }
 }
