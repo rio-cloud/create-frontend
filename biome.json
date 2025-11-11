@@ -59,18 +59,21 @@
             }
         }
     },
-    "organizeImports": {
-        "enabled": false
-    },
+
     "overrides": [
         {
-            "include": ["*.less", "*.css", "*.yaml", "*.yml"],
-            "formatter": {
-                "indentWidth": 2
-            }
+            "includes": ["**/*.scss", "**/*.css", "**/*.yaml", "**/*.yml"],
+            "formatter": { "indentWidth": 2 }
         }
     ],
+
     "files": {
-        "ignore": ["template/src/features/translations/", "package*.json", "template/package*.json"]
+        "includes": [
+            "**",
+            "!.*",
+            "!template",
+            "!package",
+            "!node_modules"
+        ]
     }
 }
