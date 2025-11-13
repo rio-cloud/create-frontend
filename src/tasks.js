@@ -1,12 +1,14 @@
+import fs from 'node:fs';
 import { mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { Listr } from 'listr2';
-import fs from 'node:fs';
-import git from 'isomorphic-git';
-import { replaceInFile } from 'replace-in-file';
+
 import chalk from 'chalk';
 import cpy from 'cpy';
+import git from 'isomorphic-git';
+import { Listr } from 'listr2';
 import { moveFile } from 'move-file';
+import { replaceInFile } from 'replace-in-file';
+
 import { fixWindowsPaths } from './util.js';
 
 export async function getTasks({
@@ -30,7 +32,7 @@ export async function getTasks({
         },
         {
             title: 'Create .gitignore',
-            task: async (ctx, task) => {
+            task: async (_ctx, task) => {
                 try {
                     await moveFile(`${fixedOutputDir}/.npmignore`, `${fixedOutputDir}/.gitignore`);
                 } catch (e) {
@@ -42,8 +44,8 @@ export async function getTasks({
             title: 'Replace config values',
             task: () =>
                 replaceInFile({
-                    files: ['.env.production', 'index.html', 'package.json', 'package-lock.json', 'README.md'].map(
-                        (f) => fixWindowsPaths(resolve(outputDir, f))
+                    files: ['.env.production', 'index.html', 'package.json', 'package-lock.json', 'README.md'].map(f =>
+                        fixWindowsPaths(resolve(outputDir, f))
                     ),
                     from: [
                         /CREATE_RIO_FRONTEND_appName/g,
@@ -60,7 +62,7 @@ export async function getTasks({
     if (initGit) {
         tasks.add({
             title: 'Set up git repository',
-            task: async (ctx, task) => {
+            task: async (_ctx, task) => {
                 const dir = outputDir;
                 const defaultBranch = 'main';
                 const filepath = '.';

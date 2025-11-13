@@ -1,31 +1,34 @@
 {
-  "name": "@rio-cloud/create-frontend",
-  "version": "1.0.0",
-  "description": "A CLI for creating new web frontend projects from scratch",
-  "author": {
-    "name": "Roland Hummel",
-    "email": "roland.hummel@rio.cloud"
-  },
-  "type": "module",
-  "private": true,
-  "bin": {
-    "@rio-cloud/create-frontend": "./index.js"
-  },
-  "dependencies": {
-    "@biomejs/biome": "2.3.4",
-    "@inquirer/prompts": "7.10.0",
-    "boxen": "^8.0.1",
-    "chalk": "5.6.2",
-    "cpy": "^11.1.0",
-    "gradient-string": "3.0.0",
-    "isomorphic-git": "1.35.0",
-    "listr2": "8.3.3",
-    "move-file": "^3.1.0",
-    "replace-in-file": "8.3.0"
-  },
-  "files": [
-    "src",
-    "template",
-    "template/.gitignore"
-  ]
+    "name": "@rio-cloud/create-frontend",
+    "version": "1.0.0",
+    "description": "A CLI for creating new web frontend projects from scratch",
+    "author": {
+        "name": "Roland Hummel",
+        "email": "roland.hummel@rio.cloud"
+    },
+    "type": "module",
+    "private": true,
+    "bin": {
+        "@rio-cloud/create-frontend": "./index.js"
+    },
+    "dependencies": {
+        "@inquirer/prompts": "7.10.0",
+        "boxen": "^8.0.1",
+        "chalk": "5.6.2",
+        "cpy": "^11.1.0",
+        "gradient-string": "3.0.0",
+        "isomorphic-git": "1.35.0",
+        "listr2": "8.3.3",
+        "move-file": "^3.1.0",
+        "replace-in-file": "8.3.0"
+    },
+    "files": [
+        "src",
+        "template",
+        "template/.gitignore"
+    ],
+    "devDependencies": {
+        "@biomejs/biome": "2.3.5",
+        "@rio-cloud/biome-config": "1.0.0"
+    }
 }

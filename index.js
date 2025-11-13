@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
+import { dirname, relative, resolve } from 'node:path';
 import { argv, cwd, exit } from 'node:process';
 import { fileURLToPath } from 'node:url';
-import { dirname, relative, resolve } from 'node:path';
+
 import boxen from 'boxen';
 import chalk from 'chalk';
 import { retro } from 'gradient-string';
+
 import { cli } from './src/cli.js';
 import { getTasks } from './src/tasks.js';
 

@@ -1,6 +1,6 @@
 // used to make prevent blank / untrimmed strings
-export const notBlank = (str) => str.trim().length > 0;
-export const trim = (str) => str.trim();
+export const notBlank = str => str.trim().length > 0;
+export const trim = str => str.trim();
 
 export const requiredTrimmed = {
     validate: notBlank,
@@ -12,4 +12,4 @@ export const requiredTrimmed = {
  *
  * See https://github.com/sindresorhus/globby/issues/155
  */
-export const fixWindowsPaths = process.platform === 'win32' ? (path) => path.replace(/\\/g, '/') : (path) => path;
+export const fixWindowsPaths = process.platform === 'win32' ? path => path.replace(/\\/g, '/') : path => path;

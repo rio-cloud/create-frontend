@@ -1,79 +1,9 @@
 {
-    "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-    "formatter": {
-        "enabled": true,
-        "indentStyle": "space",
-        "indentWidth": 4,
-        "lineWidth": 120
-    },
-    "javascript": {
-        "formatter": {
-            "arrowParentheses": "asNeeded",
-            "quoteStyle": "single",
-            "jsxQuoteStyle": "single",
-            "quoteProperties": "asNeeded",
-            "trailingCommas": "es5",
-            "bracketSpacing": true,
-            "bracketSameLine": false,
-            "semicolons": "always",
-            "attributePosition": "auto"
-        }
-    },
-    "linter": {
-        "enabled": true,
-        "rules": {
-            "recommended": true,
-            "a11y": {
-                "useKeyWithClickEvents": "off",
-                "noLabelWithoutControl": "off",
-                "noSvgWithoutTitle": "off"
-            },
-            "style": {
-                "noImplicitBoolean": "off",
-                "useBlockStatements": "error",
-                "useForOf": "error",
-                "useConsistentArrayType": {
-                    "level": "error",
-                    "options": { "syntax": "shorthand" }
-                },
-                "useSelfClosingElements": {
-                    "level": "warn",
-                    "fix": "safe"
-                },
-                "useConst": {
-                    "level": "warn",
-                    "fix": "unsafe"
-                }
-            },
-            "complexity": {
-                "noForEach": "off",
-                "noUselessFragments": "warn"
-            },
-            "correctness": {
-                "noUnusedImports": {
-                    "level": "warn",
-                    "fix": "safe"
-                },
-                "noUnusedVariables": "off",
-                "useExhaustiveDependencies": "off"
-            }
-        }
-    },
-
-    "overrides": [
-        {
-            "includes": ["**/*.scss", "**/*.css", "**/*.yaml", "**/*.yml"],
-            "formatter": { "indentWidth": 2 }
-        }
-    ],
+    "$schema": "node_modules/@biomejs/biome/configuration_schema.json",
+    "extends": ["@rio-cloud/biome-config/frontend.json"],
+    "root": true,
 
     "files": {
-        "includes": [
-            "**",
-            "!.*",
-            "!template",
-            "!package",
-            "!node_modules"
-        ]
+        "includes": ["**", "!.*", "!**/node_modules", "!template"]
     }
 }

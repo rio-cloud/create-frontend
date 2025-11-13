@@ -1,8 +1,10 @@
 import { resolve } from 'node:path';
 import { cwd } from 'node:process';
+
 import { confirm, input } from '@inquirer/prompts';
-import { requiredTrimmed } from './util.js';
+
 import { rioLogo } from './rioLogo.js';
+import { requiredTrimmed } from './util.js';
 
 export async function cli(appName, givenOutputDir = null, silent = false) {
     if (!silent) {
