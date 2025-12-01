@@ -4,17 +4,6 @@
     "root": true,
 
     "files": {
-        "includes": [
-            "**",
-            "!.*",
-            "!infrastructure",
-            "!node_modules",
-            "!public",
-            "!build",
-            "!coverage",
-            "!results",
-            "!test-results",
-            "!src/features/translations"
-        ]
+        "includes": ["**", "!.*", "!infrastructure", "!public", "!src/features/translations"]
     }
 }
