@@ -30,12 +30,24 @@ export default defineConfig({
     },
 
     test: {
-        environment: 'jsdom',
+        environment: 'happy-dom',
         globals: true,
         globalSetup: 'src/__test__/globalSetup.ts',
         setupFiles: 'src/__test__/setupTests.ts',
         restoreMocks: true,
         include: ['**/__test__/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+
+        server: {
+            deps: {
+                inline: [
+                    // inline all our components that are potentially ESM-only until the UIKIT is fully 100% ESM-only
+                    '@rio-cloud/rio-notifications-component',
+                    '@rio-cloud/rio-session-expired-info',
+                    '@rio-cloud/rio-uikit',
+                    '@rio-cloud/rio-user-menu-component',
+                ],
+            },
+        },
 
         // Vitest by default uses 'test' as the mode. There is no .env file for
         // this mode. Therefore, we load the environment variables from the

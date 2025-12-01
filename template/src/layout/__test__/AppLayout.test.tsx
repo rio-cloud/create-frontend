@@ -1,20 +1,23 @@
 import { screen } from '@testing-library/react';
 
-import { silenceConsole, testRender } from '../../__test__/testUtils';
+import MockComponent from '../../__test__/MockComponent';
+import { testRender } from '../../__test__/testUtils';
 import type { RootState } from '../../configuration/setup/store';
 import messagesDE from '../../features/translations/de-DE.json';
 import AppLayout from '../AppLayout';
 
+vi.mock('iframe-resizer-react', () => ({
+    // @ts-expect-error Several components on this level are using the iframe-resizer
+    default: props => <MockComponent name='IframeResizer' data={props} />,
+}));
+
 describe('Test AppLayout', () => {
-    test('Application layout is rendered', async () => {
-        silenceConsole();
+    it('Application layout is rendered', async () => {
         testRender(<AppLayout />);
         expect(await screen.findByTestId('app-layout')).toBeInTheDocument();
     });
 
-    test('Application layout renders with a preloaded store', async () => {
-        silenceConsole();
-
+    it('Application layout renders with a preloaded store', async () => {
         // Define the preloaded state for the test
         const preloadedState: Partial<RootState> = {
             lang: {
