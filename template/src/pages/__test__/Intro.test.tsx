@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import { IntlProvider } from 'react-intl';
 
-import messagesEN from '../../features/translations/en-GB.json';
+import { messages } from '../../__test__/testUtils';
 import Intro from '../Intro';
 
 it('renders without crashing', () => {
@@ -9,7 +9,7 @@ it('renders without crashing', () => {
     const root = createRoot(container);
 
     root.render(
-        <IntlProvider locale='en' messages={messagesEN}>
+        <IntlProvider locale='en' messages={messages}>
             <Intro />
         </IntlProvider>
     );
