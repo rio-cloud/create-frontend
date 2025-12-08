@@ -1,3 +1,4 @@
+import { rioLicenseCheck } from '@rio-cloud/vite-plugin-frontend-license-check';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { loadEnv } from 'vite';
@@ -7,7 +8,7 @@ import { version } from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react(), visualizer({ filename: 'results/stats.html' })],
+    plugins: [react(), visualizer({ filename: 'results/stats.html' }), rioLicenseCheck()],
 
     define: {
         APP_VERSION: JSON.stringify(version),
