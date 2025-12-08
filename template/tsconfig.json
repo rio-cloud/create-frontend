@@ -18,5 +18,6 @@
         "jsx": "react-jsx"
     },
     "include": ["src", "test"],
+    "exclude": ["src/__test__/globalSetup.ts"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
