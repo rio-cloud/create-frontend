@@ -58,7 +58,9 @@ export const supportedLocaleMap: LocaleMap = {
     'sv-SE': 'sv-SE',
 };
 
-export const extractLanguage = flow(defaultTo(DEFAULT_LOCALE), split('-'), head);
+export const extractLanguage = flow(defaultTo(DEFAULT_LOCALE), split('-'), head) as (
+    locale: string | null | undefined
+) => string;
 
 export const DEFAULT_LANG = extractLanguage(DEFAULT_LOCALE);
 
