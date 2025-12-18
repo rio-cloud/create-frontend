@@ -222,3 +222,6 @@ public/mockServiceWorker.js
 # temporary i18n files that get merged
 src/features/translations/temp/**/*
 test-results
+
+# make sure the whitelist isn't checked in by accident
+frontend-license-whitelist.json
