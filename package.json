@@ -12,15 +12,15 @@
         "@rio-cloud/create-frontend": "./index.js"
     },
     "dependencies": {
-        "@inquirer/prompts": "7.10.0",
+        "@inquirer/prompts": "8.1.0",
         "boxen": "^8.0.1",
         "chalk": "5.6.2",
-        "cpy": "^11.1.0",
+        "cpy": "12.1.0",
         "gradient-string": "3.0.0",
-        "isomorphic-git": "1.35.0",
-        "listr2": "8.3.3",
+        "isomorphic-git": "1.36.1",
+        "listr2": "9.0.5",
         "move-file": "^3.1.0",
-        "replace-in-file": "8.3.0"
+        "replace-in-file": "8.4.0"
     },
     "files": [
         "src",
@@ -28,7 +28,7 @@
         "template/.gitignore"
     ],
     "devDependencies": {
-        "@biomejs/biome": "2.3.5",
-        "@rio-cloud/biome-config": "1.0.0"
+        "@biomejs/biome": "2.3.10",
+        "@rio-cloud/biome-config": "1.1.0"
     }
 }
