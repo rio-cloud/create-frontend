@@ -6,7 +6,7 @@ const supportsLocalStorage = (window: Window) => {
         const isSupported = window.localStorage.getItem(key);
         window.localStorage.removeItem(key);
         return isSupported;
-    } catch (_) {
+    } catch {
         console.warn('[feature/login] localStorage not supported!');
         return false;
     }
