@@ -1,7 +1,7 @@
 import { resolve } from 'node:path';
 import { cwd } from 'node:process';
 
-import { confirm, input } from '@inquirer/prompts';
+import { input } from '@inquirer/prompts';
 
 import { rioLogo } from './rioLogo.js';
 import { requiredTrimmed } from './util.js';
@@ -22,8 +22,6 @@ export async function cli(appName, givenOutputDir = null, silent = false) {
             })
         );
 
-    const initGit = await confirm({ message: 'Do you want to initialize a Git repository?', default: true });
-
     console.log();
 
     const clientId = await input({ message: '[OAuth] >> client ID', ...requiredTrimmed });
@@ -42,5 +40,5 @@ export async function cli(appName, givenOutputDir = null, silent = false) {
 
     console.log();
 
-    return { appName, outputDir, clientId, redirectUri, silentRedirectUri, sentryDsn, initGit };
+    return { appName, outputDir, clientId, redirectUri, silentRedirectUri, sentryDsn };
 }

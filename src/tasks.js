@@ -1,43 +1,36 @@
 import fs from 'node:fs';
-import { mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 import chalk from 'chalk';
-import cpy from 'cpy';
 import git from 'isomorphic-git';
 import { Listr } from 'listr2';
-import { moveFile } from 'move-file';
 import { replaceInFile } from 'replace-in-file';
+import { rimraf } from 'rimraf';
+import { $, usePowerShell, usePwsh } from 'zx';
 
 import { fixWindowsPaths } from './util.js';
 
-export async function getTasks({
-    appName,
-    outputDir,
-    clientId,
-    redirectUri,
-    silentRedirectUri,
-    sentryDsn,
-    initGit,
-    templateDir,
-}) {
-    const fixedTemplateDir = fixWindowsPaths(templateDir);
-    const fixedOutputDir = fixWindowsPaths(outputDir);
+const env = process.env;
 
-    const tasks = new Listr([
-        { title: `Create ${chalk.green.bold(outputDir)}`, task: () => mkdir(fixedOutputDir, { recursive: true }) },
+if (process.platform === 'win32') {
+    if (env.POWERSHELL_DISTRIBUTION_CHANNEL) {
+        // PowerShell ≥ 6/7 (Core / pwsh)
+        console.log('Using pwsh 7+', env.POWERSHELL_DISTRIBUTION_CHANNEL);
+        usePwsh();
+    } else if (env.PSModulePath && !env.POWERSHELL_DISTRIBUTION_CHANNEL) {
+        // Windows PowerShell 5.x
+        console.log('Using legacy PowerShell');
+        usePowerShell();
+    }
+}
+
+export const getTasks = async ({ appName, outputDir, clientId, redirectUri, silentRedirectUri, sentryDsn }) =>
+    new Listr([
         {
-            title: 'Copy frontend template code',
-            task: () => cpy([`${fixedTemplateDir}/**/*`, `!${fixedTemplateDir}/node_modules`], fixedOutputDir),
-        },
-        {
-            title: 'Create .gitignore',
-            task: async (_ctx, task) => {
-                try {
-                    await moveFile(`${fixedOutputDir}/.npmignore`, `${fixedOutputDir}/.gitignore`);
-                } catch (e) {
-                    task.skip('No .npmignore found; most likely running locally?');
-                }
+            title: `Clone template code into ${chalk.green.bold(outputDir)}`,
+            task: async () => {
+                await $`git clone git@github.com:rio-cloud/frontend-template.git ${outputDir}`;
+                await rimraf(resolve(outputDir, '.git'));
             },
         },
         {
@@ -57,10 +50,7 @@ export async function getTasks({
                     to: [appName, clientId, redirectUri, silentRedirectUri, sentryDsn],
                 }),
         },
-    ]);
-
-    if (initGit) {
-        tasks.add({
+        {
             title: 'Set up git repository',
             task: async (_ctx, task) => {
                 const dir = outputDir;
@@ -78,8 +68,5 @@ export async function getTasks({
                 task.output = '=> git commit';
                 await git.commit({ fs, dir, message, author });
             },
-        });
-    }
-
-    return tasks;
-}
+        },
+    ]);
