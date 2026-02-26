@@ -1,9 +1,0 @@
-{
-    "$schema": "node_modules/@biomejs/biome/configuration_schema.json",
-    "extends": ["@rio-cloud/biome-config/frontend.json"],
-    "root": true,
-
-    "files": {
-        "includes": ["**", "!.*", "!infrastructure", "!public", "!src/features/translations"]
-    }
-}
