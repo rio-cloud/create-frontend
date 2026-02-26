@@ -8,6 +8,9 @@
     },
     "type": "module",
     "private": true,
+    "scripts": {
+        "format-code": "biome format --write"
+    },
     "bin": {
         "create-frontend": "./index.js"
     },
