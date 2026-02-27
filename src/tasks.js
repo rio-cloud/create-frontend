@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { resolve } from 'node:path';
+import { env, platform } from 'node:process';
 
 import chalk from 'chalk';
 import git from 'isomorphic-git';
@@ -10,9 +11,7 @@ import { $, usePowerShell, usePwsh } from 'zx';
 
 import { fixWindowsPaths } from './util.js';
 
-const env = process.env;
-
-if (process.platform === 'win32') {
+if (platform === 'win32') {
     if (env.POWERSHELL_DISTRIBUTION_CHANNEL) {
         // PowerShell ≥ 6/7 (Core / pwsh)
         console.log('Using pwsh 7+', env.POWERSHELL_DISTRIBUTION_CHANNEL);
