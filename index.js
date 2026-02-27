@@ -23,7 +23,6 @@ try {
         console.log(chalk.bold('All done - your project is ready! Start hacking immediately:'));
         console.log();
         console.log(`> ${chalk.cyan(`cd ${relative(cwd(), config.outputDir)}`)}`);
-        console.log(`> ${chalk.cyan('npm install')}`);
         console.log(`> ${chalk.cyan('npm start')}`);
         console.log(boxen(chalk.bold(retro('Have a nice day :)')), { margin: 1, padding: 1 }));
     }

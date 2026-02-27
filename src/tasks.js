@@ -52,7 +52,7 @@ function bootstrapProject({ outputDir, appName, clientId, redirectUri, sentryDsn
             await $({
                 cwd: outputDir,
                 stdio: 'inherit',
-            })`node template-bootstrap.js ${appName} ${clientId} ${redirectUri} ${sentryDsn}`;
+            })`node template-bootstrap.js --appName ${appName} --clientId ${clientId} --redirectUri ${redirectUri} --sentryDsn ${sentryDsn}`;
 
             task.output = '=> remove bootstrap script';
             await fs.promises.unlink(bootstrapScriptPath);
@@ -96,7 +96,5 @@ export const getTasks = async ({ outputDir, https, appName, clientId, redirectUr
             installDependencies(outputDir),
             setupGitRepository(outputDir),
         ],
-        {
-            renderer: https ? 'simple' : 'default',
-        }
+        { renderer: 'simple' }
     );
