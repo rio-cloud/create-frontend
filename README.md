@@ -10,7 +10,6 @@ npm create --yes rio-cloud/frontend my-fancy-project
 
 - OAuth ClientID
 - OAuth redirect_uri
-- OAuth silent redirect_uri
 - Sentry DSN
 
 If you **just** want a small local frontend toy project that allows you to play around with UIKIT components, simply
@@ -38,7 +37,7 @@ use something else, feel free to remove or adapt the sample implementations.
 - *Form validation*
     - [React Hook Form](https://react-hook-form.com/)
 - *Date library*
-    Even though there are some older UIKIT components that still uses moment.js, The date-fns library is set out to
+    Even though there are some older UIKIT components that still use moment.js, The date-fns library is set out to
     replace that in our services
     - [date-fns](https://date-fns.org/)
 - *Testing*
@@ -49,7 +48,7 @@ use something else, feel free to remove or adapt the sample implementations.
     - [MSW](https://mswjs.io/) to mock API calls by intercepting requests on the network level. This can be used for
       development and testing alike
 - *Localization*:
-    - [react-intl](https://formatjs.io/docs/react-intl/) as I18n library
+    - [react-intl](https://formatjs.io/docs/react-intl/) as i18n library
     - [Phrase](https://phrase.com/cli/) for managing translations with Phrase
 - *Service monitoring and issue tracking*:
     - [Sentry](https://sentry.io/)
@@ -65,7 +64,7 @@ use something else, feel free to remove or adapt the sample implementations.
 
 ## ⚠️ Note for Windows users ⚠️
 
-Some of the utility we're using in this CLI does not work 100% reliably on Windows. See
+Some of the utilities we're using in this CLI do not work 100% reliably on Windows. See
 [this issue](https://github.com/rio-cloud/create-frontend/issues/6), for example. We try to iron out these issues, but
 you may run into problems when running the CLI in a path on one drive, e.g. C:\Users\RandomUser\code and then
 manually setting the output directory to a path on another drive e.g. D:\projects\awesome-sauce.
@@ -76,3 +75,7 @@ you're best off going into D:\projects and then just running `npm create --yes r
 The CLI will automatically assume the output directory to be a child directory of your current working dir + the project
 name you're giving - and you don't have to type in the folder path, since the CLI will propose it automatically. To 
 complete the step, just hit enter.
+
+## ⚠️ Note for users that don't have SSH access to git repositories ⚠️
+
+If the CLI fails to clone the git repository, you can add the `--https` flag to the command.
