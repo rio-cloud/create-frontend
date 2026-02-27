@@ -24,49 +24,65 @@ if (process.platform === 'win32') {
     }
 }
 
-export const getTasks = async ({ appName, outputDir, clientId, redirectUri, silentRedirectUri, sentryDsn }) =>
-    new Listr([
-        {
-            title: `Clone template code into ${chalk.green.bold(outputDir)}`,
-            task: async () => {
-                await $`git clone git@github.com:rio-cloud/frontend-template.git ${outputDir}`;
-                await rimraf(resolve(outputDir, '.git'));
+export const getTasks = async ({ appName, outputDir, clientId, redirectUri, silentRedirectUri, sentryDsn, https }) =>
+    new Listr(
+        [
+            {
+                title: `Clone template code into ${chalk.green.bold(outputDir)}`,
+                task: async () => {
+                    const frontendTemplateRepo = https
+                        ? 'https://github.com/rio-cloud/frontend-template.git'
+                        : 'git@github.com:rio-cloud/frontend-template.git';
+
+                    const gitEnv = { ...env, GIT_TERMINAL_PROMPT: '1' };
+                    delete gitEnv.GIT_ASKPASS;
+                    delete gitEnv.SSH_ASKPASS;
+
+                    await $({
+                        stdio: 'inherit',
+                        env: gitEnv,
+                    })`git clone ${frontendTemplateRepo} ${outputDir} --depth 1`;
+
+                    await rimraf(resolve(outputDir, '.git'));
+                },
             },
-        },
-        {
-            title: 'Replace config values',
-            task: () =>
-                replaceInFile({
-                    files: ['.env.production', 'index.html', 'package.json', 'package-lock.json', 'README.md'].map(f =>
-                        fixWindowsPaths(resolve(outputDir, f))
-                    ),
-                    from: [
-                        /CREATE_RIO_FRONTEND_appName/g,
-                        /CREATE_RIO_FRONTEND_clientId/g,
-                        /CREATE_RIO_FRONTEND_redirectUri/g,
-                        /CREATE_RIO_FRONTEND_silentRedirectUri/g,
-                        /CREATE_RIO_FRONTEND_sentryDsn/g,
-                    ],
-                    to: [appName, clientId, redirectUri, silentRedirectUri, sentryDsn],
-                }),
-        },
-        {
-            title: 'Set up git repository',
-            task: async (_ctx, task) => {
-                const dir = outputDir;
-                const defaultBranch = 'main';
-                const filepath = '.';
-                const message = 'initial commit by @rio-cloud/create-frontend';
-                const author = { name: '@rio-cloud/create-frontend', email: 'uxui@rio.cloud' };
-
-                task.output = '=> git init';
-                await git.init({ fs, dir, defaultBranch });
-
-                task.output = '=> git add --all';
-                await git.add({ fs, dir, filepath });
-
-                task.output = '=> git commit';
-                await git.commit({ fs, dir, message, author });
+            {
+                title: 'Replace config values',
+                task: () =>
+                    replaceInFile({
+                        files: ['.env.production', 'index.html', 'package.json', 'package-lock.json', 'README.md'].map(
+                            f => fixWindowsPaths(resolve(outputDir, f))
+                        ),
+                        from: [
+                            /CREATE_RIO_FRONTEND_appName/g,
+                            /CREATE_RIO_FRONTEND_clientId/g,
+                            /CREATE_RIO_FRONTEND_redirectUri/g,
+                            /CREATE_RIO_FRONTEND_silentRedirectUri/g,
+                            /CREATE_RIO_FRONTEND_sentryDsn/g,
+                        ],
+                        to: [appName, clientId, redirectUri, silentRedirectUri, sentryDsn],
+                    }),
             },
-        },
-    ]);
+            {
+                title: 'Set up git repository',
+                task: async (_ctx, task) => {
+                    task.output = '=> git init';
+                    const dir = outputDir;
+                    const defaultBranch = 'main';
+                    await git.init({ fs, dir, defaultBranch });
+
+                    task.output = '=> git add --all';
+                    const filepath = '.';
+                    await git.add({ fs, dir, filepath });
+
+                    task.output = '=> git commit';
+                    const message = 'initial commit by @rio-cloud/create-frontend';
+                    const author = { name: '@rio-cloud/create-frontend', email: 'uxui@rio.cloud' };
+                    await git.commit({ fs, dir, message, author });
+                },
+            },
+        ],
+        {
+            renderer: https ? 'simple' : 'default',
+        }
+    );
