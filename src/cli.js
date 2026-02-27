@@ -4,7 +4,11 @@ import { cwd } from 'node:process';
 import { input } from '@inquirer/prompts';
 
 import { rioLogo } from './rioLogo.js';
-import { requiredTrimmed } from './util.js';
+
+const requiredTrimmed = {
+    validate: str => str.trim().length > 0,
+    transformer: str => str.trim(),
+};
 
 export async function cli(appName, givenOutputDir = null, silent = false) {
     if (!silent) {
@@ -28,17 +32,11 @@ export async function cli(appName, givenOutputDir = null, silent = false) {
 
     const redirectUri = await input({ message: '[OAuth] >> redirect_uri', ...requiredTrimmed });
 
-    const silentRedirectUri = await input({
-        message: '[OAuth] >> silent redirect_uri',
-        default: redirectUri,
-        ...requiredTrimmed,
-    });
-
     console.log();
 
     const sentryDsn = await input({ message: '[Sentry] >> DSN', ...requiredTrimmed });
 
     console.log();
 
-    return { appName, outputDir, clientId, redirectUri, silentRedirectUri, sentryDsn };
+    return { outputDir, appName, clientId, redirectUri, sentryDsn };
 }
