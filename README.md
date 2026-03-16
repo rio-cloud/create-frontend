@@ -22,8 +22,7 @@ streamline the various projects so developers feel familiar when working with mu
 use something else, feel free to remove or adapt the sample implementations.
 
 - *Build tooling*:
-    - [Vite](https://vitejs.dev/) - uses [esbuild](https://esbuild.github.io/) and [Rollup](https://rollupjs.org) under
-      the hood
+    - [Vite](https://vitejs.dev/)
 - *Frontend library*:
     - [React](https://reactjs.org/)
 - *Routing*:
@@ -56,11 +55,6 @@ use something else, feel free to remove or adapt the sample implementations.
     - [Biome](https://biomejs.dev/)
 - *Automated dependency updates*:
     - [Renovate](https://docs.renovatebot.com/) basic configuration file only, further configurations must be customized
-
-## Migration guides for existing frontend projects
-
-* [Migrating to Vite](docs/migrating-to-vite.md)
-* [Migrating to Mock Service Worker](docs/migrating-to-msw.md)
 
 ## ⚠️ Note for Windows users ⚠️
 
