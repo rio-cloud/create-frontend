@@ -2,74 +2,33 @@
 
 A CLI for creating new web frontend projects from scratch.
 
+Projects created with this CLI are generated from the
+[frontend-template](https://github.com/rio-cloud/frontend-template) repository.
+
 ```shell
-npm create --yes rio-cloud/frontend my-fancy-project
+npm create --yes rio-cloud/frontend my-new-project
 ```
 
-👉 Before starting, you should already have some information ready:
+👉 **Before starting, you should already have some information ready:**
 
 - OAuth ClientID
 - OAuth redirect_uri
 - Sentry DSN
 
-If you **just** want a small local frontend toy project that allows you to play around with UIKIT components, simply
-enter dummy values for the parameters.
-
-## Tech stack
-
-The RIO template is opinionated and comes already with some pre-defined libraries to give you a head start and
-streamline the various projects so developers feel familiar when working with multiple projects. If you still want to
-use something else, feel free to remove or adapt the sample implementations.
-
-- *Build tooling*:
-    - [Vite](https://vitejs.dev/)
-- *Frontend library*:
-    - [React](https://reactjs.org/)
-- *Routing*:
-    - [React Router](https://github.com/remix-run/react-router)
-- *State management*:
-    - [Redux Toolkit](https://redux-toolkit.js.org/)
-- *Data fetching*:
-    - [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) since it is within the same ecosystem as Redux
-- *UI component library*:
-    - [RIO UIKIT](https://uikit.developers.rio.cloud)
-- *Form validation*
-    - [React Hook Form](https://react-hook-form.com/)
-- *Date library*
-    Even though there are some older UIKIT components that still use moment.js, The date-fns library is set out to
-    replace that in our services
-    - [date-fns](https://date-fns.org/)
-- *Testing*
-    - [Vitest](https://vitest.dev//) as test runner and testing framework for unit tests
-    - [Testing Library](https://testing-library.com/) as the testing utility
-    - [Playwright](https://playwright.dev/) as integration, end-to-end, monitoring test suite
-- *API mocking*:
-    - [MSW](https://mswjs.io/) to mock API calls by intercepting requests on the network level. This can be used for
-      development and testing alike
-- *Localization*:
-    - [react-intl](https://formatjs.io/docs/react-intl/) as i18n library
-    - [Phrase](https://phrase.com/cli/) for managing translations with Phrase
-- *Service monitoring and issue tracking*:
-    - [Sentry](https://sentry.io/)
-- *Static code analysis and formatting*:
-    - [Biome](https://biomejs.dev/)
-- *Automated dependency updates*:
-    - [Renovate](https://docs.renovatebot.com/) basic configuration file only, further configurations must be customized
+If you **just** want a small local frontend toy project that lets you experiment with UIKIT components, simply enter dummy values for the parameters.
 
 ## ⚠️ Note for Windows users ⚠️
 
-Some of the utilities we're using in this CLI do not work 100% reliably on Windows. See
-[this issue](https://github.com/rio-cloud/create-frontend/issues/6), for example. We try to iron out these issues, but
-you may run into problems when running the CLI in a path on one drive, e.g. C:\Users\RandomUser\code and then
-manually setting the output directory to a path on another drive e.g. D:\projects\awesome-sauce.
+Some of the utilities used by this CLI do not work 100% reliably on Windows. See [this issue](https://github.com/rio-cloud/create-frontend/issues/6) for an example.
 
-👉 We highly recommend navigating into the parent folder of your desired new project directory. In the example above,
-you're best off going into D:\projects and then just running `npm create --yes rio-cloud/frontend awesome-sauce`.
+We are working to improve this, but you may still run into problems if you run the CLI from a path on one drive, for example
+`C:\Users\RandomUser\code`, and then manually set the output directory to a path on another drive, for example
+`D:\projects\awesome-sauce`.
 
-The CLI will automatically assume the output directory to be a child directory of your current working dir + the project
-name you're giving - and you don't have to type in the folder path, since the CLI will propose it automatically. To 
-complete the step, just hit enter.
+👉 We strongly recommend navigating to the parent folder of your desired project directory first. In the example above, the best option would be to go to `D:\projects` and then run `npm create --yes rio-cloud/frontend awesome-sauce`.
+
+The CLI automatically assumes that the output directory will be a child directory of your current working directory, using the project name you provide. You usually do not need to type the folder path manually, because the CLI proposes it automatically. To accept the suggested path, just press Enter.
 
 ## ⚠️ Note for users that don't have SSH access to git repositories ⚠️
 
-If the CLI fails to clone the git repository, you can add the `--https` flag to the command.
+If the CLI fails to clone the git repository, you can add the `--https` flag to the command so that it uses HTTPS instead of SSH, for example: `npm create --yes rio-cloud/frontend my-new-project --https`.
