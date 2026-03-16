@@ -1,14 +1,16 @@
 {
     "name": "@rio-cloud/create-frontend",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "A CLI for creating new web frontend projects from scratch",
     "author": {
-        "name": "Roland Hummel",
+        "name": "TB Digital Services GmbH",
         "email": "roland.hummel@rio.cloud"
     },
     "type": "module",
     "private": true,
     "scripts": {
+        "lint": "biome check",
+        "lint-fix": "biome check --write",
         "format-code": "biome format --write"
     },
     "bin": {
@@ -16,7 +18,7 @@
     },
     "dependencies": {
         "@inquirer/prompts": "8.3.0",
-        "boxen": "^8.0.1",
+        "boxen": "8.0.1",
         "chalk": "5.6.2",
         "cpy": "13.2.1",
         "gradient-string": "3.0.0",
