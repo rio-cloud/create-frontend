@@ -1,4 +1,7 @@
-# RIO's create-frontend CLI
+<h1>
+  <img src="https://cdn.rio.cloud/images/favicon/apple-touch-icon.png" alt="RIO logo" width="28" />
+  RIO's create-frontend CLI
+</h1>
 
 A CLI for creating new web frontend projects from scratch.
 
