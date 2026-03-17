@@ -1,34 +1,40 @@
 {
     "name": "@rio-cloud/create-frontend",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "A CLI for creating new web frontend projects from scratch",
     "author": {
-        "name": "Roland Hummel",
+        "name": "TB Digital Services GmbH",
         "email": "roland.hummel@rio.cloud"
     },
     "type": "module",
     "private": true,
+    "scripts": {
+        "lint": "biome check",
+        "lint-fix": "biome check --write",
+        "format-code": "biome format --write"
+    },
     "bin": {
-        "@rio-cloud/create-frontend": "./index.js"
+        "create-frontend": "./index.js"
     },
     "dependencies": {
-        "@inquirer/prompts": "8.1.0",
-        "boxen": "^8.0.1",
+        "@inquirer/prompts": "8.3.0",
+        "boxen": "8.0.1",
         "chalk": "5.6.2",
-        "cpy": "12.1.0",
+        "cpy": "13.2.1",
         "gradient-string": "3.0.0",
-        "isomorphic-git": "1.36.1",
-        "listr2": "9.0.5",
-        "move-file": "^3.1.0",
-        "replace-in-file": "8.4.0"
+        "isomorphic-git": "1.37.2",
+        "listr2": "10.1.1",
+        "move-file": "4.1.0",
+        "replace-in-file": "8.4.0",
+        "rimraf": "6.1.3",
+        "zx": "8.8.5"
     },
     "files": [
-        "src",
-        "template",
-        "template/.gitignore"
+        "index.js",
+        "src"
     ],
     "devDependencies": {
-        "@biomejs/biome": "2.3.10",
-        "@rio-cloud/biome-config": "1.1.0"
+        "@biomejs/biome": "2.4.4",
+        "@rio-cloud/biome-config": "1.2.0"
     }
 }

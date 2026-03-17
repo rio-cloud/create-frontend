@@ -1,10 +1,14 @@
 import { resolve } from 'node:path';
 import { cwd } from 'node:process';
 
-import { confirm, input } from '@inquirer/prompts';
+import { input } from '@inquirer/prompts';
 
 import { rioLogo } from './rioLogo.js';
-import { requiredTrimmed } from './util.js';
+
+const requiredTrimmed = {
+    validate: str => str.trim().length > 0,
+    transformer: str => str.trim(),
+};
 
 export async function cli(appName, givenOutputDir = null, silent = false) {
     if (!silent) {
@@ -22,19 +26,11 @@ export async function cli(appName, givenOutputDir = null, silent = false) {
             })
         );
 
-    const initGit = await confirm({ message: 'Do you want to initialize a Git repository?', default: true });
-
     console.log();
 
     const clientId = await input({ message: '[OAuth] >> client ID', ...requiredTrimmed });
 
     const redirectUri = await input({ message: '[OAuth] >> redirect_uri', ...requiredTrimmed });
-
-    const silentRedirectUri = await input({
-        message: '[OAuth] >> silent redirect_uri',
-        default: redirectUri,
-        ...requiredTrimmed,
-    });
 
     console.log();
 
@@ -42,5 +38,5 @@ export async function cli(appName, givenOutputDir = null, silent = false) {
 
     console.log();
 
-    return { appName, outputDir, clientId, redirectUri, silentRedirectUri, sentryDsn, initGit };
+    return { outputDir, appName, clientId, redirectUri, sentryDsn };
 }

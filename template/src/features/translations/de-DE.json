@@ -1,9 +1,0 @@
-{
-    "intl-msg:common-message.error.generic.headline": "Oh, da ging etwas schief",
-    "intl-msg:common-message.error.generic.message": "Wir konnten Ihre Daten nicht laden. Bitte versuchen Sie es erneut.",
-    "intl-msg:common-message.error.generic.retryOrSupport": "Bitte versuchen Sie es erneut. Wenn der Fehler wiederholt auftritt, wenden Sie sich bitte an den RIO-Kundendienst.",
-    "intl-msg:starterTemplate.moduleName": "Starter App",
-    "intl-msg:starterTemplate.reloadPage": "Neu laden",
-    "intl-msg:starterTemplate.sublink.more": "Mehr",
-    "intl-msg:starterTemplate.sublink.intro": "Einleitung"
-}
