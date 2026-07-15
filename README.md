@@ -9,7 +9,7 @@ Projects created with this CLI are generated from the
 [frontend-template](https://github.com/rio-cloud/frontend-template) repository.
 
 ```shell
-npm create --yes rio-cloud/frontend my-new-project
+npm create --yes @rio-cloud/frontend my-new-project
 ```
 
 👉 **Before starting, you should already have some information ready:**
@@ -28,10 +28,10 @@ We are working to improve this, but you may still run into problems if you run t
 `C:\Users\RandomUser\code`, and then manually set the output directory to a path on another drive, for example
 `D:\projects\awesome-sauce`.
 
-👉 We strongly recommend navigating to the parent folder of your desired project directory first. In the example above, the best option would be to go to `D:\projects` and then run `npm create --yes rio-cloud/frontend awesome-sauce`.
+👉 We strongly recommend navigating to the parent folder of your desired project directory first. In the example above, the best option would be to go to `D:\projects` and then run `npm create --yes @rio-cloud/frontend awesome-sauce`.
 
 The CLI automatically assumes that the output directory will be a child directory of your current working directory, using the project name you provide. You usually do not need to type the folder path manually, because the CLI proposes it automatically. To accept the suggested path, just press Enter.
 
 ## ⚠️ Note for users that don't have SSH access to git repositories ⚠️
 
-If the CLI fails to clone the git repository, you can add the `--https` flag to the command so that it uses HTTPS instead of SSH, for example: `npm create --yes rio-cloud/frontend my-new-project --https`.
+If the CLI fails to clone the git repository, you can add the `--https` flag to the command so that it uses HTTPS instead of SSH, for example: `npm create --yes @rio-cloud/frontend my-new-project -- --https`.

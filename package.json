@@ -6,15 +6,31 @@
         "name": "TB Digital Services GmbH",
         "email": "roland.hummel@rio.cloud"
     },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rio-cloud/create-frontend.git"
+    },
+    "bugs": {
+        "url": "https://github.com/rio-cloud/create-frontend/issues"
+    },
+    "homepage": "https://github.com/rio-cloud/create-frontend#readme",
     "type": "module",
-    "private": true,
+    "engines": {
+        "node": "24.x",
+        "npm": ">=11.0.0"
+    },
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org"
+    },
     "scripts": {
         "lint": "biome check",
         "lint-fix": "biome check --write",
         "format-code": "biome format --write"
     },
     "bin": {
-        "create-frontend": "./index.js"
+        "create-frontend": "index.js"
     },
     "dependencies": {
         "@inquirer/prompts": "8.5.2",
