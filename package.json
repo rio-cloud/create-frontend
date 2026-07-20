@@ -27,7 +27,8 @@
     "scripts": {
         "lint": "biome check",
         "lint-fix": "biome check --write",
-        "format-code": "biome format --write"
+        "format-code": "biome format --write",
+        "test": "node --test"
     },
     "bin": {
         "create-frontend": "index.js"

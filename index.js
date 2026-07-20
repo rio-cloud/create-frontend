@@ -13,8 +13,8 @@ import { getTasks } from './src/tasks.js';
 
 try {
     const { appName, givenOutputDir, silent, https } = getArgs();
-    const config = await cli(appName, givenOutputDir, silent);
-    const tasks = await getTasks({ ...config, https });
+    const config = { ...(await cli(appName, givenOutputDir, silent)), silent, https };
+    const tasks = await getTasks(config);
 
     await tasks.run();
 

@@ -20,7 +20,13 @@ if (platform === 'win32') {
     }
 }
 
-function cloneTemplate(outputDir, https) {
+export function getHttpsRetryCommand({ appName, outputDir, silent }) {
+    const options = [...(silent ? ['--silent'] : []), '--https'];
+
+    return `npm create --yes @rio-cloud/frontend ${appName} ${outputDir} -- ${options.join(' ')}`;
+}
+
+function cloneTemplate({ outputDir, https, appName, silent }) {
     return {
         title: `Clone template code into ${chalk.green.bold(outputDir)}`,
         task: async () => {
@@ -32,10 +38,21 @@ function cloneTemplate(outputDir, https) {
             delete gitEnv.GIT_ASKPASS;
             delete gitEnv.SSH_ASKPASS;
 
-            await $({
-                stdio: 'inherit',
-                env: gitEnv,
-            })`git clone ${frontendTemplateRepo} ${outputDir} --depth 1`;
+            try {
+                await $({
+                    stdio: 'inherit',
+                    env: gitEnv,
+                })`git clone ${frontendTemplateRepo} ${outputDir} --depth 1`;
+            } catch (error) {
+                if (https) {
+                    throw error;
+                }
+
+                throw new Error(`The template repository could not be cloned using SSH.
+                You may not have SSH access to GitHub. Try cloning over HTTPS instead:
+                
+                ${getHttpsRetryCommand({ appName, outputDir, silent })}`);
+            }
 
             await rimraf(resolve(outputDir, '.git'));
         },
@@ -88,13 +105,13 @@ function setupGitRepository(outputDir) {
     };
 }
 
-export const getTasks = async ({ outputDir, https, appName, clientId, redirectUri, sentryDsn }) =>
+export const getTasks = async config =>
     new Listr(
         [
-            cloneTemplate(outputDir, https),
-            bootstrapProject({ outputDir, appName, clientId, redirectUri, sentryDsn }),
-            installDependencies(outputDir),
-            setupGitRepository(outputDir),
+            cloneTemplate(config),
+            bootstrapProject(config),
+            installDependencies(config.outputDir),
+            setupGitRepository(config.outputDir),
         ],
         { renderer: 'simple' }
     );
