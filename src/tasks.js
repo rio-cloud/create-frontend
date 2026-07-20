@@ -48,10 +48,12 @@ function cloneTemplate({ outputDir, https, appName, silent }) {
                     throw error;
                 }
 
-                throw new Error(`The template repository could not be cloned using SSH.
-                You may not have SSH access to GitHub. Try cloning over HTTPS instead:
-                
-                ${getHttpsRetryCommand({ appName, outputDir, silent })}`);
+                throw new Error(`
+The template repository could not be cloned using SSH.
+You may not have SSH access to GitHub. Try cloning over HTTPS instead:
+
+    ${getHttpsRetryCommand({ appName, outputDir, silent })}
+`);
             }
 
             await rimraf(resolve(outputDir, '.git'));
