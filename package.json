@@ -1,6 +1,6 @@
 {
     "name": "@rio-cloud/create-frontend",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "A CLI for creating new web frontend projects from scratch",
     "author": {
         "name": "TB Digital Services GmbH",
